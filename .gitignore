@@ -1,0 +1,8 @@
+# Salida del build de MkDocs
+site/
+.cache/
+__pycache__/
+.venv/
+venv/
+.DS_Store
+Thumbs.db

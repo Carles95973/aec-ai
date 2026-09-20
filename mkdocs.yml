@@ -1,0 +1,57 @@
+site_name: IA aplicada al día a día de la ingeniería
+site_description: Material del curso impartido en el CETILL por Carles Farré
+site_url: https://Carles95973.github.io/aec-ai/
+repo_url: https://github.com/Carles95973/aec-ai
+repo_name: Carles95973/aec-ai
+copyright: © 2026 Carles Farré · Contenido bajo CC BY-NC-SA 4.0
+
+theme:
+  name: material
+  language: es
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - content.action.edit
+    - search.suggest
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+
+nav:
+  - Inicio: index.md
+  - Módulos:
+      - "M1 · Modelos de lenguaje": modulos/m1.md
+      - "M2 · Contexto y documentación": modulos/m2.md
+      - "M3 · Conectividad y automatización": modulos/m3.md
+      - "M4 · Seguridad y gobernanza": modulos/m4.md
+  - Licencia: licencia.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+
+plugins:
+  - search:
+      lang: es

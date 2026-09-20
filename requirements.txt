@@ -1,0 +1,6 @@
+# Dependencias de la web del curso.
+# Versiones fijadas: MkDocs está en transición hacia la 2.0 y conviene que el build
+# de CI use exactamente lo mismo que funciona en local. Para actualizar, prueba
+# primero con `mkdocs build --strict` y sube el pin después.
+mkdocs==1.6.1
+mkdocs-material==9.7.7
