@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IA aplicada al día a día de la ingeniería · CETILL</title>
+  <meta name="description" content="Web del curso «IA aplicada al día a día de la ingeniería», impartido en el CETILL por Carles Farré. Sesiones, temario, ejercicios y extras.">
+  <meta name="theme-color" content="#0d1013">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <!-- Barra superior: aparece al salir del hero -->
+  <header class="barra" id="barra">
+    <a class="barra__marca" href="#inicio"><span class="marca__cod">AEC·AI</span><span class="marca__txt" data-t="marca"></span></a>
+    <nav class="barra__nav">
+      <div class="conmutador" role="tablist" aria-label="Vista">
+        <button type="button" data-vista="dias" data-t="porDias"></button>
+        <button type="button" data-vista="itinerario" data-t="porItinerario"></button>
+      </div>
+      <a class="barra__extras" href="#extras" data-t="extras"></a>
+      <div class="idioma" role="group" aria-label="Idioma">
+        <button type="button" data-idioma="ca">CA</button>
+        <button type="button" data-idioma="es">ES</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <canvas class="hero__lienzo" id="lienzo" aria-hidden="true"></canvas>
+    <div class="hero__velo"></div>
+
+    <div class="hero__sup">
+      <span class="cod">AEC·AI / REV.2026</span>
+      <div class="idioma" role="group" aria-label="Idioma">
+        <button type="button" data-idioma="ca">CA</button>
+        <button type="button" data-idioma="es">ES</button>
+      </div>
+    </div>
+
+    <div class="hero__cuerpo">
+      <p class="hero__ante"><span class="punto"></span><span id="heroAnte"></span></p>
+      <h1 class="hero__titulo" id="heroTitulo"></h1>
+      <p class="hero__intro" data-t="intro"></p>
+
+      <div class="selector" id="selector">
+        <span class="selector__etq" data-t="verCurso"></span>
+        <div class="desplegable" id="desplegable">
+          <button type="button" class="desplegable__btn" id="desplegableBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="desplegableTxt"></span>
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <ul class="desplegable__lista" role="listbox" id="desplegableLista">
+            <li role="option" data-vista="dias"><b data-t="porDias"></b><small data-t="porDiasDesc"></small></li>
+            <li role="option" data-vista="itinerario"><b data-t="porItinerario"></b><small data-t="porItinerarioDesc"></small></li>
+          </ul>
+        </div>
+        <a class="boton boton--ir" href="#curso" id="irCurso"><span data-t="entrar"></span> ↓</a>
+      </div>
+    </div>
+
+    <dl class="hero__datos" id="heroDatos"></dl>
+  </section>
+
+  <!-- CURSO: cronograma o itinerario -->
+  <main class="seccion" id="curso">
+    <div class="seccion__cab">
+      <span class="cod" id="cursoCod"></span>
+      <h2 id="cursoTitulo"></h2>
+      <p id="cursoSub"></p>
+    </div>
+    <div id="vista"></div>
+  </main>
+
+  <!-- EXTRAS WOW -->
+  <div class="franja" aria-hidden="true"></div>
+  <section class="seccion seccion--extras" id="extras">
+    <div class="seccion__cab">
+      <span class="cod">X · EXTRAS</span>
+      <h2 data-t="extrasTitulo"></h2>
+      <p data-t="extrasSub"></p>
+    </div>
+    <div class="extras" id="extrasLista"></div>
+  </section>
+
+  <!-- PIE -->
+  <footer class="pie">
+    <div class="pie__col">
+      <h3 data-t="requisitos"></h3>
+      <p data-t="requisitosTxt"></p>
+    </div>
+    <div class="pie__col">
+      <h3 data-t="licencia"></h3>
+      <p data-t="licenciaTxt"></p>
+    </div>
+    <div class="pie__col" id="pieEnlaces"></div>
+    <p class="pie__firma">© 2026 Carles Farré · CETILL</p>
+  </footer>
+
+  <!-- enlaces.js: las URL de Drive y los extras destapados (el fichero del día a día).
+       curso.js: los textos del curso.  app.js: pinta la página con los dos. -->
+  <script src="assets/curso.js"></script>
+  <script src="assets/enlaces.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
