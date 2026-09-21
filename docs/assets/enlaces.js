@@ -27,7 +27,7 @@ window.ENLACES = {
   /* --- Sesiones -----------------------------------------------------------
      Una entrada por día de clase. `presentacion` es el PDF o las diapos;
      `carpeta`, la carpeta de Drive de esa sesión.
-     s01 · 22 sep  ·  s02 · 24 sep  ·  s03 · 28 sep
+     s01 · 22 sep  ·  s02 · 24 sep  ·  s03 · 30 sep
      s04 ·  1 oct  ·  s05 ·  6 oct  ·  s06 ·  8 oct                          */
   sesiones: {
     //s01: { presentacion: "https://docs.google.com/presentation/d/1LN4slj7T297xNWrJKroKlX7vwPl3m_Mx/edit?usp=sharing&ouid=114465327299430353015&rtpof=true&sd=true", carpeta: "https://drive.google.com/drive/folders/1rdz-MqtdI5y5UcINBndvFTxLMO-uCD8S?usp=sharing" },

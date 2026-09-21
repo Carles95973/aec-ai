@@ -75,7 +75,7 @@ window.CURSO = {
       ]
     },
     {
-      id: "s03", fecha: "2026-09-28", horario: "", modulo: "m2",
+      id: "s03", fecha: "2026-09-30", horario: "", modulo: "m2",
       titulo:  { es: "Cómo gestionan el contexto las herramientas", ca: "Com gestionen el context les eines" },
       resumen: {
         es: "El contexto es todo lo que el agente tiene delante mientras trabaja. Versionado de skills y specs con Git, NotebookLM, las capas de contexto y la memoria de las herramientas: qué escribes tú y qué recuerdan ellas.",

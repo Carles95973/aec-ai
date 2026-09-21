@@ -32,7 +32,7 @@ sesiones: {
   s01: { presentacion: "https://drive.google.com/file/d/…", carpeta: "https://drive.google.com/drive/folders/…" },
 ```
 
-Las sesiones son `s01` = 22 sep, `s02` = 24 sep, `s03` = 28 sep, `s04` = 1 oct,
+Las sesiones son `s01` = 22 sep, `s02` = 24 sep, `s03` = 30 sep, `s04` = 1 oct,
 `s05` = 6 oct, `s06` = 8 oct.
 
 ### Publicar los artefactos extra
