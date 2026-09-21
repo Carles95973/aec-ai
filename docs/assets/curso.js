@@ -9,8 +9,9 @@
    · Cada ejercicio indica su `modulo` (vista itinerario) y su `sesion`
      (vista por días). Para mover un ejercicio de día, cambia `sesion`.
    · `fecha` en formato AAAA-MM-DD. La web resalta sola la sesión de hoy.
-   · Los `id` (s01…s06, m1…m4, los ids de extras y el número de ejercicio)
-     son los que enlazan con `enlaces.js`: si cambias uno, cámbialo allí.
+   · Los `id` de las sesiones (s01…s06) son los que enlazan con
+     `enlaces.js`: si cambias uno, cámbialo allí.
+   · `requisitos`: lo que hay que instalar, con su enlace de descarga.
    ========================================================================== */
 
 window.CURSO = {
@@ -21,6 +22,30 @@ window.CURSO = {
     autor:     "Carles Farré",
     repo:      "https://github.com/Carles95973/aec-ai"
   },
+
+  /* ------------------------------------------------------------- REQUISITOS
+     Lo que hay que tener instalado antes de empezar. `obligatorio: false`
+     sale como «Opcional». `web: true` = no se instala, se usa en el navegador. */
+  requisitos: [
+    { nombre: "Claude Desktop",  obligatorio: true,  url: "https://claude.ai/download",
+      para: { es: "Chat, Cowork y Claude Code · plan de pago", ca: "Xat, Cowork i Claude Code · pla de pagament" } },
+    { nombre: "ChatGPT Desktop", obligatorio: true,  url: "https://openai.com/chatgpt/download/",
+      para: { es: "Chat, Work y generación · plan de pago",   ca: "Xat, Work i generació · pla de pagament" } },
+    { nombre: "Obsidian",        obligatorio: true,  url: "https://obsidian.md/download",
+      para: { es: "Catálogo de conocimiento · módulo 2",       ca: "Catàleg de coneixement · mòdul 2" } },
+    { nombre: "NotebookLM",      obligatorio: true,  url: "https://notebooklm.google.com", web: true,
+      para: { es: "Web, con cuenta de Google · módulo 2",      ca: "Web, amb compte de Google · mòdul 2" } },
+    { nombre: "VS Code",         obligatorio: false, url: "https://code.visualstudio.com/download",
+      para: { es: "Editar skills, specs y Markdown",           ca: "Editar skills, specs i Markdown" } },
+    { nombre: "Git",             obligatorio: false, url: "https://git-scm.com/downloads",
+      para: { es: "Versionar skills y specs · módulo 2",       ca: "Versionar skills i specs · mòdul 2" } },
+    { nombre: "Node.js",         obligatorio: false, url: "https://nodejs.org/en/download",
+      para: { es: "Abrir los artefactos extra",                ca: "Obrir els artefactes extra" } },
+    { nombre: "Python",          obligatorio: false, url: "https://www.python.org/downloads/",
+      para: { es: "Servidor MCP del ejercicio RAG",            ca: "Servidor MCP de l’exercici RAG" } },
+    { nombre: "Blender",         obligatorio: false, url: "https://www.blender.org/download/",
+      para: { es: "Artefacto Levanta: del plano al 3D",        ca: "Artefacte Levanta: del plànol al 3D" } }
+  ],
 
   /* ---------------------------------------------------------------- SESIONES */
   sesiones: [
@@ -189,16 +214,13 @@ window.CURSO = {
     { n: 19, modulo: "m4", sesion: "s06", titulo: { es: "Plan y materialización de la seguridad", ca: "Pla i materialització de la seguretat" } }
   ],
 
-  /* ------------------------------------------------------------- EXTRAS WOW
-     Mientras el `id` no esté en la lista `abiertos` de enlaces.js, la tarjeta
-     sale como «clasificada»: no enseña ni el título ni la descripción. (Ojo:
-     quien abra este fichero sí puede leerlos; es efecto sorpresa, no
-     seguridad.)                                                            */
+  /* -------------------------------------------------------- ARTEFACTOS EXTRA
+     Lista de lo que hay en la carpeta de extras. El enlace a la carpeta está
+     en enlaces.js (`extras`).                                               */
   extras: [
     {
       id: "presupuestos",
       titulo: { es: "Presupuestos IA", ca: "Pressupostos IA" },
-      etiquetas: ["Copilot", "Agente", "OpenAI API"],
       desc: {
         es: "Un programa de presupuestos de obra con alma de VS Code + Copilot: autocompletado de partidas mientras escribes y un agente que edita el mismo presupuesto que tú, en vivo.",
         ca: "Un programa de pressupostos d’obra amb ànima de VS Code + Copilot: autocompletat de partides mentre escrius i un agent que edita el mateix pressupost que tu, en viu."
@@ -207,7 +229,6 @@ window.CURSO = {
     {
       id: "puente",
       titulo: { es: "Puente · simulador estructural 3D", ca: "Pont · simulador estructural 3D" },
-      etiquetas: ["Cálculo matricial", "3D", "Tiempo real"],
       desc: {
         es: "Dos celosías Pratt de acero calculadas en tiempo real por el método de rigidez. Lanza vehículos, mira cómo trabaja cada barra… y qué pasa cuando una se agota.",
         ca: "Dues gelosies Pratt d’acer calculades en temps real pel mètode de rigidesa. Llança vehicles, mira com treballa cada barra… i què passa quan una s’esgota."
@@ -216,7 +237,6 @@ window.CURSO = {
     {
       id: "muro",
       titulo: { es: "El Muro · simulador de estabilidad", ca: "El Mur · simulador d’estabilitat" },
-      etiquetas: ["DB-SE-C", "DB-SE-F", "Titanes"],
       desc: {
         es: "Un muro de fábrica comprobado con el CTE —vuelco, deslizamiento, hundimiento y rotura del fuste— contra titanes de distintos tamaños. Cuándo falla y, sobre todo, cómo.",
         ca: "Un mur de fàbrica comprovat amb el CTE —bolcada, lliscament, enfonsament i trencament del fust— contra titans de diferents mides. Quan falla i, sobretot, com."
@@ -225,7 +245,6 @@ window.CURSO = {
     {
       id: "planos",
       titulo: { es: "Levanta · del plano al modelo 3D", ca: "Levanta · del plànol al model 3D" },
-      etiquetas: ["2D → 3D", "Mediciones", "Blender"],
       desc: {
         es: "Calca una planta sobre su imagen, abre huecos, amuebla y pulsa «Levantar»: el modelo 3D crece en vivo, con mediciones y exportación directa a Blender.",
         ca: "Calca una planta sobre la seva imatge, obre buits, mobla i prem «Levantar»: el model 3D creix en viu, amb amidaments i exportació directa a Blender."
@@ -234,7 +253,6 @@ window.CURSO = {
     {
       id: "normativa",
       titulo: { es: "Supervault de normativa", ca: "Supervault de normativa" },
-      etiquetas: ["Obsidian", "CTE · CE · REBT · RITE", "147 notas"],
       desc: {
         es: "CTE, Código Estructural, REBT y RITE montados como un sistema conectado en Obsidian: cinco capas, tablas verificadas contra la fuente oficial y reglas para que lo recorra un agente.",
         ca: "CTE, Codi Estructural, REBT i RITE muntats com un sistema connectat a Obsidian: cinc capes, taules verificades contra la font oficial i regles perquè el recorri un agent."
@@ -243,7 +261,6 @@ window.CURSO = {
     {
       id: "ancla",
       titulo: { es: "Ancla · la spec manda", ca: "Ancla · la spec mana" },
-      etiquetas: ["SDD", "Trazabilidad", "3D"],
       desc: {
         es: "Una nave industrial que se construye a partir de su especificación: cambia un requisito y mira cómo se propaga al diseño, a las tareas y a la obra, con la traza de dónde sale cada cosa.",
         ca: "Una nau industrial que es construeix a partir de la seva especificació: canvia un requisit i mira com es propaga al disseny, a les tasques i a l’obra, amb la traça d’on surt cada cosa."
@@ -252,7 +269,6 @@ window.CURSO = {
     {
       id: "plataforma",
       titulo: { es: "Plataforma de ingeniería", ca: "Plataforma d’enginyeria" },
-      etiquetas: ["Juegos", "Cálculo real", "Tutor IA"],
       desc: {
         es: "Construye, simula, rómpelo y entiéndelo: una colección de juegos con un modelo de cálculo de verdad debajo, fallos espectaculares y un tutor con IA que explica qué pasó y qué dice la norma.",
         ca: "Construeix, simula, trenca-ho i entén-ho: una col·lecció de jocs amb un model de càlcul de veritat a sota, fallades espectaculars i un tutor amb IA que explica què ha passat i què diu la norma."

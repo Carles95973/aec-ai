@@ -3,7 +3,7 @@
   "use strict";
 
   var C = window.CURSO;          // contenido: textos, temario, fechas
-  var L = window.ENLACES || {};  // enlaces de Drive y extras destapados
+  var L = window.ENLACES || {};  // enlaces de Drive
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
@@ -15,17 +15,18 @@
       verCurso: "Ver el curso", entrar: "Entrar",
       porDias: "Por días", porDiasDesc: "Cronograma: qué toca en cada sesión",
       porItinerario: "Por itinerario", porItinerarioDesc: "El temario, módulo a módulo",
-      extras: "Extras",
+      extras: "Artefactos",
+      reqCod: "00 · ANTES DE EMPEZAR", reqTitulo: "Qué hay que instalar", reqSub: "Tenlo listo antes de la primera sesión. Lo opcional solo hace falta para algunos ejercicios y para los artefactos extra.",
+      obligatorio: "Imprescindible", opcional: "Opcional", descargar: "Descargar ↗", abrirWeb: "Abrir ↗",
       diasCod: "01 · CRONOGRAMA", diasTitulo: "Sesión a sesión", diasSub: "Seis sesiones, de septiembre a octubre. Abre cada día para ver el resumen, los ejercicios y el material en Drive.",
       itinCod: "01 · ITINERARIO", itinTitulo: "El temario", itinSub: "Cuatro módulos. Cada uno con sus bloques, sus ejercicios y el día en que se trabaja.",
-      extrasTitulo: "Extras wow", extrasSub: "Piezas fuera de temario para ver hasta dónde se puede llegar. Se desbloquean durante el curso.",
+      extrasTitulo: "Artefactos extra", extrasSub: "Aplicaciones de ejemplo fuera de temario, hechas con IA. Están todas en una carpeta de Drive; se abren con doble clic en su .bat y necesitan Node.js.",
       sesion: "Sesión", modulo: "Módulo", hoy: "Hoy", siguiente: "Próxima", hecha: "Impartida",
       temas: "Contenido", ejercicios: "Ejercicios", recursos: "Para seguir", ejercicio: "Ejercicio",
       presentacion: "Presentación", carpeta: "Carpeta de la sesión", drive: "Drive ↗", pendiente: "Próximamente",
-      clasificado: "Clasificado", clasificadoTxt: "Se desbloquea en clase", abrirExtra: "Abrir en Drive ↗",
+      abrirExtra: "Carpeta en Drive",
       dSesiones: "Sesiones", dFechas: "Fechas", dModulos: "Módulos", dEjercicios: "Ejercicios",
       anteHoy: "Hoy hay sesión", anteProx: "Próxima sesión", anteFin: "Curso finalizado · material disponible",
-      requisitos: "Requisitos", requisitosTxt: "Cuenta en ChatGPT y en Claude (bastan los planes de pago básicos). Para el módulo 2, Obsidian (gratuito) y NotebookLM.",
       licencia: "Licencia", licenciaTxt: "Contenido bajo CC BY-NC-SA 4.0. Código y skills bajo MIT. Las imágenes y citas de terceros pertenecen a sus titulares. Material formativo: no sustituye el criterio profesional ni la verificación contra la normativa vigente.",
       enlaces: "Enlaces", repo: "Repositorio en GitHub", driveGeneral: "Carpeta del curso en Drive", contacto: "Contacto",
       meses: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
@@ -37,17 +38,18 @@
       verCurso: "Veure el curs", entrar: "Entrar",
       porDias: "Per dies", porDiasDesc: "Cronograma: què toca a cada sessió",
       porItinerario: "Per itinerari", porItinerarioDesc: "El temari, mòdul a mòdul",
-      extras: "Extres",
+      extras: "Artefactes",
+      reqCod: "00 · ABANS DE COMENÇAR", reqTitulo: "Què cal instal·lar", reqSub: "Tingues-ho a punt abans de la primera sessió. L’opcional només cal per a alguns exercicis i per als artefactes extra.",
+      obligatorio: "Imprescindible", opcional: "Opcional", descargar: "Descarregar ↗", abrirWeb: "Obrir ↗",
       diasCod: "01 · CRONOGRAMA", diasTitulo: "Sessió a sessió", diasSub: "Sis sessions, de setembre a octubre. Obre cada dia per veure’n el resum, els exercicis i el material a Drive.",
       itinCod: "01 · ITINERARI", itinTitulo: "El temari", itinSub: "Quatre mòduls. Cadascun amb els seus blocs, els seus exercicis i el dia en què es treballa.",
-      extrasTitulo: "Extres wow", extrasSub: "Peces fora de temari per veure fins on es pot arribar. Es desbloquegen durant el curs.",
+      extrasTitulo: "Artefactes extra", extrasSub: "Aplicacions d’exemple fora de temari, fetes amb IA. Són totes en una carpeta de Drive; s’obren amb doble clic al seu .bat i necessiten Node.js.",
       sesion: "Sessió", modulo: "Mòdul", hoy: "Avui", siguiente: "Propera", hecha: "Impartida",
       temas: "Contingut", ejercicios: "Exercicis", recursos: "Per seguir", ejercicio: "Exercici",
       presentacion: "Presentació", carpeta: "Carpeta de la sessió", drive: "Drive ↗", pendiente: "Properament",
-      clasificado: "Classificat", clasificadoTxt: "Es desbloqueja a classe", abrirExtra: "Obrir a Drive ↗",
+      abrirExtra: "Carpeta a Drive",
       dSesiones: "Sessions", dFechas: "Dates", dModulos: "Mòduls", dEjercicios: "Exercicis",
       anteHoy: "Avui hi ha sessió", anteProx: "Propera sessió", anteFin: "Curs finalitzat · material disponible",
-      requisitos: "Requisits", requisitosTxt: "Compte a ChatGPT i a Claude (n’hi ha prou amb els plans de pagament bàsics). Per al mòdul 2, Obsidian (gratuït) i NotebookLM.",
       licencia: "Llicència", licenciaTxt: "Contingut sota CC BY-NC-SA 4.0. Codi i skills sota MIT. Les imatges i cites de tercers pertanyen als seus titulars. Material formatiu: no substitueix el criteri professional ni la verificació contra la normativa vigent.",
       enlaces: "Enllaços", repo: "Repositori a GitHub", driveGeneral: "Carpeta del curs a Drive", contacto: "Contacte",
       meses: ["gen", "feb", "març", "abr", "maig", "juny", "jul", "ag", "set", "oct", "nov", "des"],
@@ -61,7 +63,7 @@
 
   var hash = location.hash.replace("#", "");
   var estado = {
-    idioma: leer("aecai.idioma") || ((navigator.language || "").toLowerCase().indexOf("ca") === 0 ? "ca" : "es"),
+    idioma: leer("aecai.idioma") || "ca",   // català per defecte
     vista: (hash === "itinerario" || hash === "dias") ? hash : (leer("aecai.vista") || "dias")
   };
   var abiertas = null; // ids de sesiones desplegadas (se calcula en el primer pintado)
@@ -87,20 +89,13 @@
 
   /* ----------------------------------------------------------- ENLACES (L) */
   function lnkSesion(id, campo) { var s = L.sesiones && L.sesiones[id]; return (s && s[campo]) || ""; }
-  function lnkEj(n)     { return (L.ejercicios && L.ejercicios[n]) || ""; }
-  function lnkExtra(id) { return (L.extras && L.extras[id]) || ""; }
-  function abierto(id)  { return !!(L.abiertos && L.abiertos.indexOf(id) !== -1); }
 
-  /* Avisa por consola si enlaces.js y curso.js no encajan (ids mal escritos). */
+  /* Avisa por consola si enlaces.js no encaja con curso.js. */
   function revisar() {
-    var ids = { sesiones: {}, ejercicios: {}, extras: {} }, fallos = [];
-    C.sesiones.forEach(function (s) { ids.sesiones[s.id] = 1; });
-    C.ejercicios.forEach(function (e) { ids.ejercicios[e.n] = 1; });
-    C.extras.forEach(function (x) { ids.extras[x.id] = 1; });
-    ["sesiones", "ejercicios", "extras"].forEach(function (g) {
-      Object.keys(L[g] || {}).forEach(function (k) { if (!ids[g][k]) fallos.push("enlaces.js → " + g + "." + k + " no existe en curso.js"); });
-    });
-    (L.abiertos || []).forEach(function (k) { if (!ids.extras[k]) fallos.push('enlaces.js → abiertos: "' + k + '" no es un id de extra'); });
+    var ids = {}, fallos = [];
+    C.sesiones.forEach(function (s) { ids[s.id] = 1; });
+    Object.keys(L.sesiones || {}).forEach(function (k) { if (!ids[k]) fallos.push("enlaces.js → sesiones." + k + " no existe en curso.js"); });
+    if (L.extras !== undefined && typeof L.extras !== "string") fallos.push("enlaces.js → extras ha de ser una URL entre comillas");
     if (fallos.length && window.console) console.warn("[AEC·AI] Revisa enlaces.js:\n· " + fallos.join("\n· "));
   }
 
@@ -111,11 +106,10 @@
              : '<span class="boton boton--off">' + esc(texto) + " · " + esc(t("pendiente")) + "</span>";
   }
   function filaEj(e, conSesion) {
-    var h = url(lnkEj(e.n)), s = conSesion && C.sesiones.filter(function (x) { return x.id === e.sesion; })[0];
+    var s = conSesion && C.sesiones.filter(function (x) { return x.id === e.sesion; })[0];
     return '<li class="ej"><span class="ej__n">E' + ("0" + e.n).slice(-2) + "</span>" +
       '<span class="ej__t">' + esc(tx(e.titulo)) +
-      (s ? '<span class="ej__sesion">' + esc(t("sesion")) + " " + s.id.slice(1) + " · " + esc(corta(s.fecha)) + "</span>" : "") + "</span>" +
-      (h ? '<a href="' + h + '" target="_blank" rel="noopener">' + esc(t("drive")) + "</a>" : '<span class="pend">' + esc(t("pendiente")) + "</span>") + "</li>";
+      (s ? '<span class="ej__sesion">' + esc(t("sesion")) + " " + s.id.slice(1) + " · " + esc(corta(s.fecha)) + "</span>" : "") + "</span></li>";
   }
   function numMod(id) { return id.replace("m", ""); }
 
@@ -180,19 +174,22 @@
   }
 
   /* ------------------------------------------------------------------ EXTRAS */
-  var CANDADO = '<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5M12 14.5v2.5"/></svg>';
   function pintarExtras() {
-    $("#extrasLista").innerHTML = C.extras.map(function (x, i) {
-      var cod = "X-" + ("0" + (i + 1)).slice(-2);
-      if (!abierto(x.id)) {
-        return '<article class="extra cerrado aparece"><div class="extra__cod"><b>' + cod + "</b><span>LOCKED</span></div>" + CANDADO +
-          "<h3>" + esc(t("clasificado")) + "</h3><p>" + esc(t("clasificadoTxt")) + '</p><div class="barras"><i></i><i></i><i></i></div></article>';
-      }
-      return '<article class="extra abierto aparece"><div class="extra__cod"><b>' + cod + "</b><span>UNLOCKED</span></div>" +
-        "<h3>" + esc(tx(x.titulo)) + "</h3><p>" + esc(tx(x.desc)) + '</p><div class="extra__etqs">' +
-        (x.etiquetas || []).map(function (e) { return '<span class="chapa">' + esc(e) + "</span>"; }).join("") + "</div>" +
-        (url(lnkExtra(x.id)) ? '<a class="boton boton--lleno" href="' + url(lnkExtra(x.id)) + '" target="_blank" rel="noopener">' + esc(t("abrirExtra")) + "</a>"
-                      : '<span class="boton boton--off">' + esc(t("pendiente")) + "</span>") + "</article>";
+    $("#extrasLista").innerHTML = '<ul class="ejs">' + C.extras.map(function (x, i) {
+      return '<li class="ej"><span class="ej__n">X' + ("0" + (i + 1)).slice(-2) + '</span><span class="ej__t"><b>' + esc(tx(x.titulo)) +
+        '</b><span class="ej__desc">' + esc(tx(x.desc)) + "</span></span></li>";
+    }).join("") + '</ul><div class="acciones">' + enlace(L.extras, t("abrirExtra"), "boton--lleno") + "</div>";
+  }
+
+  /* ------------------------------------------------------------- REQUISITOS */
+  function pintarRequisitos() {
+    $("#reqLista").innerHTML = (C.requisitos || []).map(function (r) {
+      return '<div class="req' + (r.obligatorio ? " req--si" : "") + '">' +
+        '<span class="req__tipo">' + esc(t(r.obligatorio ? "obligatorio" : "opcional")) + "</span>" +
+        '<span class="req__nom">' + esc(r.nombre) + "</span>" +
+        '<span class="req__para">' + esc(tx(r.para)) + "</span>" +
+        (url(r.url) ? '<a class="req__ir" href="' + url(r.url) + '" target="_blank" rel="noopener">' + esc(t(r.web ? "abrirWeb" : "descargar")) + "</a>" : "") +
+        "</div>";
     }).join("");
   }
 
@@ -212,7 +209,7 @@
       [t("dSesiones"), ("0" + s.length).slice(-2)],
       [t("dFechas"), corta(s[0].fecha) + " – " + corta(s[s.length - 1].fecha)],
       [t("dModulos"), ("0" + C.modulos.length).slice(-2)],
-      [t("dEjercicios"), C.ejercicios.length + " + extras"]
+      [t("dEjercicios"), ("0" + C.ejercicios.length).slice(-2)]
     ].map(function (p) { return "<div><dt>" + esc(p[0]) + "</dt><dd>" + esc(p[1]) + "</dd></div>"; }).join("");
 
     var li = [];
@@ -237,7 +234,7 @@
   }
 
   function ponerVista(v) { estado.vista = v; guardar("aecai.vista", v); pintarVista(); }
-  function ponerIdioma(i) { estado.idioma = i; guardar("aecai.idioma", i); pintarFijos(); pintarVista(); pintarExtras(); observar(); }
+  function ponerIdioma(i) { estado.idioma = i; guardar("aecai.idioma", i); pintarFijos(); pintarRequisitos(); pintarVista(); pintarExtras(); observar(); }
 
   /* ---------------------------------------------------- APARICIÓN CON SCROLL */
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
@@ -378,6 +375,6 @@
   }
 
   /* ------------------------------------------------------------------ INICIO */
-  revisar(); pintarFijos(); pintarVista(); pintarExtras(); observar(); eventos(); lienzo();
+  revisar(); pintarFijos(); pintarRequisitos(); pintarVista(); pintarExtras(); observar(); eventos(); lienzo();
   if (hash === "itinerario" || hash === "dias") setTimeout(function () { $("#curso").scrollIntoView({ block: "start" }); }, 60);
 })();

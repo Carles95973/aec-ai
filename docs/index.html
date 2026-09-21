@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="es">
+<html lang="ca">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IA aplicada al día a día de la ingeniería · CETILL</title>
-  <meta name="description" content="Web del curso «IA aplicada al día a día de la ingeniería», impartido en el CETILL por Carles Farré. Sesiones, temario, ejercicios y extras.">
+  <meta name="description" content="Web del curso «IA aplicada al día a día de la ingeniería», impartido en el CETILL por Carles Farré. Sesiones, temario, ejercicios y artefactos extra.">
   <meta name="theme-color" content="#0d1013">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,6 +67,16 @@
     <dl class="hero__datos" id="heroDatos"></dl>
   </section>
 
+  <!-- REQUISITOS: qué instalar antes de empezar -->
+  <section class="seccion seccion--req" id="requisitos">
+    <div class="seccion__cab">
+      <span class="cod" data-t="reqCod"></span>
+      <h2 data-t="reqTitulo"></h2>
+      <p data-t="reqSub"></p>
+    </div>
+    <div class="reqs" id="reqLista"></div>
+  </section>
+
   <!-- CURSO: cronograma o itinerario -->
   <main class="seccion" id="curso">
     <div class="seccion__cab">
@@ -77,23 +87,18 @@
     <div id="vista"></div>
   </main>
 
-  <!-- EXTRAS WOW -->
-  <div class="franja" aria-hidden="true"></div>
+  <!-- ARTEFACTOS EXTRA -->
   <section class="seccion seccion--extras" id="extras">
-    <div class="seccion__cab">
-      <span class="cod">X · EXTRAS</span>
-      <h2 data-t="extrasTitulo"></h2>
-      <p data-t="extrasSub"></p>
+    <div class="ficha extras">
+      <span class="cod">02 · EXTRA</span>
+      <h2 class="extras__titulo" data-t="extrasTitulo"></h2>
+      <p class="extras__sub" data-t="extrasSub"></p>
+      <div id="extrasLista"></div>
     </div>
-    <div class="extras" id="extrasLista"></div>
   </section>
 
   <!-- PIE -->
   <footer class="pie">
-    <div class="pie__col">
-      <h3 data-t="requisitos"></h3>
-      <p data-t="requisitosTxt"></p>
-    </div>
     <div class="pie__col">
       <h3 data-t="licencia"></h3>
       <p data-t="licenciaTxt"></p>
@@ -102,7 +107,7 @@
     <p class="pie__firma">© 2026 Carles Farré · CETILL</p>
   </footer>
 
-  <!-- enlaces.js: las URL de Drive y los extras destapados (el fichero del día a día).
+  <!-- enlaces.js: las URL de Drive (el fichero del día a día).
        curso.js: los textos del curso.  app.js: pinta la página con los dos. -->
   <script src="assets/curso.js"></script>
   <script src="assets/enlaces.js"></script>
