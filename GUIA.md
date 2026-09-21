@@ -129,5 +129,5 @@ y los errores de coma o comilla también se ven en esa pestaña.
 |---|---|
 | La web sale en blanco | Falta una coma o una comilla en `curso.js` o `enlaces.js`. Mira la consola (`F12`). |
 | Un enlace no aparece | La URL no empieza por `https://`, o el id de la sesión no casa entre los dos ficheros (la consola lo avisa). |
-| Los cambios no se ven en la web | El despliegue aún no ha acabado, o falló: mira **Actions** en GitHub. En el navegador, recarga con `Ctrl+F5`. |
+| Los cambios no se ven en la web | El despliegue aún no ha acabado, o falló: mira **Actions** en GitHub. Si ya acabó, recarga con `Ctrl+F5`: el navegador guarda la página hasta 10 minutos. Cada despliegue marca los ficheros con su versión (`?v=…` en `index.html`, lo pone el workflow), así que nunca se mezclan ficheros de dos versiones. |
 | Quiero volver atrás | `git revert` del último commit, o edita y vuelve a subir. Cada versión queda en el historial. |

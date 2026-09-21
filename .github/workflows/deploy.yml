@@ -23,6 +23,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # Pages sirve todo con max-age=600: sin esto, un navegador puede mezclar
+      # ficheros de dos versiones. Cada despliegue marca los assets con el commit.
+      - name: Marcar la versión de los assets
+        run: sed -i "s/__VERSION__/${GITHUB_SHA::7}/g" docs/index.html
       # La web es estática: se publica la carpeta docs/ tal cual, sin build.
       - uses: actions/upload-pages-artifact@v3
         with:
