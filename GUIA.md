@@ -87,9 +87,9 @@ repositorio en GitHub: ahí se ve si el despliegue falló.
 - **Añadir una sesión o un ejercicio:** copia un bloque entero y cámbiale el `id` o el
   número `n`. Si es una sesión, añade también su entrada en `enlaces.js`.
 - **Cambiar la lista de instalación:** `requisitos`, arriba del todo. Cada programa
-  lleva `nombre`, `obligatorio` (`true` = Imprescindible, `false` = Opcional), `url` de
-  descarga y `para` (una línea en los dos idiomas). Con `web: true` el botón dice
-  «Obrir» en lugar de «Descarregar».
+  lleva `nombre`, `obligatorio`, `url` de descarga y `para` (una línea en los dos
+  idiomas). Los `obligatorio: true` se ven siempre como «Imprescindible»; los `false`
+  quedan plegados en un desplegable «Opcionals» que el alumno abre si lo necesita.
 
 Cuidado con las comas y las comillas: es un fichero JavaScript. Si te comes una coma,
 la web se queda en blanco. Para comprobarlo antes de subir, mira el punto 5.
@@ -116,7 +116,8 @@ y los errores de coma o comilla también se ven en esa pestaña.
   resalta la próxima, y las ya dadas salen marcadas como impartidas.
 - **Dos idiomas:** catalán (por defecto) y castellano, con selector arriba a la derecha.
   Se recuerda la elección de cada alumno.
-- **Qué cal instal·lar:** justo después de la portada, antes del cronograma.
+- **Què cal instal·lar:** justo después de la portada, antes del cronograma. Los
+  imprescindibles a la vista; los opcionales, plegados.
 - **Lo que no tiene enlace** sale como «Próximamente», sin enlace roto.
 - Funciona en móvil.
 

@@ -24,8 +24,8 @@ window.CURSO = {
   },
 
   /* ------------------------------------------------------------- REQUISITOS
-     Lo que hay que tener instalado antes de empezar. `obligatorio: false`
-     sale como «Opcional». `web: true` = no se instala, se usa en el navegador. */
+     Lo que hay que tener instalado antes de empezar. Los `obligatorio: true`
+     se ven siempre; los `false` quedan plegados en «Opcionals».              */
   requisitos: [
     { nombre: "Claude Desktop",  obligatorio: true,  url: "https://claude.ai/download",
       para: { es: "Chat, Cowork y Claude Code · plan de pago", ca: "Xat, Cowork i Claude Code · pla de pagament" } },
@@ -33,8 +33,6 @@ window.CURSO = {
       para: { es: "Chat, Work y generación · plan de pago",   ca: "Xat, Work i generació · pla de pagament" } },
     { nombre: "Obsidian",        obligatorio: true,  url: "https://obsidian.md/download",
       para: { es: "Catálogo de conocimiento · módulo 2",       ca: "Catàleg de coneixement · mòdul 2" } },
-    { nombre: "NotebookLM",      obligatorio: true,  url: "https://notebooklm.google.com", web: true,
-      para: { es: "Web, con cuenta de Google · módulo 2",      ca: "Web, amb compte de Google · mòdul 2" } },
     { nombre: "VS Code",         obligatorio: false, url: "https://code.visualstudio.com/download",
       para: { es: "Editar skills, specs y Markdown",           ca: "Editar skills, specs i Markdown" } },
     { nombre: "Git",             obligatorio: false, url: "https://git-scm.com/downloads",

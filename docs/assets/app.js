@@ -16,8 +16,9 @@
       porDias: "Por días", porDiasDesc: "Cronograma: qué toca en cada sesión",
       porItinerario: "Por itinerario", porItinerarioDesc: "El temario, módulo a módulo",
       extras: "Artefactos",
-      reqCod: "00 · ANTES DE EMPEZAR", reqTitulo: "Qué hay que instalar", reqSub: "Tenlo listo antes de la primera sesión. Lo opcional solo hace falta para algunos ejercicios y para los artefactos extra.",
+      reqCod: "00 · ANTES DE EMPEZAR", reqTitulo: "Qué hay que instalar", reqSub: "Tenlo listo antes de la primera sesión.",
       obligatorio: "Imprescindible", opcional: "Opcional", descargar: "Descargar ↗", abrirWeb: "Abrir ↗",
+      opcionales: "Opcionales", opcionalesTxt: "Solo para algunos ejercicios y los artefactos extra",
       diasCod: "01 · CRONOGRAMA", diasTitulo: "Sesión a sesión", diasSub: "Seis sesiones, de septiembre a octubre. Abre cada día para ver el resumen, los ejercicios y el material en Drive.",
       itinCod: "01 · ITINERARIO", itinTitulo: "El temario", itinSub: "Cuatro módulos. Cada uno con sus bloques, sus ejercicios y el día en que se trabaja.",
       extrasTitulo: "Artefactos extra", extrasSub: "Aplicaciones de ejemplo fuera de temario, hechas con IA. Están todas en una carpeta de Drive; se abren con doble clic en su .bat y necesitan Node.js.",
@@ -39,8 +40,9 @@
       porDias: "Per dies", porDiasDesc: "Cronograma: què toca a cada sessió",
       porItinerario: "Per itinerari", porItinerarioDesc: "El temari, mòdul a mòdul",
       extras: "Artefactes",
-      reqCod: "00 · ABANS DE COMENÇAR", reqTitulo: "Què cal instal·lar", reqSub: "Tingues-ho a punt abans de la primera sessió. L’opcional només cal per a alguns exercicis i per als artefactes extra.",
+      reqCod: "00 · ABANS DE COMENÇAR", reqTitulo: "Què cal instal·lar", reqSub: "Tingues-ho a punt abans de la primera sessió.",
       obligatorio: "Imprescindible", opcional: "Opcional", descargar: "Descarregar ↗", abrirWeb: "Obrir ↗",
+      opcionales: "Opcionals", opcionalesTxt: "Només per a alguns exercicis i els artefactes extra",
       diasCod: "01 · CRONOGRAMA", diasTitulo: "Sessió a sessió", diasSub: "Sis sessions, de setembre a octubre. Obre cada dia per veure’n el resum, els exercicis i el material a Drive.",
       itinCod: "01 · ITINERARI", itinTitulo: "El temari", itinSub: "Quatre mòduls. Cadascun amb els seus blocs, els seus exercicis i el dia en què es treballa.",
       extrasTitulo: "Artefactes extra", extrasSub: "Aplicacions d’exemple fora de temari, fetes amb IA. Són totes en una carpeta de Drive; s’obren amb doble clic al seu .bat i necessiten Node.js.",
@@ -182,15 +184,26 @@
   }
 
   /* ------------------------------------------------------------- REQUISITOS */
+  var opcAbiertos = false;   // el desplegable de opcionales, cerrado hasta que el alumno lo toca
+  function celdaReq(r) {
+    return '<div class="req' + (r.obligatorio ? " req--si" : "") + '">' +
+      '<span class="req__tipo">' + esc(t(r.obligatorio ? "obligatorio" : "opcional")) + "</span>" +
+      '<span class="req__nom">' + esc(r.nombre) + "</span>" +
+      '<span class="req__para">' + esc(tx(r.para)) + "</span>" +
+      (url(r.url) ? '<a class="req__ir" href="' + url(r.url) + '" target="_blank" rel="noopener">' + esc(t(r.web ? "abrirWeb" : "descargar")) + "</a>" : "") +
+      "</div>";
+  }
   function pintarRequisitos() {
-    $("#reqLista").innerHTML = (C.requisitos || []).map(function (r) {
-      return '<div class="req' + (r.obligatorio ? " req--si" : "") + '">' +
-        '<span class="req__tipo">' + esc(t(r.obligatorio ? "obligatorio" : "opcional")) + "</span>" +
-        '<span class="req__nom">' + esc(r.nombre) + "</span>" +
-        '<span class="req__para">' + esc(tx(r.para)) + "</span>" +
-        (url(r.url) ? '<a class="req__ir" href="' + url(r.url) + '" target="_blank" rel="noopener">' + esc(t(r.web ? "abrirWeb" : "descargar")) + "</a>" : "") +
-        "</div>";
-    }).join("");
+    var R = C.requisitos || [];
+    var si = R.filter(function (r) { return r.obligatorio; }), no = R.filter(function (r) { return !r.obligatorio; });
+    $("#reqLista").innerHTML =
+      '<div class="reqs" style="--n:' + si.length + '">' + si.map(celdaReq).join("") + "</div>" +
+      (no.length ? '<details class="opc"' + (opcAbiertos ? " open" : "") + '><summary><span class="opc__mas" aria-hidden="true">+</span>' +
+        '<span class="opc__tit">' + esc(t("opcionales")) + " (" + no.length + ")</span>" +
+        '<span class="opc__txt">' + esc(t("opcionalesTxt")) + "</span></summary>" +
+        '<div class="reqs reqs--opc" style="--n:' + no.length + '">' + no.map(celdaReq).join("") + "</div></details>" : "");
+    var d = $("#reqLista .opc");
+    if (d) d.addEventListener("toggle", function () { opcAbiertos = d.open; });
   }
 
   /* -------------------------------------------------------------- PINTAR TODO */
