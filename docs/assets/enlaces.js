@@ -30,8 +30,7 @@ window.ENLACES = {
      s01 · 22 sep  ·  s02 · 24 sep  ·  s03 · 30 sep
      s04 ·  1 oct  ·  s05 ·  6 oct  ·  s06 ·  8 oct                          */
   sesiones: {
-    //s01: { presentacion: "https://docs.google.com/presentation/d/1LN4slj7T297xNWrJKroKlX7vwPl3m_Mx/edit?usp=sharing&ouid=114465327299430353015&rtpof=true&sd=true", carpeta: "https://drive.google.com/drive/folders/1rdz-MqtdI5y5UcINBndvFTxLMO-uCD8S?usp=sharing" },
-    s01: { presentacion: "", carpeta: "" },
+    s01: { presentacion: "https://docs.google.com/presentation/d/1LN4slj7T297xNWrJKroKlX7vwPl3m_Mx/edit?usp=sharing&ouid=114465327299430353015&rtpof=true&sd=true", carpeta: "https://drive.google.com/drive/folders/1rdz-MqtdI5y5UcINBndvFTxLMO-uCD8S?usp=sharing" },
     s02: { presentacion: "", carpeta: "" },
     s03: { presentacion: "", carpeta: "" },
     s04: { presentacion: "", carpeta: "" },
