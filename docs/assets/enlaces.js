@@ -31,7 +31,7 @@ window.ENLACES = {
      s04 ·  1 oct  ·  s05 ·  6 oct  ·  s06 ·  8 oct                          */
   sesiones: {
     s01: { presentacion: "https://docs.google.com/presentation/d/1LN4slj7T297xNWrJKroKlX7vwPl3m_Mx/edit?usp=sharing&ouid=114465327299430353015&rtpof=true&sd=true", carpeta: "https://drive.google.com/drive/folders/1rdz-MqtdI5y5UcINBndvFTxLMO-uCD8S?usp=sharing" },
-    s02: { presentacion: "", carpeta: "" },
+    s02: { presentacion: "https://docs.google.com/presentation/d/1vPzA_nu68zhVtEjWOKMQzAozo0u_1FDN/edit?usp=sharing&ouid=114465327299430353015&rtpof=true&sd=true", carpeta: "https://drive.google.com/drive/folders/161KcF0Esd6NnkE0_bsPyjiqnJE3dwq8N?usp=sharing" },
     s03: { presentacion: "", carpeta: "" },
     s04: { presentacion: "", carpeta: "" },
     s05: { presentacion: "", carpeta: "" },
