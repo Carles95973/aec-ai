@@ -22,6 +22,7 @@
         <button type="button" data-vista="dias" data-t="porDias"></button>
         <button type="button" data-vista="itinerario" data-t="porItinerario"></button>
       </div>
+      <a class="barra__extras" href="#practicas" data-t="practNav"></a>
       <a class="barra__extras" href="#extras" data-t="extras"></a>
       <div class="idioma" role="group" aria-label="Idioma">
         <button type="button" data-idioma="ca">CA</button>
@@ -37,9 +38,12 @@
 
     <div class="hero__sup">
       <span class="cod">AEC·AI / REV.2026</span>
-      <div class="idioma" role="group" aria-label="Idioma">
-        <button type="button" data-idioma="ca">CA</button>
-        <button type="button" data-idioma="es">ES</button>
+      <div class="hero__der">
+        <a class="nou" href="#practicas" hidden><span class="nou__tag" data-t="nou"></span><span class="nou__txt" data-t="nouTxt"></span><span aria-hidden="true">→</span></a>
+        <div class="idioma" role="group" aria-label="Idioma">
+          <button type="button" data-idioma="ca">CA</button>
+          <button type="button" data-idioma="es">ES</button>
+        </div>
       </div>
     </div>
 
@@ -87,10 +91,20 @@
     <div id="vista"></div>
   </main>
 
+  <!-- EXERCICIS PRÀCTICS -->
+  <section class="seccion seccion--pract" id="practicas">
+    <div class="seccion__cab">
+      <span class="cod" data-t="practCod"></span>
+      <h2 data-t="practTitulo"></h2>
+      <p data-t="practSub"></p>
+    </div>
+    <div id="practLista"></div>
+  </section>
+
   <!-- ARTEFACTOS EXTRA -->
   <section class="seccion seccion--extras" id="extras">
     <div class="ficha extras">
-      <span class="cod">02 · EXTRA</span>
+      <span class="cod">03 · EXTRA</span>
       <h2 class="extras__titulo" data-t="extrasTitulo"></h2>
       <p class="extras__sub" data-t="extrasSub"></p>
       <div id="extrasLista"></div>

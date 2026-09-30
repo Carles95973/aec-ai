@@ -38,6 +38,11 @@ window.ENLACES = {
     s06: { presentacion: "", carpeta: "" }
   },
 
+  /* --- Exercicis pràctics ------------------------------------------------
+     Carpeta de Drive con el material de las prácticas (datos, plantillas…).
+     Vacío = el botón sale como «Properament».                               */
+  practicas: "",
+
   /* --- Artefactos extra -------------------------------------------------
      La carpeta de Drive con todos los artefactos extra. Vacío = «Properament». */
   extras: ""

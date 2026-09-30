@@ -5,7 +5,7 @@ Material del curso impartido en el CETILL por **Carles Farré**.
 **Web del curso: https://Carles95973.github.io/aec-ai/**
 
 Este repositorio contiene la web que enruta al alumno hacia el material: un cronograma
-por días, el temario por itinerario, qué instalar y los artefactos extra. Las presentaciones y las carpetas de
+por días, el temario por itinerario, qué instalar, los exercicis pràctics y los artefactos extra. Las presentaciones y las carpetas de
 ejercicios están en Google Drive y se enlazan desde la web.
 
 ## Estructura
@@ -14,7 +14,7 @@ ejercicios están en Google Drive y se enlazan desde la web.
 docs/                 la web (estática, sin build)
   index.html          esqueleto de la página
   assets/enlaces.js   LOS ENLACES DE DRIVE (sesiones y artefactos extra)
-  assets/curso.js     el contenido: requisitos, sesiones, módulos, ejercicios y extras
+  assets/curso.js     el contenido: requisitos, sesiones, módulos, ejercicios, prácticas y extras
   assets/app.js       pinta la página con los dos (vistas, idioma, animación)
   assets/styles.css   tema industrial
 code/                 scripts y skills de los ejercicios (licencia MIT)

@@ -277,6 +277,89 @@ h1, h2, h3 { font-family: var(--f-titulo); text-transform: uppercase; letter-spa
 .ej__t b { font-weight: 600; }
 .ej__desc { display: block; margin-top: 3px; font-size: 14.5px; line-height: 1.4; color: #9aa5af; }
 
+/* ----------------------------------------------------- EXERCICIS PRÀCTICS */
+.hero__der { display: flex; align-items: center; gap: 14px; }
+.nou {
+  display: inline-flex; align-items: center; gap: 10px; padding: 5px 12px 5px 5px;
+  border: 1px solid rgba(255,106,19,.55); background: rgba(13,16,19,.7); text-decoration: none;
+  font: 600 16px/1 var(--f-titulo); letter-spacing: .08em; text-transform: uppercase;
+  transition: border-color .15s, background .15s;
+}
+.nou[hidden] { display: none; }
+.nou:hover { border-color: var(--acento); background: rgba(255,106,19,.12); }
+.nou__tag { padding: 5px 7px; background: var(--acento); color: #111; font: 700 11px/1 var(--f-mono); letter-spacing: .12em; animation: nou 2.4s ease-in-out infinite; }
+@keyframes nou { 50% { background: var(--acento-2); } }
+
+.seccion--pract { padding-top: 24px; }
+.prac-datos { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 28px; border-top: 1px solid var(--linea-2); border-bottom: 1px solid var(--linea); }
+.prac-datos div { padding: 16px 18px 18px 0; }
+.prac-datos div + div { padding-left: 18px; border-left: 1px solid var(--linea); }
+.prac-datos dt { font: 500 11px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--tenue); }
+.prac-datos dd { margin: 8px 0 0; font: 600 22px/1.1 var(--f-titulo); text-transform: uppercase; }
+
+.roadmap { margin-bottom: 56px; }
+.roadmap__cab { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.rotulo-s, .roadmap__total { font: 500 12px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--acento-2); }
+.roadmap__total { color: var(--tenue); }
+.roadmap__barra { display: flex; gap: 4px; }
+.roadmap__tramo { display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 14px 16px 16px; background: var(--panel); border-top: 4px solid var(--acento); }
+.roadmap__tramo:nth-child(2) { border-top-color: var(--acento-2); }
+.roadmap__tramo:nth-child(3) { border-top-color: var(--m2); }
+.roadmap__min { font: 500 11px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--tenue); }
+.roadmap__tramo b { font: 600 22px/1 var(--f-titulo); text-transform: uppercase; }
+.roadmap__tramo > span:last-child { font-size: 14px; line-height: 1.4; color: #aab4bd; }
+.roadmap__nota { margin: 12px 0 0; font-size: 15px; color: var(--tenue); }
+
+.nivel + .nivel { margin-top: 56px; }
+.nivel__cab { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 1px solid var(--linea-2); }
+.nivel__cab h3 { font-size: clamp(28px, 3.6vw, 40px); font-weight: 700; }
+.nivel--avancat .nivel__cab h3 { color: var(--acento); }
+.nivel__eines { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.nivel__eines .cod { margin-right: 4px; }
+.ruta + .ruta { margin-top: 32px; }
+.ruta__cab { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 14px; }
+.ruta__n { font: 700 13px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--acento); }
+.ruta__cab h4 { margin: 0; font: 600 clamp(20px, 2.4vw, 26px)/1.05 var(--f-titulo); text-transform: uppercase; }
+.casos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.cas { display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--linea); padding: 20px 22px; transition: border-color .2s; }
+.cas:hover { border-color: var(--linea-2); }
+.cas__cab { display: flex; align-items: flex-start; gap: 14px; }
+.cas__id { flex: none; min-width: 46px; font: 700 40px/.85 var(--f-titulo); color: var(--acento); }
+.cas__cab h5 { margin: 2px 0 0; font: 600 22px/1.1 var(--f-titulo); text-transform: uppercase; }
+.cas__esc { margin: 14px 0 0; font-size: 15.5px; color: #c9d0d6; }
+.cas__etq { display: block; margin-bottom: 5px; font: 500 11px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--tenue); }
+.cas__det { margin-top: auto; padding-top: 14px; }
+.cas__det summary { display: flex; align-items: center; gap: 10px; padding: 8px 0 0; cursor: pointer; list-style: none; font: 600 14px/1 var(--f-titulo); letter-spacing: .1em; text-transform: uppercase; color: var(--tenue); border-top: 1px solid var(--linea); padding-top: 14px; }
+.cas__det summary::-webkit-details-marker { display: none; }
+.cas__det summary:hover, .cas__det summary:hover .opc__mas { color: var(--texto); border-color: var(--acento); }
+.cas__det[open] .opc__mas { transform: rotate(45deg); color: var(--acento); border-color: var(--acento); }
+.cas__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+.cas__cols .rotulo { margin-top: 18px; }
+.cas__cols .temas li { font-size: 15px; }
+.tareas { margin: 0; padding-left: 22px; display: grid; gap: 6px; font-size: 15px; }
+.tareas li::marker { font: 700 13px var(--f-mono); color: var(--acento); }
+
+@media (max-width: 1100px) {
+  .cas__cols { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .hero__sup > .cod { display: none; }
+  .hero__sup { justify-content: flex-end; }
+  .nou { font-size: 14px; }
+  .prac-datos { grid-template-columns: 1fr; }
+  .prac-datos div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--linea); }
+  .prac-datos div { padding: 12px 0; }
+  .roadmap__barra { flex-direction: column; }
+  .roadmap__tramo { flex: none !important; border-top: 0; border-left: 4px solid var(--acento); background: linear-gradient(90deg, rgba(255,106,19,.10) var(--p), var(--panel) var(--p)); }
+  .roadmap__tramo:nth-child(2) { border-left-color: var(--acento-2); }
+  .roadmap__tramo:nth-child(3) { border-left-color: var(--m2); }
+  .casos { grid-template-columns: 1fr; }
+  .cas { padding: 18px 16px; }
+}
+@media (max-width: 420px) {
+  .nou__txt { font-size: 13px; letter-spacing: .04em; }
+}
+
 /* --------------------------------------------------------------------- PIE */
 .pie {
   max-width: calc(var(--ancho) + 2 * var(--canal)); margin: 0 auto; padding: 48px var(--canal) 32px;

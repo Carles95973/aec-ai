@@ -49,6 +49,17 @@ en la web (nombre y descripción) está en `curso.js`, en `extras`.
 Los ejercicios no llevan enlace propio: su material está dentro de la carpeta de la
 sesión.
 
+### Carpeta de los exercicis pràctics
+
+Una sola carpeta de Drive con el material de las prácticas (datos, plantillas…). En
+`enlaces.js`:
+
+```js
+practicas: "https://drive.google.com/drive/folders/…"
+```
+
+Mientras esté vacío, el botón sale como «Properament».
+
 ### Carpeta general y contacto
 
 Arriba del todo de `enlaces.js`. Si los dejas vacíos, simplemente no salen en el pie.
@@ -86,6 +97,11 @@ repositorio en GitHub: ahí se ve si el despliegue falló.
   cambias uno, cambia el otro.
 - **Añadir una sesión o un ejercicio:** copia un bloque entero y cámbiale el `id` o el
   número `n`. Si es una sesión, añade también su entrada en `enlaces.js`.
+- **Exercicis pràctics:** bloque `practicas`. Contiene el reparto del primer día
+  (`primerDia`, en minutos: la barra se dibuja proporcional), la sesión en que empiezan
+  (`inicio`), el tamaño de los equipos y los niveles → rutas → casos, cada caso con
+  `escenario`, `criterios` y `tareas` en los dos idiomas. Con `nou: false` desaparece
+  el aviso «Nou · Exercicis pràctics» de la portada.
 - **Cambiar la lista de instalación:** `requisitos`, arriba del todo. Cada programa
   lleva `nombre`, `obligatorio`, `url` de descarga y `para` (una línea en los dos
   idiomas). Los `obligatorio: true` se ven siempre como «Imprescindible»; los `false`
@@ -118,6 +134,8 @@ y los errores de coma o comilla también se ven en esa pestaña.
   Se recuerda la elección de cada alumno.
 - **Què cal instal·lar:** justo después de la portada, antes del cronograma. Los
   imprescindibles a la vista; los opcionales, plegados.
+- **Exercicis pràctics:** después del cronograma. Un aviso «Nou» en la portada lleva
+  directamente a ellos. El detalle de cada caso (criterios y tareas) sale plegado.
 - **Lo que no tiene enlace** sale como «Próximamente», sin enlace roto.
 - Funciona en móvil.
 

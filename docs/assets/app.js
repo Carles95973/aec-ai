@@ -16,6 +16,10 @@
       porDias: "Por días", porDiasDesc: "Cronograma: qué toca en cada sesión",
       porItinerario: "Por itinerario", porItinerarioDesc: "El temario, módulo a módulo",
       extras: "Artefactos",
+      nou: "Nuevo", nouTxt: "Ejercicios prácticos", practNav: "Prácticas",
+      practCod: "02 · PRÁCTICAS", practTitulo: "Ejercicios prácticos", practSub: "Trabajo por equipos durante las clases. Cada equipo elige un caso y lo resuelve con IA, de la especificación a la evaluación.",
+      fEquipos: "Equipos", fCasos: "Casos", unCaso: "uno por equipo", fCuando: "Cuándo", primerDia: "Primera sesión", herramientas: "Herramientas",
+      ruta: "Ruta", equipoDe: "Equipos de", escenario: "Escenario", criterios: "Criterios de éxito", tareas: "Tareas", verDetalle: "Criterios de éxito y tareas", carpetaPract: "Carpeta de prácticas",
       reqCod: "00 · ANTES DE EMPEZAR", reqTitulo: "Qué hay que instalar", reqSub: "Tenlo listo antes de la primera sesión.",
       obligatorio: "Imprescindible", opcional: "Opcional", descargar: "Descargar ↗", abrirWeb: "Abrir ↗",
       opcionales: "Opcionales", opcionalesTxt: "Solo para algunos ejercicios y los artefactos extra",
@@ -40,6 +44,10 @@
       porDias: "Per dies", porDiasDesc: "Cronograma: què toca a cada sessió",
       porItinerario: "Per itinerari", porItinerarioDesc: "El temari, mòdul a mòdul",
       extras: "Artefactes",
+      nou: "Nou", nouTxt: "Exercicis pràctics", practNav: "Pràctiques",
+      practCod: "02 · PRÀCTIQUES", practTitulo: "Exercicis pràctics", practSub: "Treball per equips durant les classes. Cada equip tria un cas i el resol amb IA, de l’especificació a l’avaluació.",
+      fEquipos: "Equips", fCasos: "Casos", unCaso: "un per equip", fCuando: "Quan", primerDia: "Primera sessió", herramientas: "Eines",
+      ruta: "Ruta", equipoDe: "Equips de", escenario: "Escenari", criterios: "Criteris d’èxit", tareas: "Tasques", verDetalle: "Criteris d’èxit i tasques", carpetaPract: "Carpeta de pràctiques",
       reqCod: "00 · ABANS DE COMENÇAR", reqTitulo: "Què cal instal·lar", reqSub: "Tingues-ho a punt abans de la primera sessió.",
       obligatorio: "Imprescindible", opcional: "Opcional", descargar: "Descarregar ↗", abrirWeb: "Obrir ↗",
       opcionales: "Opcionals", opcionalesTxt: "Només per a alguns exercicis i els artefactes extra",
@@ -97,7 +105,7 @@
     var ids = {}, fallos = [];
     C.sesiones.forEach(function (s) { ids[s.id] = 1; });
     Object.keys(L.sesiones || {}).forEach(function (k) { if (!ids[k]) fallos.push("enlaces.js → sesiones." + k + " no existe en curso.js"); });
-    if (L.extras !== undefined && typeof L.extras !== "string") fallos.push("enlaces.js → extras ha de ser una URL entre comillas");
+    ["extras", "practicas"].forEach(function (k) { if (L[k] !== undefined && typeof L[k] !== "string") fallos.push("enlaces.js → " + k + " ha de ser una URL entre comillas"); });
     if (fallos.length && window.console) console.warn("[AEC·AI] Revisa enlaces.js:\n· " + fallos.join("\n· "));
   }
 
@@ -206,6 +214,55 @@
     if (d) d.addEventListener("toggle", function () { opcAbiertos = d.open; });
   }
 
+  /* ------------------------------------------------------ EXERCICIS PRÀCTICS */
+  var casosAbiertos = {};   // detalle de cada caso: plegado hasta que se toca
+  function minutos(m) { return m % 60 ? (m >= 60 ? Math.floor(m / 60) + " h " + (m % 60) + " min" : m + " min") : (m / 60) + " h"; }
+  function pintarPracticas() {
+    var P = C.practicas, sec = $("#practicas");
+    if (!P) { sec.hidden = true; return; }
+    var ids = C.sesiones.map(function (x) { return x.id; });
+    var s0 = C.sesiones[Math.max(0, ids.indexOf(P.inicio))], sN = C.sesiones[C.sesiones.length - 1];
+    var nCasos = 0; P.niveles.forEach(function (n) { n.rutas.forEach(function (r) { nCasos += r.casos.length; }); });
+    var total = P.primerDia.reduce(function (a, b) { return a + b.min; }, 0);
+
+    var datos = '<dl class="prac-datos">' + [
+      [t("fEquipos"), tx(P.equipos)],
+      [t("fCasos"), nCasos + " · " + t("unCaso")],
+      [t("fCuando"), corta(s0.fecha) + " – " + corta(sN.fecha)]
+    ].map(function (p) { return "<div><dt>" + esc(p[0]) + "</dt><dd>" + esc(p[1]) + "</dd></div>"; }).join("") + "</dl>";
+
+    var hoja = '<div class="roadmap"><div class="roadmap__cab"><span class="rotulo-s">' + esc(t("primerDia")) + " · " +
+      esc(t("dias")[fecha(s0.fecha).getDay()]) + " " + esc(corta(s0.fecha)) + '</span><span class="roadmap__total">' + esc(minutos(total)) + "</span></div>" +
+      '<div class="roadmap__barra">' + P.primerDia.map(function (b, k) {
+        return '<div class="roadmap__tramo" style="flex:' + b.min + ";--p:" + (b.min / total * 100).toFixed(1) + '%"><span class="roadmap__min">' +
+          ("0" + (k + 1)).slice(-2) + " · " + esc(minutos(b.min)) + "</span><b>" + esc(tx(b.titulo)) + "</b><span>" + esc(tx(b.desc)) + "</span></div>";
+      }).join("") + '</div><p class="roadmap__nota">' + esc(tx(P.nota)) + "</p></div>";
+
+    function caso(c) {
+      var ab = casosAbiertos[c.id];
+      return '<article class="cas"><div class="cas__cab"><span class="cas__id">' + esc(c.id) + "</span><h5>" + esc(tx(c.titulo)) + "</h5></div>" +
+        '<p class="cas__esc"><span class="cas__etq">' + esc(t("escenario")) + "</span>" + esc(tx(c.escenario)) + "</p>" +
+        '<details class="cas__det" data-caso="' + esc(c.id) + '"' + (ab ? " open" : "") + '><summary><span class="opc__mas" aria-hidden="true">+</span>' + esc(t("verDetalle")) + "</summary>" +
+        '<div class="cas__cols"><div><h6 class="rotulo">' + esc(t("criterios")) + '</h6><ul class="temas">' +
+        c.criterios.map(function (x) { return "<li>" + esc(tx(x)) + "</li>"; }).join("") + "</ul></div>" +
+        '<div><h6 class="rotulo">' + esc(t("tareas")) + '</h6><ol class="tareas">' +
+        c.tareas.map(function (x) { return "<li>" + esc(tx(x)) + "</li>"; }).join("") + "</ol></div></div></details></article>";
+    }
+    var niveles = P.niveles.map(function (n) {
+      return '<div class="nivel nivel--' + esc(n.id) + '"><div class="nivel__cab"><h3>' + esc(tx(n.titulo)) + '</h3><div class="nivel__eines"><span class="cod">' +
+        esc(t("herramientas")) + "</span>" + n.herramientas.map(function (h) { return '<span class="chapa">' + esc(h) + "</span>"; }).join("") + "</div></div>" +
+        n.rutas.map(function (r) {
+          return '<section class="ruta"><div class="ruta__cab"><span class="ruta__n">' + esc(t("ruta")) + " " + r.n + "</span><h4>" + esc(tx(r.titulo)) +
+            '</h4><span class="chapa">' + esc(t("equipoDe")) + " " + esc(r.equipo) + "</span></div>" +
+            '<div class="casos">' + r.casos.map(caso).join("") + "</div></section>";
+        }).join("") + "</div>";
+    }).join("");
+
+    $("#practLista").innerHTML = datos + hoja + niveles + '<div class="acciones">' + enlace(L.practicas, t("carpetaPract"), "boton--lleno") + "</div>";
+    $$("#practLista .cas__det").forEach(function (d) { d.addEventListener("toggle", function () { casosAbiertos[d.getAttribute("data-caso")] = d.open; }); });
+    $$(".nou").forEach(function (a) { a.hidden = !P.nou; });
+  }
+
   /* -------------------------------------------------------------- PINTAR TODO */
   function pintarFijos() {
     document.documentElement.lang = estado.idioma;
@@ -247,7 +304,7 @@
   }
 
   function ponerVista(v) { estado.vista = v; guardar("aecai.vista", v); pintarVista(); }
-  function ponerIdioma(i) { estado.idioma = i; guardar("aecai.idioma", i); pintarFijos(); pintarRequisitos(); pintarVista(); pintarExtras(); observar(); }
+  function ponerIdioma(i) { estado.idioma = i; guardar("aecai.idioma", i); pintarFijos(); pintarRequisitos(); pintarVista(); pintarPracticas(); pintarExtras(); observar(); }
 
   /* ---------------------------------------------------- APARICIÓN CON SCROLL */
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
@@ -388,6 +445,6 @@
   }
 
   /* ------------------------------------------------------------------ INICIO */
-  revisar(); pintarFijos(); pintarRequisitos(); pintarVista(); pintarExtras(); observar(); eventos(); lienzo();
+  revisar(); pintarFijos(); pintarRequisitos(); pintarVista(); pintarPracticas(); pintarExtras(); observar(); eventos(); lienzo();
   if (hash === "itinerario" || hash === "dias") setTimeout(function () { $("#curso").scrollIntoView({ block: "start" }); }, 60);
 })();
