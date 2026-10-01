@@ -32,7 +32,7 @@ window.ENLACES = {
   sesiones: {
     s01: { presentacion: "https://docs.google.com/presentation/d/1LN4slj7T297xNWrJKroKlX7vwPl3m_Mx/edit?usp=sharing&ouid=114465327299430353015&rtpof=true&sd=true", carpeta: "https://drive.google.com/drive/folders/1rdz-MqtdI5y5UcINBndvFTxLMO-uCD8S?usp=sharing" },
     s02: { presentacion: "https://docs.google.com/presentation/d/1vPzA_nu68zhVtEjWOKMQzAozo0u_1FDN/edit?usp=sharing&ouid=114465327299430353015&rtpof=true&sd=true", carpeta: "https://drive.google.com/drive/folders/161KcF0Esd6NnkE0_bsPyjiqnJE3dwq8N?usp=sharing" },
-    s03: { presentacion: "", carpeta: "" },
+    s03: { presentacion: "", carpeta: "https://drive.google.com/drive/folders/1svGEJSWLyo_2Ed8bVcDL_uFYZUtaEm-O?usp=sharing" },
     s04: { presentacion: "https://docs.google.com/presentation/d/1GTILaDz3EliPUE2P7apS4bphyXukXgYK/edit?usp=sharing&ouid=114465327299430353015&rtpof=true&sd=true", carpeta: "https://drive.google.com/drive/folders/12RpndnyjAGbJmNrxIuUj5Ag5-Ha-a8Wd?usp=sharing" },
     s05: { presentacion: "", carpeta: "" },
     s06: { presentacion: "", carpeta: "" }
