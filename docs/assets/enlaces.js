@@ -42,8 +42,8 @@ window.ENLACES = {
      Dos recuadros, uno al lado del otro.
      `presentacionCompleta`: la presentación entera del curso.
      `ejemplos`: la carpeta de Drive con los ejemplos hechos en clase.        */
-  presentacionCompleta: "",
-  ejemplos: "",
+  presentacionCompleta: "https://docs.google.com/presentation/d/1pqU2VYVY5737cZk3yWuVchcQsFG-iQbr/edit?usp=sharing&ouid=114465327299430353015&rtpof=true&sd=true",
+  ejemplos: "https://drive.google.com/drive/folders/1BPGWNcc1HfeCqkV_5Lg0lnL-lKDSGaXO?usp=sharing",
 
   /* --- Classes gravades ----------------------------------------------------
      Una entrada por sesión grabada: `sesion` (s01…s06) y la URL de YouTube
@@ -59,7 +59,7 @@ window.ENLACES = {
      Una carpeta por semana. Vacío = el botón sale como «Properament».       */
   practicas: {
     semana2: "",   // Rutes per equips: datos, plantillas…
-    semana3: ""    // Cas Garrigues: el expediente
+    semana3: "https://drive.google.com/drive/folders/1GLx_Xx2BBYR_imGG50PD_aYAKLlNmAkN?usp=sharing"    // Cas Garrigues: el expediente
   },
 
   /* --- Artefactos extra -------------------------------------------------
