@@ -26,14 +26,16 @@ La regla: **contenido en `curso.js`, enlaces en `enlaces.js`.** Los ids de las s
 **Regla general: lo que no tiene enlace no sale en la web.** No hace falta dejar
 entradas vacías; si un enlace no existe, se borra la línea entera.
 
-### Carpeta de una sesión
+### Carpeta de una sesión (opcional)
 
-En `enlaces.js`, una línea por sesión con su carpeta de Drive. Una sesión sin línea sale
-en el temario sin enlace.
+Ahora las sesiones no llevan enlace: el material está en la presentación completa y en
+los ejemplos. Si algún día hace falta enlazar la carpeta de una sesión, se añade este
+bloque a `enlaces.js` y sale junto a la sesión en el temario:
 
 ```js
 sesiones: {
   s01: "https://drive.google.com/drive/folders/…",
+},
 ```
 
 Las sesiones son `s01` = 22 sep, `s02` = 24 sep, `s03` = 30 sep, `s04` = 1 oct,

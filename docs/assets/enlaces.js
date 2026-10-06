@@ -18,17 +18,6 @@
 
 window.ENLACES = {
 
-  /* --- Sesiones -----------------------------------------------------------
-     La carpeta de Drive de cada sesión. Una sesión sin entrada sale sin enlace.
-     s01 · 22 sep  ·  s02 · 24 sep  ·  s03 · 30 sep
-     s04 ·  1 oct  ·  s05 ·  6 oct  ·  s06 ·  8 oct                          */
-  sesiones: {
-    s01: "https://drive.google.com/drive/folders/1rdz-MqtdI5y5UcINBndvFTxLMO-uCD8S?usp=sharing",
-    s02: "https://drive.google.com/drive/folders/161KcF0Esd6NnkE0_bsPyjiqnJE3dwq8N?usp=sharing",
-    s03: "https://drive.google.com/drive/folders/1svGEJSWLyo_2Ed8bVcDL_uFYZUtaEm-O?usp=sharing",
-    s04: "https://drive.google.com/drive/folders/12RpndnyjAGbJmNrxIuUj5Ag5-Ha-a8Wd?usp=sharing"
-  },
-
   /* --- Presentació completa i exemples de classe --------------------------
      Dos recuadros, uno al lado del otro.
      `presentacionCompleta`: la presentación entera del curso.
