@@ -23,13 +23,17 @@ La regla: **contenido en `curso.js`, enlaces en `enlaces.js`.** Los ids de las s
 
 ## 2. Lo del día a día
 
-### Publicar la presentación y la carpeta de una sesión
+**Regla general: lo que no tiene enlace no sale en la web.** No hace falta dejar
+entradas vacías; si un enlace no existe, se borra la línea entera.
 
-En `enlaces.js`, busca la sesión y pega las URL:
+### Carpeta de una sesión
+
+En `enlaces.js`, una línea por sesión con su carpeta de Drive. Una sesión sin línea sale
+en el temario sin enlace.
 
 ```js
 sesiones: {
-  s01: { presentacion: "https://drive.google.com/file/d/…", carpeta: "https://drive.google.com/drive/folders/…" },
+  s01: "https://drive.google.com/drive/folders/…",
 ```
 
 Las sesiones son `s01` = 22 sep, `s02` = 24 sep, `s03` = 30 sep, `s04` = 1 oct,
@@ -43,7 +47,7 @@ Es una sola carpeta de Drive. En `enlaces.js`:
 extras: "https://drive.google.com/drive/folders/…"
 ```
 
-Mientras esté vacío, el botón sale como «Properament». La lista de artefactos que se ve
+La lista de artefactos que se ve
 en la web (nombre y descripción) está en `curso.js`, en `extras`.
 
 Los ejercicios no llevan enlace propio: su material está dentro de la carpeta de la
@@ -81,16 +85,15 @@ Una carpeta por semana. En `enlaces.js`:
 
 ```js
 practicas: {
-  semana2: "https://drive.google.com/drive/folders/…",   // Rutes per equips
   semana3: "https://drive.google.com/drive/folders/…"    // Cas Garrigues: l'expedient
 },
 ```
 
-Mientras estén vacíos, los botones salen como «Properament».
+Una semana sin entrada sale sin botón.
 
-### Carpeta general y contacto
+### Carpeta general y contacto (opcional)
 
-Arriba del todo de `enlaces.js`. Si los dejas vacíos, simplemente no salen en el pie.
+Si algún día hacen falta, se añaden arriba del todo de `enlaces.js` y salen en el pie:
 
 ```js
 general:  "https://drive.google.com/drive/folders/…",
@@ -168,7 +171,7 @@ y los errores de coma o comilla también se ven en esa pestaña.
 - **Què cal instal·lar:** los imprescindibles a la vista; los opcionales, plegados.
 - **Exercicis pràctics:** una caja plegable por semana. El aviso «Nou» de la portada
   lleva a ellos y abre la semana indicada.
-- **Lo que no tiene enlace** sale como «Próximamente», sin enlace roto.
+- **Lo que no tiene enlace** no sale: ni botón vacío ni enlace roto.
 - Funciona en móvil.
 
 ---

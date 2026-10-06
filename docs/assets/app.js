@@ -100,7 +100,7 @@
   }
 
   /* ----------------------------------------------------------- ENLACES (L) */
-  function lnkSesion(id, campo) { var s = L.sesiones && L.sesiones[id]; return (s && s[campo]) || ""; }
+  function lnkSesion(id) { var s = L.sesiones && L.sesiones[id]; return (typeof s === "string" ? s : s && s.carpeta) || ""; }
 
   /* Avisa por consola si enlaces.js no encaja con curso.js. */
   function revisar() {
@@ -120,8 +120,7 @@
   /* ---------------------------------------------------------------- PIEZAS */
   function enlace(u, texto, clase) {
     var h = url(u);
-    return h ? '<a class="boton ' + (clase || "") + '" href="' + h + '" target="_blank" rel="noopener">' + esc(texto) + " ↗</a>"
-             : '<span class="boton boton--off">' + esc(texto) + " · " + esc(t("pendiente")) + "</span>";
+    return h ? '<a class="boton ' + (clase || "") + '" href="' + h + '" target="_blank" rel="noopener">' + esc(texto) + " ↗</a>" : "";   // sin enlace, no sale
   }
   function filaEj(e, conSesion) {
     var s = conSesion && C.sesiones.filter(function (x) { return x.id === e.sesion; })[0];
@@ -134,14 +133,14 @@
   /* -------------------------------------------------------------- ITINERARIO */
   function miniEnlace(u, texto) {
     var h = url(u);
-    return h ? '<a href="' + h + '" target="_blank" rel="noopener">' + esc(texto) + " ↗</a>" : '<span class="pend" title="' + esc(t("pendiente")) + '">' + esc(texto) + "</span>";
+    return h ? '<a href="' + h + '" target="_blank" rel="noopener">' + esc(texto) + " ↗</a>" : "";
   }
   function filaSesion(s, sit) {
     var d = fecha(s.fecha), hoy = sit.porSesion[s.id] === "hoy";
     return '<li class="ej ses' + (hoy ? " ses--hoy" : "") + '"><span class="ej__n">S' + s.id.slice(1) + '</span><span class="ej__t">' + esc(tx(s.titulo)) +
       '<span class="ej__sesion">' + esc(t("dias")[d.getDay()]) + " " + esc(corta(s.fecha)) + (s.horario ? " · " + esc(s.horario) : "") +
       (hoy ? ' · <b class="ses__hoy">' + esc(t("hoy")) + "</b>" : "") + '</span></span><span class="ses__acc">' +
-      miniEnlace(lnkSesion(s.id, "presentacion"), t("presentacion")) + miniEnlace(lnkSesion(s.id, "carpeta"), t("carpetaC")) + "</span></li>";
+      miniEnlace(lnkSesion(s.id), t("carpetaC")) + "</span></li>";
   }
   function pintarItinerario() {
     var sit = situacion();

@@ -25,9 +25,9 @@ code/                 scripts y skills de los ejercicios (licencia MIT)
 
 **[GUIA.md](GUIA.md) explica todo el mantenimiento paso a paso.** En resumen:
 
-- **Publicar material**: pega la URL en `docs/assets/enlaces.js` — por sesión
-  (`presentacion` y `carpeta`) o la carpeta de artefactos extra (`extras`). Lo que
-  quede vacío sale en la web como «Properament».
+- **Publicar material**: pega la URL en `docs/assets/enlaces.js` (carpeta de cada
+  sesión, presentación completa, ejemplos, prácticas, artefactos y grabaciones). Lo
+  que no tiene enlace no sale en la web.
 - **Cambiar textos, fechas, el reparto de ejercicios o la lista de instalación**:
   `docs/assets/curso.js`.
 

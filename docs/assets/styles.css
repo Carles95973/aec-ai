@@ -171,6 +171,7 @@ h1, h2, h3 { font-family: var(--f-titulo); text-transform: uppercase; letter-spa
 .ej a { color: var(--acento); } .ej a:hover { text-decoration: underline; }
 .ej span.pend { color: #65717c; }
 .acciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.acciones:empty, .ses__acc:empty { display: none; }
 
 /* -------------------------------------------------------------- ITINERARIO */
 .itin { display: grid; gap: 22px; }
