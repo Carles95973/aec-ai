@@ -49,16 +49,26 @@ en la web (nombre y descripción) está en `curso.js`, en `extras`.
 Los ejercicios no llevan enlace propio: su material está dentro de la carpeta de la
 sesión.
 
-### Carpeta de los exercicis pràctics
+### Carpeta de los exemples de classe
 
-Una sola carpeta de Drive con el material de las prácticas (datos, plantillas…). En
-`enlaces.js`:
+Una sola carpeta de Drive con los ejemplos hechos en clase. En `enlaces.js`:
 
 ```js
-practicas: "https://drive.google.com/drive/folders/…"
+ejemplos: "https://drive.google.com/drive/folders/…"
 ```
 
-Mientras esté vacío, el botón sale como «Properament».
+### Carpetas de los exercicis pràctics
+
+Una carpeta por semana. En `enlaces.js`:
+
+```js
+practicas: {
+  semana2: "https://drive.google.com/drive/folders/…",   // Rutes per equips
+  semana3: "https://drive.google.com/drive/folders/…"    // Cas Garrigues: l'expedient
+},
+```
+
+Mientras estén vacíos, los botones salen como «Properament».
 
 ### Carpeta general y contacto
 
@@ -86,22 +96,27 @@ repositorio en GitHub: ahí se ve si el despliegue falló.
 
 ## 4. Cambios de contenido (`curso.js`)
 
-- **Mover un ejercicio a otro día:** cambia su campo `sesion` (`"s02"` → `"s03"`).
-  En la vista por días salta solo al otro día, y en la de itinerario se actualiza la
-  fecha que muestra debajo.
-- **Cambiar una fecha:** campo `fecha`, en formato `AAAA-MM-DD`. La web recalcula sola
-  cuál es la próxima sesión y cuáles están impartidas.
+- **Mover un ejercicio a otro día:** cambia su campo `sesion` (`"s02"` → `"s03"`). En
+  el temario se actualiza la sesión y la fecha que muestra debajo.
+- **Cambiar una fecha:** campo `fecha`, en formato `AAAA-MM-DD`. La web marca sola la
+  sesión de hoy y el aviso de la portada.
 - **Poner horario:** campo `horario` de la sesión, texto libre (`"16:00 – 20:00"`).
   Sale junto al día de la semana.
 - **Cambiar un texto:** todos van en los dos idiomas, `{ es: "…", ca: "…" }`. Si
   cambias uno, cambia el otro.
 - **Añadir una sesión o un ejercicio:** copia un bloque entero y cámbiale el `id` o el
   número `n`. Si es una sesión, añade también su entrada en `enlaces.js`.
-- **Exercicis pràctics:** bloque `practicas`. Contiene el reparto del primer día
-  (`primerDia`, en minutos: la barra se dibuja proporcional), la sesión en que empiezan
-  (`inicio`), el tamaño de los equipos y los niveles → rutas → casos, cada caso con
-  `escenario`, `criterios` y `tareas` en los dos idiomas. Con `nou: false` desaparece
-  el aviso «Nou · Exercicis pràctics» de la portada.
+- **Exercicis pràctics:** bloque `practicas`, con una entrada por semana en `semanas`.
+  Cada semana es una caja plegable: `n` (número), `sesiones` (las fechas que muestra),
+  `abierta` (si sale desplegada al entrar) y `tipo`:
+  - `"rutas"` (semana 2): casos para elegir, con el reparto del primer día
+    (`primerDia`, en minutos: la barra es proporcional) y niveles → rutas → casos.
+  - `"caso"` (semana 3, Cas Garrigues): un único caso con `lema`, `cifras`, `relato`,
+    `golpe`, `expediente`, `entregable` y `reglas`.
+
+  Para añadir una semana, copia el bloque de una del mismo tipo y añade su carpeta en
+  `enlaces.js` → `practicas`. El aviso «Nou» de la portada se controla con `nou`
+  (`false` lo quita), `nouTxt` (su texto) y `nouSemana` (la caja que abre al pulsarlo).
 - **Cambiar la lista de instalación:** `requisitos`, arriba del todo. Cada programa
   lleva `nombre`, `obligatorio`, `url` de descarga y `para` (una línea en los dos
   idiomas). Los `obligatorio: true` se ven siempre como «Imprescindible»; los `false`
@@ -126,16 +141,15 @@ y los errores de coma o comilla también se ven en esa pestaña.
 
 ## 6. Cómo se comporta la web
 
-- **Dos vistas:** «Por días» (cronograma) y «Por itinerario» (temario por módulos).
-  Recuerda la última que usó cada alumno. Enlaces directos: `…/#dias` y `…/#itinerario`.
-- **La sesión de hoy** se resalta y aparece desplegada sola; antes del curso se
-  resalta la próxima, y las ya dadas salen marcadas como impartidas.
+- **Orden de la página:** portada → Què cal instal·lar → Temari → Exemples de classe →
+  Exercicis pràctics → Artefactes extra.
+- **Temari:** un bloque por módulo con el material de sus sesiones (presentación y
+  carpeta), el contenido, los ejercicios y los recursos. La sesión de hoy sale marcada.
 - **Dos idiomas:** catalán (por defecto) y castellano, con selector arriba a la derecha.
   Se recuerda la elección de cada alumno.
-- **Què cal instal·lar:** justo después de la portada, antes del cronograma. Los
-  imprescindibles a la vista; los opcionales, plegados.
-- **Exercicis pràctics:** después del cronograma. Un aviso «Nou» en la portada lleva
-  directamente a ellos. El detalle de cada caso (criterios y tareas) sale plegado.
+- **Què cal instal·lar:** los imprescindibles a la vista; los opcionales, plegados.
+- **Exercicis pràctics:** una caja plegable por semana. El aviso «Nou» de la portada
+  lleva a ellos y abre la semana indicada.
 - **Lo que no tiene enlace** sale como «Próximamente», sin enlace roto.
 - Funciona en móvil.
 

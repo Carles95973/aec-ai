@@ -12,7 +12,7 @@
    · Los `id` de las sesiones (s01…s06) son los que enlazan con
      `enlaces.js`: si cambias uno, cámbialo allí.
    · `requisitos`: lo que hay que instalar, con su enlace de descarga.
-   · `practicas`: los exercicis pràctics por equipos (rutas y casos).
+   · `practicas`: los exercicis pràctics, uno por semana.
    ========================================================================== */
 
 window.CURSO = {
@@ -47,119 +47,213 @@ window.CURSO = {
   ],
 
   /* ------------------------------------------------------ EXERCICIS PRÀCTICS
-     Treball per equips durant les classes. Cada equip tria un cas.
-     · `nou: true` mostra l'avís «Nou · Exercicis pràctics» a la portada.
-     · `inicio`: sessió en què comencen (s04 = 1 oct).
-     · `primerDia`: el repartiment del temps el primer dia, en minuts.
-     · La carpeta de Drive de les pràctiques va a enlaces.js (`practicas`).    */
+     Un exercici per setmana; a la web, cada setmana és una caixa plegable.
+     · `nou: true` mostra l'avís «Nou» a la portada; `nouTxt` és el text i
+       `nouSemana` la setmana que obre en clicar-lo.
+     · Cada setmana: `n`, `sesiones` (les dates que es mostren), `abierta`
+       (si surt desplegada) i `tipo`: "rutas" (casos per triar) o "caso"
+       (un únic cas per a tothom).
+     · Les carpetes de Drive van a enlaces.js → `practicas.semana2` / `semana3`. */
   practicas: {
     nou: true,
-    inicio: "s04",
-    equipos: { es: "2 personas (rutas 1–3) · 2–4 (ruta 4)", ca: "2 persones (rutes 1–3) · 2–4 (ruta 4)" },
-    primerDia: [
-      { min: 60,
-        titulo: { es: "Planteamiento",     ca: "Plantejament" },
-        desc:   { es: "Cómo resolver el caso: spec, datos, herramientas y evaluación.", ca: "Com resoldre el cas: spec, dades, eines i avaluació." } },
-      { min: 30,
-        titulo: { es: "Primeros ejemplos", ca: "Primers exemples" },
-        desc:   { es: "Generar los primeros datos y pruebas.",                          ca: "Generar les primeres dades i proves." } },
-      { min: 90,
-        titulo: { es: "Implementación",    ca: "Implementació" },
-        desc:   { es: "Construir la primera versión de la herramienta.",               ca: "Construir la primera versió de l’eina." } }
-    ],
-    nota: {
-      es: "El resto de la sesión es explicación. En las sesiones siguientes se va mejorando la herramienta.",
-      ca: "La resta de la sessió és explicació. A les sessions següents es va millorant l’eina."
-    },
-
-    niveles: [
+    nouTxt: { es: "Caso Garrigues", ca: "Cas Garrigues" },
+    nouSemana: "semana3",
+    semanas: [
       {
-        id: "novell",
-        titulo: { es: "Rutas nivel novel", ca: "Rutes nivell novell" },
-        herramientas: ["Claude", "ChatGPT"],
-        rutas: [
+        id: "semana2", n: 2, sesiones: ["s04"], abierta: false, tipo: "rutas",
+        titulo: { es: "Rutas por equipos", ca: "Rutes per equips" },
+        inicio: "s04",
+        equipos: { es: "2 personas (rutas 1–3) · 2–4 (ruta 4)", ca: "2 persones (rutes 1–3) · 2–4 (ruta 4)" },
+        primerDia: [
+          { min: 60,
+            titulo: { es: "Planteamiento",     ca: "Plantejament" },
+            desc:   { es: "Cómo resolver el caso: spec, datos, herramientas y evaluación.", ca: "Com resoldre el cas: spec, dades, eines i avaluació." } },
+          { min: 30,
+            titulo: { es: "Primeros ejemplos", ca: "Primers exemples" },
+            desc:   { es: "Generar los primeros datos y pruebas.",                          ca: "Generar les primeres dades i proves." } },
+          { min: 90,
+            titulo: { es: "Implementación",    ca: "Implementació" },
+            desc:   { es: "Construir la primera versión de la herramienta.",               ca: "Construir la primera versió de l’eina." } }
+        ],
+        nota: {
+          es: "El resto de la sesión es explicación. En las sesiones siguientes se va mejorando la herramienta.",
+          ca: "La resta de la sessió és explicació. A les sessions següents es va millorant l’eina."
+        },
+
+        niveles: [
           {
-            n: 1, equipo: "2",
-            titulo: { es: "Asistente personal y correo", ca: "Assistent personal i correu" },
-            casos: [
+            id: "novell",
+            titulo: { es: "Rutas nivel novel", ca: "Rutes nivell novell" },
+            herramientas: ["Claude", "ChatGPT"],
+            rutas: [
               {
-                id: "1A",
-                titulo:    { es: "Consulta técnica y respuesta por correo", ca: "Consulta tècnica i resposta per correu" },
-                escenario: { es: "Una empresa de mantenimiento industrial tiene un conjunto de manuales y necesita una herramienta interna para consultarlos.",
-                             ca: "Una empresa de manteniment industrial té un conjunt de manuals i necessita una eina interna per consultar-los." },
-                criterios: [
-                  { es: "Una herramienta capaz de navegar de forma escalable hasta 100 manuales.", ca: "Una eina capaç de navegar de manera escalable fins a 100 manuals." },
-                  { es: "Número de aciertos >90 %.",                                            ca: "Percentatge d’encerts >90 %." },
-                  { es: "Capacidad de aprender y clasificar consultas.",                        ca: "Capacitat d’aprendre i classificar consultes." },
-                  { es: "Responder peticiones por correo electrónico.",                         ca: "Respondre peticions per correu electrònic." },
-                  { es: "Redacción de un breve análisis de riesgos y mitigación.",              ca: "Redacció d’una breu anàlisi de riscos i mitigació." }
-                ],
-                tareas: [
-                  { es: "Recopilar datos abiertos o generar datos.",                            ca: "Recopilar dades obertes o generar-ne." },
-                  { es: "Escoger el sistema de almacenamiento y consulta de documentos.",       ca: "Triar el sistema d’emmagatzematge i consulta de documents." },
-                  { es: "Implementar la evaluación con casos canónicos positivos y negativos.", ca: "Implementar l’avaluació amb casos canònics positius i negatius." },
-                  { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." },
-                  { es: "Conectarlo a un servicio de correo.",                                  ca: "Connectar-ho a un servei de correu." }
+                n: 1, equipo: "2",
+                titulo: { es: "Asistente personal y correo", ca: "Assistent personal i correu" },
+                casos: [
+                  {
+                    id: "1A",
+                    titulo:    { es: "Consulta técnica y respuesta por correo", ca: "Consulta tècnica i resposta per correu" },
+                    escenario: { es: "Una empresa de mantenimiento industrial tiene un conjunto de manuales y necesita una herramienta interna para consultarlos.",
+                                 ca: "Una empresa de manteniment industrial té un conjunt de manuals i necessita una eina interna per consultar-los." },
+                    criterios: [
+                      { es: "Una herramienta capaz de navegar de forma escalable hasta 100 manuales.", ca: "Una eina capaç de navegar de manera escalable fins a 100 manuals." },
+                      { es: "Número de aciertos >90 %.",                                            ca: "Percentatge d’encerts >90 %." },
+                      { es: "Capacidad de aprender y clasificar consultas.",                        ca: "Capacitat d’aprendre i classificar consultes." },
+                      { es: "Responder peticiones por correo electrónico.",                         ca: "Respondre peticions per correu electrònic." },
+                      { es: "Redacción de un breve análisis de riesgos y mitigación.",              ca: "Redacció d’una breu anàlisi de riscos i mitigació." }
+                    ],
+                    tareas: [
+                      { es: "Recopilar datos abiertos o generar datos.",                            ca: "Recopilar dades obertes o generar-ne." },
+                      { es: "Escoger el sistema de almacenamiento y consulta de documentos.",       ca: "Triar el sistema d’emmagatzematge i consulta de documents." },
+                      { es: "Implementar la evaluación con casos canónicos positivos y negativos.", ca: "Implementar l’avaluació amb casos canònics positius i negatius." },
+                      { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." },
+                      { es: "Conectarlo a un servicio de correo.",                                  ca: "Connectar-ho a un servei de correu." }
+                    ]
+                  },
+                  {
+                    id: "1B",
+                    titulo:    { es: "Triaje de bandeja y borradores", ca: "Triatge de la safata d’entrada i esborranys" },
+                    escenario: { es: "Se necesita un sistema que procese los correos, los clasifique y gestione sus respuestas.",
+                                 ca: "Cal un sistema que processi els correus, els classifiqui i en gestioni les respostes." },
+                    criterios: [
+                      { es: "Una herramienta capaz de leer los correos desde una fecha y clasificarlos.", ca: "Una eina capaç de llegir els correus des d’una data i classificar-los." },
+                      { es: "Actuar de forma diferente según la clasificación (limitado a 2 intenciones posibles, p. ej. presupuesto y asistencia).",
+                        ca: "Actuar de manera diferent segons la classificació (limitat a 2 intencions possibles, p. ex. pressupost i assistència)." },
+                      { es: "Capacidad de aprender y clasificar consultas.",                        ca: "Capacitat d’aprendre i classificar consultes." },
+                      { es: "Responder peticiones por correo electrónico.",                         ca: "Respondre peticions per correu electrònic." }
+                    ],
+                    tareas: [
+                      { es: "Implementar la evaluación con casos canónicos positivos y negativos.", ca: "Implementar l’avaluació amb casos canònics positius i negatius." },
+                      { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." },
+                      { es: "Conectarlo a un servicio de correo.",                                  ca: "Connectar-ho a un servei de correu." }
+                    ]
+                  }
                 ]
               },
               {
-                id: "1B",
-                titulo:    { es: "Triaje de bandeja y borradores", ca: "Triatge de la safata d’entrada i esborranys" },
-                escenario: { es: "Se necesita un sistema que procese los correos, los clasifique y gestione sus respuestas.",
-                             ca: "Cal un sistema que processi els correus, els classifiqui i en gestioni les respostes." },
-                criterios: [
-                  { es: "Una herramienta capaz de leer los correos desde una fecha y clasificarlos.", ca: "Una eina capaç de llegir els correus des d’una data i classificar-los." },
-                  { es: "Actuar de forma diferente según la clasificación (limitado a 2 intenciones posibles, p. ej. presupuesto y asistencia).",
-                    ca: "Actuar de manera diferent segons la classificació (limitat a 2 intencions possibles, p. ex. pressupost i assistència)." },
-                  { es: "Capacidad de aprender y clasificar consultas.",                        ca: "Capacitat d’aprendre i classificar consultes." },
-                  { es: "Responder peticiones por correo electrónico.",                         ca: "Respondre peticions per correu electrònic." }
-                ],
-                tareas: [
-                  { es: "Implementar la evaluación con casos canónicos positivos y negativos.", ca: "Implementar l’avaluació amb casos canònics positius i negatius." },
-                  { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." },
-                  { es: "Conectarlo a un servicio de correo.",                                  ca: "Connectar-ho a un servei de correu." }
+                n: 2, equipo: "2",
+                titulo: { es: "Generación de documentación técnica", ca: "Generació de documentació tècnica" },
+                casos: [
+                  {
+                    id: "2A",
+                    titulo:    { es: "Memoria técnica a partir de cálculos", ca: "Memòria tècnica a partir de càlculs" },
+                    escenario: { es: "A partir de unos datos base de resultados de cálculo y de los datos básicos de un proyecto, hay que generar una memoria técnica lista para entregar.",
+                                 ca: "A partir d’unes dades base de resultats de càlcul i de les dades bàsiques d’un projecte, cal generar una memòria tècnica a punt per lliurar." },
+                    criterios: [
+                      { es: "Una herramienta capaz de generar un Word y un PDF a partir de un conjunto de datos.", ca: "Una eina capaç de generar un Word i un PDF a partir d’un conjunt de dades." },
+                      { es: "Precisión >95 %.",                                                     ca: "Precisió >95 %." },
+                      { es: "Capacidad de aprender conceptos y adaptarse a la evolución de la normativa.", ca: "Capacitat d’aprendre conceptes i adaptar-se a l’evolució de la normativa." }
+                    ],
+                    tareas: [
+                      { es: "Recopilar datos abiertos o generar datos.",                            ca: "Recopilar dades obertes o generar-ne." },
+                      { es: "Construir un sistema de plantillas.",                                  ca: "Construir un sistema de plantilles." },
+                      { es: "Establecer un procedimiento.",                                         ca: "Establir un procediment." },
+                      { es: "Implementar la evaluación con casos canónicos positivos y negativos.", ca: "Implementar l’avaluació amb casos canònics positius i negatius." },
+                      { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." }
+                    ]
+                  },
+                  {
+                    id: "2B",
+                    titulo:    { es: "Informe pericial", ca: "Informe pericial" },
+                    escenario: { es: "A partir de unos datos básicos sobre una patología y un conjunto de imágenes, hay que generar un informe pericial listo para entregar.",
+                                 ca: "A partir d’unes dades bàsiques sobre una patologia i un conjunt d’imatges, cal generar un informe pericial a punt per lliurar." },
+                    criterios: [
+                      { es: "Una herramienta capaz de generar un Word y un PDF a partir de un conjunto de datos.", ca: "Una eina capaç de generar un Word i un PDF a partir d’un conjunt de dades." },
+                      { es: "Precisión >95 %.",                                                     ca: "Precisió >95 %." },
+                      { es: "Capacidad de aprender conceptos y casos anteriores.",                  ca: "Capacitat d’aprendre conceptes i casos anteriors." }
+                    ],
+                    tareas: [
+                      { es: "Recopilar datos abiertos o generar datos.",                            ca: "Recopilar dades obertes o generar-ne." },
+                      { es: "Construir un sistema de plantillas.",                                  ca: "Construir un sistema de plantilles." },
+                      { es: "Establecer un procedimiento.",                                         ca: "Establir un procediment." },
+                      { es: "Implementar la evaluación con casos canónicos positivos y negativos.", ca: "Implementar l’avaluació amb casos canònics positius i negatius." },
+                      { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." }
+                    ]
+                  }
                 ]
               }
             ]
           },
           {
-            n: 2, equipo: "2",
-            titulo: { es: "Generación de documentación técnica", ca: "Generació de documentació tècnica" },
-            casos: [
+            id: "avancat",
+            titulo: { es: "Rutas nivel avanzado", ca: "Rutes nivell avançat" },
+            herramientas: ["Claude", "ChatGPT", "Claude Code", "Codex"],
+            rutas: [
               {
-                id: "2A",
-                titulo:    { es: "Memoria técnica a partir de cálculos", ca: "Memòria tècnica a partir de càlculs" },
-                escenario: { es: "A partir de unos datos base de resultados de cálculo y de los datos básicos de un proyecto, hay que generar una memoria técnica lista para entregar.",
-                             ca: "A partir d’unes dades base de resultats de càlcul i de les dades bàsiques d’un projecte, cal generar una memòria tècnica a punt per lliurar." },
-                criterios: [
-                  { es: "Una herramienta capaz de generar un Word y un PDF a partir de un conjunto de datos.", ca: "Una eina capaç de generar un Word i un PDF a partir d’un conjunt de dades." },
-                  { es: "Precisión >95 %.",                                                     ca: "Precisió >95 %." },
-                  { es: "Capacidad de aprender conceptos y adaptarse a la evolución de la normativa.", ca: "Capacitat d’aprendre conceptes i adaptar-se a l’evolució de la normativa." }
-                ],
-                tareas: [
-                  { es: "Recopilar datos abiertos o generar datos.",                            ca: "Recopilar dades obertes o generar-ne." },
-                  { es: "Construir un sistema de plantillas.",                                  ca: "Construir un sistema de plantilles." },
-                  { es: "Establecer un procedimiento.",                                         ca: "Establir un procediment." },
-                  { es: "Implementar la evaluación con casos canónicos positivos y negativos.", ca: "Implementar l’avaluació amb casos canònics positius i negatius." },
-                  { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." }
+                n: 3, equipo: "2",
+                titulo: { es: "Automatización de documentos y gestión de la comunicación", ca: "Automatització de documents i gestió de la comunicació" },
+                casos: [
+                  {
+                    id: "3A",
+                    titulo:    { es: "Acta de reunión de obra y seguimiento de acciones", ca: "Acta de reunió d’obra i seguiment d’accions" },
+                    escenario: { es: "Una dirección de obra necesita que, tras cada reunión, se genere el acta a partir de las notas, las imágenes y el audio. El sistema también tiene que actualizar el registro de acciones pendientes y enviar a cada agente lo que le afecta.",
+                                 ca: "Una direcció d’obra necessita que, després de cada reunió, es generi l’acta a partir de les notes, les imatges i l’àudio. El sistema també ha d’actualitzar el registre d’accions pendents i enviar a cada agent el que l’afecta." },
+                    criterios: [
+                      { es: "Una herramienta capaz de generar el acta en Word y PDF a partir de notas, imágenes y audio.", ca: "Una eina capaç de generar l’acta en Word i PDF a partir de notes, imatges i àudio." },
+                      { es: "Arrastre de las acciones abiertas del acta anterior sin pérdidas (100 % trazadas).",         ca: "Arrossegament de les accions obertes de l’acta anterior sense pèrdues (100 % traçades)." },
+                      { es: "Precisión >95 % en acuerdos, responsables y fechas frente a un acta de referencia.",        ca: "Precisió >95 % en acords, responsables i dates respecte a una acta de referència." },
+                      { es: "Envío por correo a cada agente de sus pendientes, solo tras aprobación humana.",            ca: "Enviament per correu a cada agent dels seus pendents, només després de l’aprovació humana." },
+                      { es: "Capacidad de aprender el formato y los criterios de la dirección de obra.",                 ca: "Capacitat d’aprendre el format i els criteris de la direcció d’obra." }
+                    ],
+                    tareas: [
+                      { es: "Recopilar datos abiertos o generar datos (2–3 reuniones simuladas con audio, notas y fotos).", ca: "Recopilar dades obertes o generar-ne (2–3 reunions simulades amb àudio, notes i fotos)." },
+                      { es: "Redactar la spec: agentes, formato del acta, numeración de acciones y criterios de envío.",   ca: "Redactar la spec: agents, format de l’acta, numeració d’accions i criteris d’enviament." },
+                      { es: "Construir un sistema de plantillas.",                                  ca: "Construir un sistema de plantilles." },
+                      { es: "Establecer un procedimiento.",                                         ca: "Establir un procediment." },
+                      { es: "Implementar la evaluación con casos canónicos positivos y negativos.", ca: "Implementar l’avaluació amb casos canònics positius i negatius." },
+                      { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." }
+                    ]
+                  },
+                  {
+                    id: "3B",
+                    titulo:    { es: "Control documental y selección de soluciones", ca: "Control documental i selecció de solucions" },
+                    escenario: { es: "Una oficina técnica necesita comprobar si las soluciones propuestas por el contratista o disponibles en el mercado cumplen los requisitos del proyecto. De las aptas, tiene que seleccionar la mejor y comunicar la decisión.",
+                                 ca: "Una oficina tècnica necessita comprovar si les solucions proposades pel contractista o disponibles al mercat compleixen els requisits del projecte. D’entre les aptes, ha de seleccionar la millor i comunicar la decisió." },
+                    criterios: [
+                      { es: "Una herramienta capaz de recibir documentación técnica (fichas, certificados, etc.) y completarla buscando en la web del fabricante y en la normativa.",
+                        ca: "Una eina capaç de rebre documentació tècnica (fitxes, certificats, etc.) i completar-la cercant al web del fabricant i a la normativa." },
+                      { es: "Extracción de los datos clave.",                                       ca: "Extracció de les dades clau." },
+                      { es: "Precisión >95 % en los datos extraídos y en el veredicto apto / no apto.", ca: "Precisió >95 % en les dades extretes i en el veredicte apte / no apte." },
+                      { es: "Selección de la mejor opción, justificada con criterios ponderados.",  ca: "Selecció de la millor opció, justificada amb criteris ponderats." },
+                      { es: "Informe comparativo en Word y PDF.",                                   ca: "Informe comparatiu en Word i PDF." },
+                      { es: "Correo al contratista con la decisión y la documentación que falta.",  ca: "Correu al contractista amb la decisió i la documentació que falta." },
+                      { es: "Capacidad de aprender criterios de decisión de proyectos anteriores.", ca: "Capacitat d’aprendre criteris de decisió de projectes anteriors." }
+                    ],
+                    tareas: [
+                      { es: "Recopilar datos abiertos o generar datos (fichas reales de 3–5 soluciones de fabricante).",   ca: "Recopilar dades obertes o generar-ne (fitxes reals de 3–5 solucions de fabricant)." },
+                      { es: "Redactar la spec: requisitos del proyecto, fuentes válidas, criterios de aptitud y ponderación.", ca: "Redactar la spec: requisits del projecte, fonts vàlides, criteris d’aptitud i ponderació." },
+                      { es: "Construir un sistema de plantillas.",                                  ca: "Construir un sistema de plantilles." },
+                      { es: "Establecer un procedimiento.",                                         ca: "Establir un procediment." },
+                      { es: "Conectarlo a un servicio de correo.",                                  ca: "Connectar-ho a un servei de correu." },
+                      { es: "Implementar la evaluación con casos canónicos positivos y negativos (una solución no apta sembrada y un certificado caducado).",
+                        ca: "Implementar l’avaluació amb casos canònics positius i negatius (una solució no apta sembrada i un certificat caducat)." },
+                      { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." }
+                    ]
+                  }
                 ]
               },
               {
-                id: "2B",
-                titulo:    { es: "Informe pericial", ca: "Informe pericial" },
-                escenario: { es: "A partir de unos datos básicos sobre una patología y un conjunto de imágenes, hay que generar un informe pericial listo para entregar.",
-                             ca: "A partir d’unes dades bàsiques sobre una patologia i un conjunt d’imatges, cal generar un informe pericial a punt per lliurar." },
-                criterios: [
-                  { es: "Una herramienta capaz de generar un Word y un PDF a partir de un conjunto de datos.", ca: "Una eina capaç de generar un Word i un PDF a partir d’un conjunt de dades." },
-                  { es: "Precisión >95 %.",                                                     ca: "Precisió >95 %." },
-                  { es: "Capacidad de aprender conceptos y casos anteriores.",                  ca: "Capacitat d’aprendre conceptes i casos anteriors." }
-                ],
-                tareas: [
-                  { es: "Recopilar datos abiertos o generar datos.",                            ca: "Recopilar dades obertes o generar-ne." },
-                  { es: "Construir un sistema de plantillas.",                                  ca: "Construir un sistema de plantilles." },
-                  { es: "Establecer un procedimiento.",                                         ca: "Establir un procediment." },
-                  { es: "Implementar la evaluación con casos canónicos positivos y negativos.", ca: "Implementar l’avaluació amb casos canònics positius i negatius." },
-                  { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." }
+                n: 4, equipo: "2–4",
+                titulo: { es: "Desarrollo de software", ca: "Desenvolupament de software" },
+                casos: [
+                  {
+                    id: "4",
+                    titulo:    { es: "Herramienta de consulta de precios y generación de ofertas", ca: "Eina de consulta de preus i generació d’ofertes" },
+                    escenario: { es: "Construir una herramienta que permita consultar bases de datos de precios y construir un presupuesto u oferta a partir de estos datos, con introducción manual del usuario y/o mediante un chatbot integrado.",
+                                 ca: "Construir una eina que permeti consultar bases de dades de preus i confeccionar un pressupost o una oferta a partir d’aquestes dades, amb introducció manual per part de l’usuari i/o mitjançant un xatbot integrat." },
+                    criterios: [
+                      { es: "Tener una herramienta que permita realizar consultas de precios.",     ca: "Disposar d’una eina que permeti fer consultes de preus." },
+                      { es: "Las consultas tienen que ir a una base de datos PostgreSQL.",          ca: "Les consultes han d’anar a una base de dades PostgreSQL." },
+                      { es: "La herramienta tiene que construir un presupuesto coherente, como mínimo para instalaciones de climatización.", ca: "L’eina ha de construir un pressupost coherent, com a mínim per a instal·lacions de climatització." },
+                      { es: "Stack moderno con Python.",                                            ca: "Stack modern amb Python." },
+                      { es: "Capacidad de aprender la forma de proceder del usuario.",              ca: "Capacitat d’aprendre la manera de procedir de l’usuari." }
+                    ],
+                    tareas: [
+                      { es: "Recopilar datos abiertos o generar datos.",                            ca: "Recopilar dades obertes o generar-ne." },
+                      { es: "Construir la herramienta.",                                            ca: "Construir l’eina." },
+                      { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." }
+                    ]
+                  }
                 ]
               }
             ]
@@ -167,87 +261,51 @@ window.CURSO = {
         ]
       },
       {
-        id: "avancat",
-        titulo: { es: "Rutas nivel avanzado", ca: "Rutes nivell avançat" },
-        herramientas: ["Claude", "ChatGPT", "Claude Code", "Codex"],
-        rutas: [
-          {
-            n: 3, equipo: "2",
-            titulo: { es: "Automatización de documentos y gestión de la comunicación", ca: "Automatització de documents i gestió de la comunicació" },
-            casos: [
-              {
-                id: "3A",
-                titulo:    { es: "Acta de reunión de obra y seguimiento de acciones", ca: "Acta de reunió d’obra i seguiment d’accions" },
-                escenario: { es: "Una dirección de obra necesita que, tras cada reunión, se genere el acta a partir de las notas, las imágenes y el audio. El sistema también tiene que actualizar el registro de acciones pendientes y enviar a cada agente lo que le afecta.",
-                             ca: "Una direcció d’obra necessita que, després de cada reunió, es generi l’acta a partir de les notes, les imatges i l’àudio. El sistema també ha d’actualitzar el registre d’accions pendents i enviar a cada agent el que l’afecta." },
-                criterios: [
-                  { es: "Una herramienta capaz de generar el acta en Word y PDF a partir de notas, imágenes y audio.", ca: "Una eina capaç de generar l’acta en Word i PDF a partir de notes, imatges i àudio." },
-                  { es: "Arrastre de las acciones abiertas del acta anterior sin pérdidas (100 % trazadas).",         ca: "Arrossegament de les accions obertes de l’acta anterior sense pèrdues (100 % traçades)." },
-                  { es: "Precisión >95 % en acuerdos, responsables y fechas frente a un acta de referencia.",        ca: "Precisió >95 % en acords, responsables i dates respecte a una acta de referència." },
-                  { es: "Envío por correo a cada agente de sus pendientes, solo tras aprobación humana.",            ca: "Enviament per correu a cada agent dels seus pendents, només després de l’aprovació humana." },
-                  { es: "Capacidad de aprender el formato y los criterios de la dirección de obra.",                 ca: "Capacitat d’aprendre el format i els criteris de la direcció d’obra." }
-                ],
-                tareas: [
-                  { es: "Recopilar datos abiertos o generar datos (2–3 reuniones simuladas con audio, notas y fotos).", ca: "Recopilar dades obertes o generar-ne (2–3 reunions simulades amb àudio, notes i fotos)." },
-                  { es: "Redactar la spec: agentes, formato del acta, numeración de acciones y criterios de envío.",   ca: "Redactar la spec: agents, format de l’acta, numeració d’accions i criteris d’enviament." },
-                  { es: "Construir un sistema de plantillas.",                                  ca: "Construir un sistema de plantilles." },
-                  { es: "Establecer un procedimiento.",                                         ca: "Establir un procediment." },
-                  { es: "Implementar la evaluación con casos canónicos positivos y negativos.", ca: "Implementar l’avaluació amb casos canònics positius i negatius." },
-                  { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." }
-                ]
-              },
-              {
-                id: "3B",
-                titulo:    { es: "Control documental y selección de soluciones", ca: "Control documental i selecció de solucions" },
-                escenario: { es: "Una oficina técnica necesita comprobar si las soluciones propuestas por el contratista o disponibles en el mercado cumplen los requisitos del proyecto. De las aptas, tiene que seleccionar la mejor y comunicar la decisión.",
-                             ca: "Una oficina tècnica necessita comprovar si les solucions proposades pel contractista o disponibles al mercat compleixen els requisits del projecte. D’entre les aptes, ha de seleccionar la millor i comunicar la decisió." },
-                criterios: [
-                  { es: "Una herramienta capaz de recibir documentación técnica (fichas, certificados, etc.) y completarla buscando en la web del fabricante y en la normativa.",
-                    ca: "Una eina capaç de rebre documentació tècnica (fitxes, certificats, etc.) i completar-la cercant al web del fabricant i a la normativa." },
-                  { es: "Extracción de los datos clave.",                                       ca: "Extracció de les dades clau." },
-                  { es: "Precisión >95 % en los datos extraídos y en el veredicto apto / no apto.", ca: "Precisió >95 % en les dades extretes i en el veredicte apte / no apte." },
-                  { es: "Selección de la mejor opción, justificada con criterios ponderados.",  ca: "Selecció de la millor opció, justificada amb criteris ponderats." },
-                  { es: "Informe comparativo en Word y PDF.",                                   ca: "Informe comparatiu en Word i PDF." },
-                  { es: "Correo al contratista con la decisión y la documentación que falta.",  ca: "Correu al contractista amb la decisió i la documentació que falta." },
-                  { es: "Capacidad de aprender criterios de decisión de proyectos anteriores.", ca: "Capacitat d’aprendre criteris de decisió de projectes anteriors." }
-                ],
-                tareas: [
-                  { es: "Recopilar datos abiertos o generar datos (fichas reales de 3–5 soluciones de fabricante).",   ca: "Recopilar dades obertes o generar-ne (fitxes reals de 3–5 solucions de fabricant)." },
-                  { es: "Redactar la spec: requisitos del proyecto, fuentes válidas, criterios de aptitud y ponderación.", ca: "Redactar la spec: requisits del projecte, fonts vàlides, criteris d’aptitud i ponderació." },
-                  { es: "Construir un sistema de plantillas.",                                  ca: "Construir un sistema de plantilles." },
-                  { es: "Establecer un procedimiento.",                                         ca: "Establir un procediment." },
-                  { es: "Conectarlo a un servicio de correo.",                                  ca: "Connectar-ho a un servei de correu." },
-                  { es: "Implementar la evaluación con casos canónicos positivos y negativos (una solución no apta sembrada y un certificado caducado).",
-                    ca: "Implementar l’avaluació amb casos canònics positius i negatius (una solució no apta sembrada i un certificat caducat)." },
-                  { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." }
-                ]
-              }
-            ]
-          },
-          {
-            n: 4, equipo: "2–4",
-            titulo: { es: "Desarrollo de software", ca: "Desenvolupament de software" },
-            casos: [
-              {
-                id: "4",
-                titulo:    { es: "Herramienta de consulta de precios y generación de ofertas", ca: "Eina de consulta de preus i generació d’ofertes" },
-                escenario: { es: "Construir una herramienta que permita consultar bases de datos de precios y construir un presupuesto u oferta a partir de estos datos, con introducción manual del usuario y/o mediante un chatbot integrado.",
-                             ca: "Construir una eina que permeti consultar bases de dades de preus i confeccionar un pressupost o una oferta a partir d’aquestes dades, amb introducció manual per part de l’usuari i/o mitjançant un xatbot integrat." },
-                criterios: [
-                  { es: "Tener una herramienta que permita realizar consultas de precios.",     ca: "Disposar d’una eina que permeti fer consultes de preus." },
-                  { es: "Las consultas tienen que ir a una base de datos PostgreSQL.",          ca: "Les consultes han d’anar a una base de dades PostgreSQL." },
-                  { es: "La herramienta tiene que construir un presupuesto coherente, como mínimo para instalaciones de climatización.", ca: "L’eina ha de construir un pressupost coherent, com a mínim per a instal·lacions de climatització." },
-                  { es: "Stack moderno con Python.",                                            ca: "Stack modern amb Python." },
-                  { es: "Capacidad de aprender la forma de proceder del usuario.",              ca: "Capacitat d’aprendre la manera de procedir de l’usuari." }
-                ],
-                tareas: [
-                  { es: "Recopilar datos abiertos o generar datos.",                            ca: "Recopilar dades obertes o generar-ne." },
-                  { es: "Construir la herramienta.",                                            ca: "Construir l’eina." },
-                  { es: "Testear y evaluar.",                                                   ca: "Provar i avaluar." }
-                ]
-              }
-            ]
-          }
+        id: "semana3", n: 3, sesiones: ["s05", "s06"], abierta: true, tipo: "caso",
+        titulo: { es: "Caso Garrigues", ca: "Cas Garrigues" },
+        lema:   { es: "¿Dónde están los 1,2 millones?", ca: "On són els 1,2 milions?" },
+        cifras: [
+          { etq: { es: "Presupuesto", ca: "Pressupost" },         valor: "6,5 M€" },
+          { etq: { es: "Coste final", ca: "Cost final" },          valor: "7,7 M€" },
+          { etq: { es: "Desviación",  ca: "Desviació" },           valor: "1,2 M€", destacar: true },
+          { etq: { es: "Quiere reclamar", ca: "Vol reclamar" },    valor: "900.000 €" }
+        ],
+        relato: [
+          { es: "El lunes a las cuatro de la tarde, Jordi Teixidó se reúne con su abogado. Necesita saber por qué la granja de la familia, presupuestada en 6,5 millones, ha acabado costando 7,7.",
+            ca: "Dilluns a les quatre de la tarda, el Jordi Teixidó es reuneix amb el seu advocat. Necessita saber per què la granja de la família, pressupostada en 6,5 milions, n’ha acabat costant 7,7." },
+          { es: "Él cree que ya tiene la respuesta: el contratista ha inflado las horas, la roca es un invento, el cobre se lo ha comido todo y la eléctrica le ha robado. Quiere reclamar 900.000 €. Solo le falta un perito independiente que se lo confirme por escrito.",
+            ca: "Ell creu que ja té la resposta: el contractista ha inflat les hores, la roca és un invent, el coure s’ho ha menjat tot i l’elèctrica l’ha robat. Vol reclamar 900.000 €. Només li falta un perit independent que li ho confirmi per escrit." }
+        ],
+        golpe: { es: "Ese perito sois vosotros.", ca: "Aquest perit sou vosaltres." },
+        expediente: {
+          intro: { es: "Tenéis el expediente entero, tal como os lo ha dejado el cliente:", ca: "Teniu l’expedient sencer, tal com us l’ha deixat el client:" },
+          items: [
+            { es: "El contrato y el proyecto",                         ca: "El contracte i el projecte" },
+            { es: "Quince actas de obra",                              ca: "Quinze actes d’obra" },
+            { es: "Una cincuentena de correos",                        ca: "Una cinquantena de correus" },
+            { es: "Los WhatsApp del padre",                            ca: "Els WhatsApp del pare" },
+            { es: "Quince certificaciones con 158 partes de trabajo",  ca: "Quinze certificacions amb 158 parts de treball" },
+            { es: "La topografía",                                     ca: "La topografia" },
+            { es: "Una reunión grabada",                               ca: "Una reunió gravada" },
+            { es: "Las reclamaciones de las dos partes",               ca: "Les reclamacions de les dues parts" }
+          ],
+          nota: { es: "Cerca de 150 ficheros, en tres idiomas y sin ningún orden.", ca: "Prop de 150 fitxers, en tres idiomes i sense cap ordre." }
+        },
+        entregable: [
+          { es: "Un informe pericial preliminar que explique la desviación causa por causa, con el importe, el responsable, lo que se puede reclamar y la prueba de cada cosa.",
+            ca: "Un informe pericial preliminar que expliqui la desviació causa per causa, amb l’import, el responsable, el que es pot reclamar i la prova de cada cosa." },
+          { es: "Tres minutos ante el tribunal (el resto de la clase) para defenderlo.",
+            ca: "Tres minuts davant del tribunal (la resta de la classe) per defensar-lo." }
+        ],
+        reglas: [
+          { es: "Cada cifra que deis tiene que llevar el documento y la fecha de donde sale. Una afirmación sin fuente no cuenta.",
+            ca: "Cada xifra que doneu ha de dur el document i la data d’on surt. Una afirmació sense font no compta." },
+          { es: "El cliente os paga, pero no os compra. El informe dice lo que dicen las pruebas.",
+            ca: "El client us paga, però no us compra. L’informe diu el que diuen les proves." },
+          { es: "Durante la sesión pasarán cosas. Habrá información nueva, y quizá alguien os pida cosas que no deberíais hacer.",
+            ca: "Durant la sessió passaran coses. Hi haurà informació nova, i potser algú us demanarà coses que no hauríeu de fer." },
+          { es: "Podéis usar todo lo que hemos visto en el curso. Cómo, lo decidís vosotros.",
+            ca: "Podeu fer servir tot el que hem vist al curs. Com, ho decidiu vosaltres." }
         ]
       }
     ]

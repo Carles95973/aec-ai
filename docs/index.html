@@ -18,11 +18,9 @@
   <header class="barra" id="barra">
     <a class="barra__marca" href="#inicio"><span class="marca__cod">AEC·AI</span><span class="marca__txt" data-t="marca"></span></a>
     <nav class="barra__nav">
-      <div class="conmutador" role="tablist" aria-label="Vista">
-        <button type="button" data-vista="dias" data-t="porDias"></button>
-        <button type="button" data-vista="itinerario" data-t="porItinerario"></button>
-      </div>
-      <a class="barra__extras" href="#practicas" data-t="practNav"></a>
+      <a class="barra__extras" href="#curso" data-t="itinNav"></a>
+      <a class="barra__extras" href="#ejemplos" data-t="ejemNav"></a>
+      <a class="barra__extras barra__extras--fijo" href="#practicas" data-t="practNav"></a>
       <a class="barra__extras" href="#extras" data-t="extras"></a>
       <div class="idioma" role="group" aria-label="Idioma">
         <button type="button" data-idioma="ca">CA</button>
@@ -52,19 +50,8 @@
       <h1 class="hero__titulo" id="heroTitulo"></h1>
       <p class="hero__intro" data-t="intro"></p>
 
-      <div class="selector" id="selector">
-        <span class="selector__etq" data-t="verCurso"></span>
-        <div class="desplegable" id="desplegable">
-          <button type="button" class="desplegable__btn" id="desplegableBtn" aria-haspopup="listbox" aria-expanded="false">
-            <span id="desplegableTxt"></span>
-            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-          </button>
-          <ul class="desplegable__lista" role="listbox" id="desplegableLista">
-            <li role="option" data-vista="dias"><b data-t="porDias"></b><small data-t="porDiasDesc"></small></li>
-            <li role="option" data-vista="itinerario"><b data-t="porItinerario"></b><small data-t="porItinerarioDesc"></small></li>
-          </ul>
-        </div>
-        <a class="boton boton--ir" href="#curso" id="irCurso"><span data-t="entrar"></span> ↓</a>
+      <div class="selector">
+        <a class="boton boton--ir" href="#curso"><span data-t="entrar"></span> ↓</a>
       </div>
     </div>
 
@@ -81,15 +68,25 @@
     <div id="reqLista"></div>
   </section>
 
-  <!-- CURSO: cronograma o itinerario -->
+  <!-- TEMARI: itinerario por módulos, con el material de cada sesión -->
   <main class="seccion" id="curso">
     <div class="seccion__cab">
-      <span class="cod" id="cursoCod"></span>
-      <h2 id="cursoTitulo"></h2>
-      <p id="cursoSub"></p>
+      <span class="cod" data-t="itinCod"></span>
+      <h2 data-t="itinTitulo"></h2>
+      <p data-t="itinSub"></p>
     </div>
     <div id="vista"></div>
   </main>
+
+  <!-- EXEMPLES DE CLASSE -->
+  <section class="seccion seccion--extras" id="ejemplos">
+    <div class="ficha extras">
+      <span class="cod" data-t="ejemCod"></span>
+      <h2 class="extras__titulo" data-t="ejemTitulo"></h2>
+      <p class="extras__sub" data-t="ejemSub"></p>
+      <div id="ejemLista"></div>
+    </div>
+  </section>
 
   <!-- EXERCICIS PRÀCTICS -->
   <section class="seccion seccion--pract" id="practicas">
@@ -104,7 +101,7 @@
   <!-- ARTEFACTOS EXTRA -->
   <section class="seccion seccion--extras" id="extras">
     <div class="ficha extras">
-      <span class="cod">03 · EXTRA</span>
+      <span class="cod">04 · EXTRA</span>
       <h2 class="extras__titulo" data-t="extrasTitulo"></h2>
       <p class="extras__sub" data-t="extrasSub"></p>
       <div id="extrasLista"></div>

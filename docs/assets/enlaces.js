@@ -38,10 +38,16 @@ window.ENLACES = {
     s06: { presentacion: "", carpeta: "" }
   },
 
+  /* --- Exemples de classe -----------------------------------------------
+     La carpeta de Drive con los ejemplos hechos en clase.                   */
+  ejemplos: "",
+
   /* --- Exercicis pràctics ------------------------------------------------
-     Carpeta de Drive con el material de las prácticas (datos, plantillas…).
-     Vacío = el botón sale como «Properament».                               */
-  practicas: "",
+     Una carpeta por semana. Vacío = el botón sale como «Properament».       */
+  practicas: {
+    semana2: "",   // Rutes per equips: datos, plantillas…
+    semana3: ""    // Cas Garrigues: el expediente
+  },
 
   /* --- Artefactos extra -------------------------------------------------
      La carpeta de Drive con todos los artefactos extra. Vacío = «Properament». */

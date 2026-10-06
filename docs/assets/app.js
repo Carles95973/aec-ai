@@ -11,20 +11,20 @@
   var T = {
     es: {
       marca: "IA aplicada a la ingeniería",
-      intro: "Seis sesiones para pasar de «la IA no me funciona» a procesos de oficina técnica fiables: modelos, contexto, agentes, automatización y gobernanza. Aquí tienes cada sesión, su material y los enlaces a Drive.",
-      verCurso: "Ver el curso", entrar: "Entrar",
-      porDias: "Por días", porDiasDesc: "Cronograma: qué toca en cada sesión",
-      porItinerario: "Por itinerario", porItinerarioDesc: "El temario, módulo a módulo",
+      intro: "Seis sesiones para pasar de «la IA no me funciona» a procesos de oficina técnica fiables: modelos, contexto, agentes, automatización y gobernanza. Aquí tienes el temario, el material de cada sesión, los ejemplos y los ejercicios.",
+      entrar: "Ver el temario", itinNav: "Temario", ejemNav: "Ejemplos",
       extras: "Artefactos",
       nou: "Nuevo", nouTxt: "Ejercicios prácticos", practNav: "Prácticas",
-      practCod: "02 · PRÁCTICAS", practTitulo: "Ejercicios prácticos", practSub: "Trabajo por equipos durante las clases. Cada equipo elige un caso y lo resuelve con IA, de la especificación a la evaluación.",
+      practCod: "03 · PRÁCTICAS", practTitulo: "Ejercicios prácticos", practSub: "Un ejercicio por equipos cada semana. Abre cada semana para ver el enunciado.",
+      semana: "Semana", expediente: "El expediente", entregable: "El entregable", reglas: "Las reglas del juego", carpetaExp: "Expediente en Drive",
+      ejemCod: "02 · EJEMPLOS", ejemTitulo: "Ejemplos de clase", ejemSub: "Los ejemplos que hemos hecho en clase, todos en una carpeta de Drive.", ejemBoton: "Carpeta de ejemplos",
+      material: "Material de las sesiones", carpetaC: "Carpeta",
       fEquipos: "Equipos", fCasos: "Casos", unCaso: "uno por equipo", fCuando: "Cuándo", primerDia: "Primera sesión", herramientas: "Herramientas",
       ruta: "Ruta", equipoDe: "Equipos de", escenario: "Escenario", criterios: "Criterios de éxito", tareas: "Tareas", verDetalle: "Criterios de éxito y tareas", carpetaPract: "Carpeta de prácticas",
       reqCod: "00 · ANTES DE EMPEZAR", reqTitulo: "Qué hay que instalar", reqSub: "Tenlo listo antes de la primera sesión.",
       obligatorio: "Imprescindible", opcional: "Opcional", descargar: "Descargar ↗", abrirWeb: "Abrir ↗",
       opcionales: "Opcionales", opcionalesTxt: "Solo para algunos ejercicios y los artefactos extra",
-      diasCod: "01 · CRONOGRAMA", diasTitulo: "Sesión a sesión", diasSub: "Seis sesiones, de septiembre a octubre. Abre cada día para ver el resumen, los ejercicios y el material en Drive.",
-      itinCod: "01 · ITINERARIO", itinTitulo: "El temario", itinSub: "Cuatro módulos. Cada uno con sus bloques, sus ejercicios y el día en que se trabaja.",
+      itinCod: "01 · ITINERARIO", itinTitulo: "El temario", itinSub: "Cuatro módulos. Cada uno con el material de sus sesiones, sus bloques y sus ejercicios.",
       extrasTitulo: "Artefactos extra", extrasSub: "Aplicaciones de ejemplo fuera de temario, hechas con IA. Están todas en una carpeta de Drive; se abren con doble clic en su .bat y necesitan Node.js.",
       sesion: "Sesión", modulo: "Módulo", hoy: "Hoy", siguiente: "Próxima", hecha: "Impartida",
       temas: "Contenido", ejercicios: "Ejercicios", recursos: "Para seguir", ejercicio: "Ejercicio",
@@ -39,20 +39,20 @@
     },
     ca: {
       marca: "IA aplicada a l’enginyeria",
-      intro: "Sis sessions per passar de «la IA no em funciona» a processos d’oficina tècnica fiables: models, context, agents, automatització i governança. Aquí tens cada sessió, el seu material i els enllaços a Drive.",
-      verCurso: "Veure el curs", entrar: "Entrar",
-      porDias: "Per dies", porDiasDesc: "Cronograma: què toca a cada sessió",
-      porItinerario: "Per itinerari", porItinerarioDesc: "El temari, mòdul a mòdul",
+      intro: "Sis sessions per passar de «la IA no em funciona» a processos d’oficina tècnica fiables: models, context, agents, automatització i governança. Aquí tens el temari, el material de cada sessió, els exemples i els exercicis.",
+      entrar: "Veure el temari", itinNav: "Temari", ejemNav: "Exemples",
       extras: "Artefactes",
       nou: "Nou", nouTxt: "Exercicis pràctics", practNav: "Pràctiques",
-      practCod: "02 · PRÀCTIQUES", practTitulo: "Exercicis pràctics", practSub: "Treball per equips durant les classes. Cada equip tria un cas i el resol amb IA, de l’especificació a l’avaluació.",
+      practCod: "03 · PRÀCTIQUES", practTitulo: "Exercicis pràctics", practSub: "Un exercici per equips cada setmana. Obre cada setmana per veure’n l’enunciat.",
+      semana: "Setmana", expediente: "L’expedient", entregable: "El lliurable", reglas: "Les regles del joc", carpetaExp: "Expedient a Drive",
+      ejemCod: "02 · EXEMPLES", ejemTitulo: "Exemples de classe", ejemSub: "Els exemples que hem fet a classe, tots en una carpeta de Drive.", ejemBoton: "Carpeta d’exemples",
+      material: "Material de les sessions", carpetaC: "Carpeta",
       fEquipos: "Equips", fCasos: "Casos", unCaso: "un per equip", fCuando: "Quan", primerDia: "Primera sessió", herramientas: "Eines",
       ruta: "Ruta", equipoDe: "Equips de", escenario: "Escenari", criterios: "Criteris d’èxit", tareas: "Tasques", verDetalle: "Criteris d’èxit i tasques", carpetaPract: "Carpeta de pràctiques",
       reqCod: "00 · ABANS DE COMENÇAR", reqTitulo: "Què cal instal·lar", reqSub: "Tingues-ho a punt abans de la primera sessió.",
       obligatorio: "Imprescindible", opcional: "Opcional", descargar: "Descarregar ↗", abrirWeb: "Obrir ↗",
       opcionales: "Opcionals", opcionalesTxt: "Només per a alguns exercicis i els artefactes extra",
-      diasCod: "01 · CRONOGRAMA", diasTitulo: "Sessió a sessió", diasSub: "Sis sessions, de setembre a octubre. Obre cada dia per veure’n el resum, els exercicis i el material a Drive.",
-      itinCod: "01 · ITINERARI", itinTitulo: "El temari", itinSub: "Quatre mòduls. Cadascun amb els seus blocs, els seus exercicis i el dia en què es treballa.",
+      itinCod: "01 · ITINERARI", itinTitulo: "El temari", itinSub: "Quatre mòduls. Cadascun amb el material de les seves sessions, els seus blocs i els seus exercicis.",
       extrasTitulo: "Artefactes extra", extrasSub: "Aplicacions d’exemple fora de temari, fetes amb IA. Són totes en una carpeta de Drive; s’obren amb doble clic al seu .bat i necessiten Node.js.",
       sesion: "Sessió", modulo: "Mòdul", hoy: "Avui", siguiente: "Propera", hecha: "Impartida",
       temas: "Contingut", ejercicios: "Exercicis", recursos: "Per seguir", ejercicio: "Exercici",
@@ -73,10 +73,8 @@
 
   var hash = location.hash.replace("#", "");
   var estado = {
-    idioma: leer("aecai.idioma") || "ca",   // català per defecte
-    vista: (hash === "itinerario" || hash === "dias") ? hash : (leer("aecai.vista") || "dias")
+    idioma: leer("aecai.idioma") || "ca"   // català per defecte
   };
-  var abiertas = null; // ids de sesiones desplegadas (se calcula en el primer pintado)
 
   function t(k) { return T[estado.idioma][k]; }
   function tx(o) { return o ? (o[estado.idioma] || o.es || "") : ""; }
@@ -105,7 +103,9 @@
     var ids = {}, fallos = [];
     C.sesiones.forEach(function (s) { ids[s.id] = 1; });
     Object.keys(L.sesiones || {}).forEach(function (k) { if (!ids[k]) fallos.push("enlaces.js → sesiones." + k + " no existe en curso.js"); });
-    ["extras", "practicas"].forEach(function (k) { if (L[k] !== undefined && typeof L[k] !== "string") fallos.push("enlaces.js → " + k + " ha de ser una URL entre comillas"); });
+    ["extras", "ejemplos"].forEach(function (k) { if (L[k] !== undefined && typeof L[k] !== "string") fallos.push("enlaces.js → " + k + " ha de ser una URL entre comillas"); });
+    var sem = {}; ((C.practicas && C.practicas.semanas) || []).forEach(function (w) { sem[w.id] = 1; });
+    Object.keys(L.practicas || {}).forEach(function (k) { if (!sem[k]) fallos.push("enlaces.js → practicas." + k + " no existe en curso.js"); });
     if (fallos.length && window.console) console.warn("[AEC·AI] Revisa enlaces.js:\n· " + fallos.join("\n· "));
   }
 
@@ -123,48 +123,29 @@
   }
   function numMod(id) { return id.replace("m", ""); }
 
-  /* -------------------------------------------------------------- VISTA DÍAS */
-  function pintarDias() {
-    var sit = situacion();
-    if (!abiertas) { abiertas = {}; if (sit.foco) abiertas[sit.foco.id] = true; }
-    var html = C.sesiones.map(function (s) {
-      var est = sit.porSesion[s.id], d = fecha(s.fecha);
-      var ejs = C.ejercicios.filter(function (e) { return e.sesion === s.id; });
-      var mods = [s.modulo].concat(ejs.map(function (e) { return e.modulo; })).filter(function (m, i, a) { return a.indexOf(m) === i; }).sort();
-      var chapaEst = est === "hoy" ? '<span class="chapa chapa--hoy">' + esc(t("hoy")) + "</span>"
-        : est === "siguiente" ? '<span class="chapa chapa--hoy">' + esc(t("siguiente")) + "</span>"
-        : est === "pasada" ? '<span class="chapa chapa--ok">✓ ' + esc(t("hecha")) + "</span>" : "";
-      return '<article class="sesion aparece ' + est + (abiertas[s.id] ? " abierta" : "") + '" id="' + s.id + '" data-mod="' + s.modulo + '">' +
-        '<div class="sesion__fecha"><span class="sesion__dia">' + ("0" + d.getDate()).slice(-2) + '</span><span class="sesion__mes">' + esc(t("meses")[d.getMonth()]) + " " + d.getFullYear() +
-        '</span><span class="sesion__sem">' + esc(t("dias")[d.getDay()]) + (s.horario ? " · " + esc(s.horario) : "") + "</span></div>" +
-        '<div class="ficha"><button type="button" class="ficha__cab" aria-expanded="' + (abiertas[s.id] ? "true" : "false") + '">' +
-        '<span class="ficha__meta"><span class="chapa">S' + s.id.slice(1) + "</span>" +
-        mods.map(function (m) { return '<span class="chapa chapa--mod">' + esc(t("modulo")) + " " + numMod(m) + "</span>"; }).join("") + chapaEst + "</span>" +
-        '<span class="ficha__titulo">' + esc(tx(s.titulo)) + '</span><span class="ficha__mas" aria-hidden="true">+</span></button>' +
-        '<div class="ficha__cuerpo"><p class="ficha__resumen">' + esc(tx(s.resumen)) + "</p>" +
-        '<h4 class="rotulo">' + esc(t("temas")) + '</h4><ul class="temas">' + s.temas.map(function (x) { return "<li>" + esc(tx(x)) + "</li>"; }).join("") + "</ul>" +
-        (ejs.length ? '<h4 class="rotulo">' + esc(t("ejercicios")) + '</h4><ul class="ejs">' + ejs.map(function (e) { return filaEj(e, false); }).join("") + "</ul>" : "") +
-        '<div class="acciones">' + enlace(lnkSesion(s.id, "carpeta"), t("carpeta"), "boton--lleno") + enlace(lnkSesion(s.id, "presentacion"), t("presentacion")) + "</div>" +
-        "</div></div></article>";
-    }).join("");
-    $("#vista").innerHTML = '<div class="crono">' + html + "</div>";
-    $$(".ficha__cab").forEach(function (b) {
-      b.addEventListener("click", function () {
-        var a = b.closest(".sesion"), on = a.classList.toggle("abierta");
-        abiertas[a.id] = on; b.setAttribute("aria-expanded", on ? "true" : "false");
-      });
-    });
+  /* -------------------------------------------------------------- ITINERARIO */
+  function miniEnlace(u, texto) {
+    var h = url(u);
+    return h ? '<a href="' + h + '" target="_blank" rel="noopener">' + esc(texto) + " ↗</a>" : '<span class="pend" title="' + esc(t("pendiente")) + '">' + esc(texto) + "</span>";
   }
-
-  /* -------------------------------------------------------- VISTA ITINERARIO */
+  function filaSesion(s, sit) {
+    var d = fecha(s.fecha), hoy = sit.porSesion[s.id] === "hoy";
+    return '<li class="ej ses' + (hoy ? " ses--hoy" : "") + '"><span class="ej__n">S' + s.id.slice(1) + '</span><span class="ej__t">' + esc(tx(s.titulo)) +
+      '<span class="ej__sesion">' + esc(t("dias")[d.getDay()]) + " " + esc(corta(s.fecha)) + (s.horario ? " · " + esc(s.horario) : "") +
+      (hoy ? ' · <b class="ses__hoy">' + esc(t("hoy")) + "</b>" : "") + '</span></span><span class="ses__acc">' +
+      miniEnlace(lnkSesion(s.id, "presentacion"), t("presentacion")) + miniEnlace(lnkSesion(s.id, "carpeta"), t("carpetaC")) + "</span></li>";
+  }
   function pintarItinerario() {
+    var sit = situacion();
     var html = C.modulos.map(function (m) {
       var ejs = C.ejercicios.filter(function (e) { return e.modulo === m.id; });
+      var propias = C.sesiones.filter(function (s) { return s.modulo === m.id; });
       var ids = C.sesiones.filter(function (s) { return s.modulo === m.id || ejs.some(function (e) { return e.sesion === s.id; }); });
       return '<article class="modulo aparece" data-mod="' + m.id + '" id="' + m.id + '">' +
         '<div class="modulo__lado"><div><span class="cod">' + esc(t("modulo")) + '</span><div class="modulo__num">0' + numMod(m.id) + "</div></div>" +
-        '<div class="modulo__fechas">' + ids.map(function (s) { return '<a href="#' + s.id + '" data-ir="' + s.id + '">S' + s.id.slice(1) + " · " + esc(corta(s.fecha)) + " →</a>"; }).join("") + "</div></div>" +
+        '<div class="modulo__fechas">' + ids.map(function (s) { return "<span>S" + s.id.slice(1) + " · " + esc(corta(s.fecha)) + "</span>"; }).join("") + "</div></div>" +
         '<div class="modulo__cuerpo"><h3 class="modulo__titulo">' + esc(tx(m.titulo)) + "</h3>" +
+        (propias.length ? '<h4 class="rotulo">' + esc(t("material")) + '</h4><ul class="ejs">' + propias.map(function (s) { return filaSesion(s, sit); }).join("") + "</ul>" : "") +
         '<h4 class="rotulo">' + esc(t("temas")) + '</h4><ul class="temas">' + m.bloques.map(function (b) { return "<li>" + esc(tx(b)) + "</li>"; }).join("") + "</ul>" +
         (ejs.length ? '<h4 class="rotulo">' + esc(t("ejercicios")) + '</h4><ul class="ejs">' + ejs.map(function (e) { return filaEj(e, true); }).join("") + "</ul>" : "") +
         (m.recursos && m.recursos.length ? '<h4 class="rotulo">' + esc(t("recursos")) + '</h4><div class="recursos">' +
@@ -172,15 +153,11 @@
         "</div></article>";
     }).join("");
     $("#vista").innerHTML = '<div class="itin">' + html + "</div>";
-    $$("[data-ir]").forEach(function (a) {
-      a.addEventListener("click", function (ev) {
-        ev.preventDefault();
-        var id = a.getAttribute("data-ir");
-        abiertas = abiertas || {}; abiertas[id] = true;
-        ponerVista("dias");
-        var el = document.getElementById(id); if (el) el.scrollIntoView({ block: "start" });
-      });
-    });
+  }
+
+  /* ---------------------------------------------------------------- EJEMPLOS */
+  function pintarEjemplos() {
+    $("#ejemLista").innerHTML = '<div class="acciones">' + enlace(L.ejemplos, t("ejemBoton"), "boton--lleno") + "</div>";
   }
 
   /* ------------------------------------------------------------------ EXTRAS */
@@ -216,39 +193,35 @@
 
   /* ------------------------------------------------------ EXERCICIS PRÀCTICS */
   var casosAbiertos = {};   // detalle de cada caso: plegado hasta que se toca
+  var semAbiertas = {};     // cajas de semana que el alumno ha abierto o cerrado
   function minutos(m) { return m % 60 ? (m >= 60 ? Math.floor(m / 60) + " h " + (m % 60) + " min" : m + " min") : (m / 60) + " h"; }
-  function pintarPracticas() {
-    var P = C.practicas, sec = $("#practicas");
-    if (!P) { sec.hidden = true; return; }
-    var ids = C.sesiones.map(function (x) { return x.id; });
-    var s0 = C.sesiones[Math.max(0, ids.indexOf(P.inicio))], sN = C.sesiones[C.sesiones.length - 1];
-    var nCasos = 0; P.niveles.forEach(function (n) { n.rutas.forEach(function (r) { nCasos += r.casos.length; }); });
-    var total = P.primerDia.reduce(function (a, b) { return a + b.min; }, 0);
+  function lista(items, ord) { var tag = ord ? "ol" : "ul"; return "<" + tag + ' class="' + (ord ? "tareas" : "temas") + '">' + items.map(function (x) { return "<li>" + esc(tx(x)) + "</li>"; }).join("") + "</" + tag + ">"; }
+  function datosDl(filas, clase) {
+    return '<dl class="prac-datos ' + (clase || "") + '">' + filas.map(function (p) {
+      return "<div" + (p[2] ? ' class="dest"' : "") + "><dt>" + esc(p[0]) + "</dt><dd>" + esc(p[1]) + "</dd></div>";
+    }).join("") + "</dl>";
+  }
+  function enlacePract(id) { return (L.practicas && typeof L.practicas === "object") ? (L.practicas[id] || "") : ""; }
 
-    var datos = '<dl class="prac-datos">' + [
-      [t("fEquipos"), tx(P.equipos)],
-      [t("fCasos"), nCasos + " · " + t("unCaso")],
-      [t("fCuando"), corta(s0.fecha) + " – " + corta(sN.fecha)]
-    ].map(function (p) { return "<div><dt>" + esc(p[0]) + "</dt><dd>" + esc(p[1]) + "</dd></div>"; }).join("") + "</dl>";
-
+  function cuerpoRutas(w) {
+    var ses = C.sesiones.filter(function (x) { return x.id === w.inicio; })[0] || C.sesiones[0], sN = C.sesiones[C.sesiones.length - 1];
+    var nCasos = 0; w.niveles.forEach(function (n) { n.rutas.forEach(function (r) { nCasos += r.casos.length; }); });
+    var total = w.primerDia.reduce(function (a, b) { return a + b.min; }, 0);
+    var datos = datosDl([[t("fEquipos"), tx(w.equipos)], [t("fCasos"), nCasos + " · " + t("unCaso")], [t("fCuando"), corta(ses.fecha)]]);
     var hoja = '<div class="roadmap"><div class="roadmap__cab"><span class="rotulo-s">' + esc(t("primerDia")) + " · " +
-      esc(t("dias")[fecha(s0.fecha).getDay()]) + " " + esc(corta(s0.fecha)) + '</span><span class="roadmap__total">' + esc(minutos(total)) + "</span></div>" +
-      '<div class="roadmap__barra">' + P.primerDia.map(function (b, k) {
+      esc(t("dias")[fecha(ses.fecha).getDay()]) + " " + esc(corta(ses.fecha)) + '</span><span class="roadmap__total">' + esc(minutos(total)) + "</span></div>" +
+      '<div class="roadmap__barra">' + w.primerDia.map(function (b, k) {
         return '<div class="roadmap__tramo" style="flex:' + b.min + ";--p:" + (b.min / total * 100).toFixed(1) + '%"><span class="roadmap__min">' +
           ("0" + (k + 1)).slice(-2) + " · " + esc(minutos(b.min)) + "</span><b>" + esc(tx(b.titulo)) + "</b><span>" + esc(tx(b.desc)) + "</span></div>";
-      }).join("") + '</div><p class="roadmap__nota">' + esc(tx(P.nota)) + "</p></div>";
-
+      }).join("") + '</div><p class="roadmap__nota">' + esc(tx(w.nota)) + "</p></div>";
     function caso(c) {
-      var ab = casosAbiertos[c.id];
       return '<article class="cas"><div class="cas__cab"><span class="cas__id">' + esc(c.id) + "</span><h5>" + esc(tx(c.titulo)) + "</h5></div>" +
         '<p class="cas__esc"><span class="cas__etq">' + esc(t("escenario")) + "</span>" + esc(tx(c.escenario)) + "</p>" +
-        '<details class="cas__det" data-caso="' + esc(c.id) + '"' + (ab ? " open" : "") + '><summary><span class="opc__mas" aria-hidden="true">+</span>' + esc(t("verDetalle")) + "</summary>" +
-        '<div class="cas__cols"><div><h6 class="rotulo">' + esc(t("criterios")) + '</h6><ul class="temas">' +
-        c.criterios.map(function (x) { return "<li>" + esc(tx(x)) + "</li>"; }).join("") + "</ul></div>" +
-        '<div><h6 class="rotulo">' + esc(t("tareas")) + '</h6><ol class="tareas">' +
-        c.tareas.map(function (x) { return "<li>" + esc(tx(x)) + "</li>"; }).join("") + "</ol></div></div></details></article>";
+        '<details class="cas__det" data-caso="' + esc(c.id) + '"' + (casosAbiertos[c.id] ? " open" : "") + '><summary><span class="opc__mas" aria-hidden="true">+</span>' + esc(t("verDetalle")) + "</summary>" +
+        '<div class="cas__cols"><div><h6 class="rotulo">' + esc(t("criterios")) + "</h6>" + lista(c.criterios) + "</div>" +
+        '<div><h6 class="rotulo">' + esc(t("tareas")) + "</h6>" + lista(c.tareas, true) + "</div></div></details></article>";
     }
-    var niveles = P.niveles.map(function (n) {
+    var niveles = w.niveles.map(function (n) {
       return '<div class="nivel nivel--' + esc(n.id) + '"><div class="nivel__cab"><h3>' + esc(tx(n.titulo)) + '</h3><div class="nivel__eines"><span class="cod">' +
         esc(t("herramientas")) + "</span>" + n.herramientas.map(function (h) { return '<span class="chapa">' + esc(h) + "</span>"; }).join("") + "</div></div>" +
         n.rutas.map(function (r) {
@@ -257,10 +230,37 @@
             '<div class="casos">' + r.casos.map(caso).join("") + "</div></section>";
         }).join("") + "</div>";
     }).join("");
+    return datos + hoja + niveles + '<div class="acciones">' + enlace(enlacePract(w.id), t("carpetaPract"), "boton--lleno") + "</div>";
+  }
 
-    $("#practLista").innerHTML = datos + hoja + niveles + '<div class="acciones">' + enlace(L.practicas, t("carpetaPract"), "boton--lleno") + "</div>";
+  function cuerpoCaso(w) {
+    return '<div class="exp"><p class="exp__lema">' + esc(tx(w.lema)) + "</p>" +
+      datosDl(w.cifras.map(function (c) { return [tx(c.etq), c.valor, c.destacar]; }), "prac-datos--cifras") +
+      '<div class="exp__relato">' + w.relato.map(function (p) { return "<p>" + esc(tx(p)) + "</p>"; }).join("") +
+      '<p class="exp__golpe">' + esc(tx(w.golpe)) + "</p></div>" +
+      '<div class="exp__cols">' +
+        '<div><h6 class="rotulo">' + esc(t("expediente")) + '</h6><p class="exp__intro">' + esc(tx(w.expediente.intro)) + "</p>" + lista(w.expediente.items) +
+          '<p class="exp__nota">' + esc(tx(w.expediente.nota)) + "</p></div>" +
+        '<div><h6 class="rotulo">' + esc(t("entregable")) + "</h6>" + lista(w.entregable, true) + "</div>" +
+        '<div><h6 class="rotulo">' + esc(t("reglas")) + "</h6>" + lista(w.reglas, true) + "</div>" +
+      "</div>" +
+      '<div class="acciones">' + enlace(enlacePract(w.id), t("carpetaExp"), "boton--lleno") + "</div></div>";
+  }
+
+  function pintarPracticas() {
+    var P = C.practicas, sec = $("#practicas");
+    if (!P || !P.semanas) { sec.hidden = true; return; }
+    $("#practLista").innerHTML = P.semanas.map(function (w) {
+      var abierta = (w.id in semAbiertas) ? semAbiertas[w.id] : w.abierta;
+      var fechas = (w.sesiones || []).map(function (id) { var x = C.sesiones.filter(function (y) { return y.id === id; })[0]; return x ? corta(x.fecha) : ""; }).filter(Boolean).join(" · ");
+      return '<details class="semana semana--' + esc(w.tipo) + '" id="' + esc(w.id) + '" data-sem="' + esc(w.id) + '"' + (abierta ? " open" : "") + ">" +
+        '<summary class="semana__cab"><span class="semana__n">' + esc(t("semana")) + " " + w.n + '</span><span class="semana__tit">' + esc(tx(w.titulo)) + '</span><span class="semana__fechas">' + esc(fechas) + '</span><span class="ficha__mas" aria-hidden="true">+</span></summary>' +
+        '<div class="semana__cuerpo">' + (w.tipo === "caso" ? cuerpoCaso(w) : cuerpoRutas(w)) + "</div></details>";
+    }).join("");
+    $$("#practLista .semana").forEach(function (d) { d.addEventListener("toggle", function () { semAbiertas[d.getAttribute("data-sem")] = d.open; }); });
     $$("#practLista .cas__det").forEach(function (d) { d.addEventListener("toggle", function () { casosAbiertos[d.getAttribute("data-caso")] = d.open; }); });
     $$(".nou").forEach(function (a) { a.hidden = !P.nou; });
+    if (P.nouTxt) $$(".nou__txt").forEach(function (el) { el.textContent = tx(P.nouTxt); });
   }
 
   /* -------------------------------------------------------------- PINTAR TODO */
@@ -289,22 +289,9 @@
     $("#pieEnlaces").innerHTML = "<h3>" + esc(t("enlaces")) + "</h3><ul>" + li.join("") + "</ul>";
   }
 
-  function pintarVista() {
-    var d = estado.vista === "dias";
-    $("#cursoCod").textContent = t(d ? "diasCod" : "itinCod");
-    $("#cursoTitulo").textContent = t(d ? "diasTitulo" : "itinTitulo");
-    $("#cursoSub").textContent = t(d ? "diasSub" : "itinSub");
-    $("#desplegableTxt").textContent = t(d ? "porDias" : "porItinerario");
-    $$("[data-vista]").forEach(function (b) {
-      var on = b.getAttribute("data-vista") === estado.vista;
-      b.classList.toggle("activo", on); if (b.tagName === "LI") b.setAttribute("aria-selected", on ? "true" : "false");
-    });
-    if (d) pintarDias(); else pintarItinerario();
-    observar();
-  }
+  function pintarVista() { pintarItinerario(); observar(); }
 
-  function ponerVista(v) { estado.vista = v; guardar("aecai.vista", v); pintarVista(); }
-  function ponerIdioma(i) { estado.idioma = i; guardar("aecai.idioma", i); pintarFijos(); pintarRequisitos(); pintarVista(); pintarPracticas(); pintarExtras(); observar(); }
+  function ponerIdioma(i) { estado.idioma = i; guardar("aecai.idioma", i); pintarFijos(); pintarRequisitos(); pintarVista(); pintarEjemplos(); pintarPracticas(); pintarExtras(); observar(); }
 
   /* ---------------------------------------------------- APARICIÓN CON SCROLL */
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
@@ -314,17 +301,10 @@
 
   /* ----------------------------------------------------------------- EVENTOS */
   function eventos() {
-    var dd = $("#desplegable"), btn = $("#desplegableBtn");
-    function cerrar() { dd.classList.remove("abierto"); btn.setAttribute("aria-expanded", "false"); }
-    btn.addEventListener("click", function (e) { e.stopPropagation(); var a = dd.classList.toggle("abierto"); btn.setAttribute("aria-expanded", a ? "true" : "false"); });
-    document.addEventListener("click", cerrar);
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") cerrar(); });
-
-    $$("[data-vista]").forEach(function (b) {
-      b.addEventListener("click", function () {
-        ponerVista(b.getAttribute("data-vista"));
-        cerrar();
-        $("#curso").scrollIntoView({ block: "start" });
+    $$(".nou").forEach(function (a) {
+      a.addEventListener("click", function () {
+        var id = C.practicas && C.practicas.nouSemana, d = id && document.getElementById(id);
+        if (d) { d.open = true; semAbiertas[id] = true; }
       });
     });
     $$("[data-idioma]").forEach(function (b) { b.addEventListener("click", function () { ponerIdioma(b.getAttribute("data-idioma")); }); });
@@ -445,6 +425,6 @@
   }
 
   /* ------------------------------------------------------------------ INICIO */
-  revisar(); pintarFijos(); pintarRequisitos(); pintarVista(); pintarPracticas(); pintarExtras(); observar(); eventos(); lienzo();
+  revisar(); pintarFijos(); pintarRequisitos(); pintarVista(); pintarEjemplos(); pintarPracticas(); pintarExtras(); observar(); eventos(); lienzo();
   if (hash === "itinerario" || hash === "dias") setTimeout(function () { $("#curso").scrollIntoView({ block: "start" }); }, 60);
 })();
