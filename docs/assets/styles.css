@@ -423,9 +423,9 @@ h1, h2, h3 { font-family: var(--f-titulo); text-transform: uppercase; letter-spa
 .dc-fichero code { font: 500 13px/1.4 var(--f-mono); color: var(--acento-2); background: var(--fondo-2); padding: 2px 6px; }
 .pasos { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .paso { position: relative; padding: 18px 18px 20px; background: var(--fondo-2); border: 1px solid var(--linea); }
-.paso__n { display: block; font: 700 44px/.85 var(--f-titulo); color: var(--acento); }
+.paso__n { display: block; font: 700 34px/.85 var(--f-titulo); color: var(--acento); }
 .paso h5 { margin: 10px 0 8px; font: 600 21px/1.05 var(--f-titulo); text-transform: uppercase; }
-.paso__desc { margin: 0 0 10px; font-size: 14.5px; color: var(--tenue); }
+.paso__desc { margin: 0; font-size: 15px; line-height: 1.45; color: #c9d0d6; }
 .paso .temas li { font-size: 14.5px; }
 .paso__nota { margin: 12px 0 0; font: 500 12px/1.45 var(--f-mono); letter-spacing: .04em; color: var(--acento-2); }
 .dc-ruta { padding: 12px 0; border-bottom: 1px solid var(--linea); }

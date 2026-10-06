@@ -311,69 +311,28 @@ window.CURSO = {
                    ca: "Terreny, equipament TI actiu, connexió elèctrica fora de parcel·la, honoraris, llicències, impostos i contingències del promotor." },
         recibis: {
           fichero: "DC100_pressupost_base_2023.xlsx",
-          intro: { es: "con estas pestañas:", ca: "amb aquestes pestanyes:" },
-          items: [
-            { es: "77 partidas con código, especificación o producto de referencia, unidad, cantidad, precio de 2023 y familia de coste;",
-              ca: "77 partides amb codi, especificació o producte de referència, unitat, quantitat, preu de 2023 i família de cost;" },
-            { es: "resumen por capítulos;",            ca: "resum per capítols;" },
-            { es: "parámetros de diseño;",             ca: "paràmetres de disseny;" },
-            { es: "peso de cada familia de coste.",    ca: "pes de cada família de cost." }
-          ]
+          intro: { es: "el presupuesto base del caso tipo, partida a partida.", ca: "el pressupost base del cas tipus, partida a partida." }
         },
         pasos: [
           { titulo: { es: "Planificar antes de construir", ca: "Planificar abans de construir" },
-            desc: { es: "Redactad una spec del problema y validadla con el profesor antes de pasar a la fase siguiente. Tiene que incluir:",
-                    ca: "Redacteu una spec del problema i valideu-la amb el professor abans de passar a la fase següent. Ha d’incloure:" },
-            items: [
-              { es: "el alcance de la actualización;", ca: "l’abast de l’actualització;" },
-              { es: "los datos de entrada que añadiréis al caso: índices, factores y cualquier otro dato que necesitéis;", ca: "les dades d’entrada que afegireu al cas: índexs, factors i qualsevol altra dada que necessiteu;" },
-              { es: "el método de actualización para cada tipo de partida;", ca: "el mètode d’actualització per a cada tipus de partida;" },
-              { es: "qué consideráis una solución obsoleta y qué es una alternativa equivalente;", ca: "què considereu una solució obsoleta i què és una alternativa equivalent;" },
-              { es: "los criterios de aceptación y los riesgos.", ca: "els criteris d’acceptació i els riscos." }
-            ] },
+            desc: { es: "Redactad la spec (alcance, datos de entrada, método, qué es obsoleto, criterios de aceptación y riesgos) y validadla con el profesor.",
+                    ca: "Redacteu la spec (abast, dades d’entrada, mètode, què és obsolet, criteris d’acceptació i riscos) i valideu-la amb el professor." } },
           { titulo: { es: "Definir las fuentes", ca: "Definir les fonts" },
-            desc: { es: "Haced un catálogo con todas las fuentes que usaréis. Pueden ser públicas (estadística oficial, boletines oficiales, informes del sector, catálogos de fabricante) o propias de la oficina. De cada fuente hay que indicar:",
-                    ca: "Feu un catàleg amb totes les fonts que fareu servir. Poden ser públiques (estadística oficial, butlletins oficials, informes del sector, catàlegs de fabricant) o pròpies de l’oficina. De cada font cal indicar:" },
-            items: [
-              { es: "de dónde sale y cómo se accede;", ca: "d’on surt i com s’hi accedeix;" },
-              { es: "de qué fecha es y con qué frecuencia se actualiza;", ca: "de quina data és i amb quina freqüència s’actualitza;" },
-              { es: "qué cubre;", ca: "què cobreix;" },
-              { es: "qué fiabilidad tiene;", ca: "quina fiabilitat té;" },
-              { es: "si se puede consultar de forma automática.", ca: "si es pot consultar de manera automàtica." }
-            ] },
-          { titulo: { es: "Comprobar la vigencia partida por partida", ca: "Comprovar la vigència partida per partida" },
-            items: [
-              { es: "Si el producto o la solución de referencia todavía existe y se puede comprar en España.", ca: "Si el producte o la solució de referència encara existeix i es pot comprar a Espanya." },
-              { es: "Si le afecta algún cambio normativo desde 2023, ya sea europeo, estatal o autonómico, o si hay alguno en tramitación que le afectará.", ca: "Si li afecta algun canvi normatiu des del 2023, ja sigui europeu, estatal o autonòmic, o si n’hi ha cap en tramitació que l’afectarà." },
-              { es: "Si no es vigente, proponed una alternativa y justificad su equivalencia: prestaciones, cumplimiento normativo e impacto en el precio y en el diseño.", ca: "Si no és vigent, proposeu una alternativa i justifiqueu-ne l’equivalència: prestacions, compliment normatiu i impacte en el preu i en el disseny." },
-              { es: "Si un cambio normativo afecta al diseño del caso tipo en conjunto, y no solo a una partida, hay que decirlo y cuantificar su impacto.", ca: "Si un canvi normatiu afecta el disseny del cas tipus en conjunt, i no només una partida, cal dir-ho i quantificar-ne l’impacte." }
-            ] },
+            desc: { es: "Catálogo de fuentes públicas y propias: origen, fecha, cobertura, fiabilidad y si se pueden consultar de forma automática.",
+                    ca: "Catàleg de fonts públiques i pròpies: origen, data, cobertura, fiabilitat i si es poden consultar de manera automàtica." } },
+          { titulo: { es: "Comprobar la vigencia", ca: "Comprovar la vigència" },
+            desc: { es: "Partida por partida: si el producto aún se puede comprar en España, si le afecta algún cambio normativo y, si no es vigente, una alternativa equivalente justificada.",
+                    ca: "Partida per partida: si el producte encara es pot comprar a Espanya, si li afecta algun canvi normatiu i, si no és vigent, una alternativa equivalent justificada." } },
           { titulo: { es: "Regenerar los precios", ca: "Regenerar els preus" },
-            desc: { es: "Cada partida tiene que indicar el método utilizado:", ca: "Cada partida ha d’indicar el mètode utilitzat:" },
-            items: [
-              { es: "precio actual de una fuente;", ca: "preu actual d’una font;" },
-              { es: "actualización por índice;", ca: "actualització per índex;" },
-              { es: "sustitución por una alternativa.", ca: "substitució per una alternativa." }
-            ] },
-          { titulo: { es: "Generar el informe para la oficina", ca: "Generar l’informe per a l’oficina" },
-            desc: { es: "Tiene que incluir:", ca: "Ha d’incloure:" },
-            items: [
-              { es: "el nuevo PEM y el nuevo PEC, en total y por MW;", ca: "el nou PEM i el nou PEC, en total i per MW;" },
-              { es: "la variación por capítulo y por familia de coste;", ca: "la variació per capítol i per família de cost;" },
-              { es: "las diez partidas que más pesan en la variación;", ca: "les deu partides que més pesen en la variació;" },
-              { es: "la comparación entre actualizarlo todo solo por índices y hacer la regeneración completa;", ca: "la comparació entre actualitzar-ho tot només per índexs i fer la regeneració completa;" },
-              { es: "la lista de cambios de producto y de normativa;", ca: "la llista de canvis de producte i de normativa;" },
-              { es: "un contraste con referencias de mercado por MW.", ca: "un contrast amb referències de mercat per MW." }
-            ] },
+            desc: { es: "Cada partida con su método: precio actual de una fuente, actualización por índice o sustitución por una alternativa.",
+                    ca: "Cada partida amb el seu mètode: preu actual d’una font, actualització per índex o substitució per una alternativa." } },
+          { titulo: { es: "Generar el informe", ca: "Generar l’informe" },
+            desc: { es: "Nuevo PEM y PEC, variaciones, partidas que más pesan, índices frente a regeneración completa, cambios de producto y normativa, y contraste con el mercado.",
+                    ca: "Nou PEM i PEC, variacions, partides que més pesen, índexs davant de regeneració completa, canvis de producte i normativa, i contrast amb el mercat." } },
           { titulo: { es: "Automatizar la actualización anual", ca: "Automatitzar l’actualització anual" },
-            desc: { es: "El sistema se tiene que ejecutar una vez al año y tiene que:", ca: "El sistema s’ha d’executar un cop l’any i ha de:" },
-            items: [
-              { es: "consultar las fuentes y comprobar que siguen disponibles;", ca: "consultar les fonts i comprovar que segueixen disponibles;" },
-              { es: "volver a pasar la comprobación de vigencia y de normativa;", ca: "tornar a passar la comprovació de vigència i de normativa;" },
-              { es: "regenerar los precios y el informe, con la comparación respecto al año anterior;", ca: "regenerar els preus i l’informe, amb la comparació respecte de l’any anterior;" },
-              { es: "detenerse y pedir validación humana cuando detecte una sustitución, un cambio normativo o una fuente que ha cambiado de formato.", ca: "aturar-se i demanar validació humana quan detecti una substitució, un canvi normatiu o una font que ha canviat de format." }
-            ],
-            nota: { es: "Probadlo simulando ejecuciones con fecha de corte en 2024, 2025 y 2026.", ca: "Proveu-lo simulant execucions amb data de tall a 2024, 2025 i 2026." } }
+            desc: { es: "Una vez al año: consulta las fuentes, revisa vigencia y normativa, regenera precios e informe, y se detiene para validación humana cuando detecta cambios.",
+                    ca: "Un cop l’any: consulta les fonts, revisa vigència i normativa, regenera preus i informe, i s’atura per a validació humana quan detecta canvis." },
+            nota: { es: "Probadlo con fechas de corte en 2024, 2025 y 2026.", ca: "Proveu-lo amb dates de tall a 2024, 2025 i 2026." } }
         ],
         entregables: [
           { es: "La spec y su registro de cambios.", ca: "La spec i el seu registre de canvis." },

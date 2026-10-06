@@ -136,7 +136,7 @@ repositorio en GitHub: ahí se ve si el despliegue falló.
     (`primerDia`, en minutos: la barra es proporcional) y niveles → rutas → casos.
   - `"enunciado"` (semana 3, cas tipus DC-100): un único enunciado para todos, con
     `lema`, `cifras`, `enunciado`, `ficha` (la tabla del caso), `incluye`/`excluye`,
-    `recibis`, `pasos` (cada uno con `titulo`, `desc`, `items` y `nota`),
+    `recibis`, `pasos` (cada uno con `titulo`, `desc` y, opcionalmente, `items` y `nota`),
     `entregables`, `plan` (tramos en minutos: la barra es proporcional) y `rutas`.
 
   Para añadir una semana, copia el bloque de una del mismo tipo y añade su carpeta en

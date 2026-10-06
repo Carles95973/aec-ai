@@ -297,11 +297,11 @@
         '<p class="dc-abast"><b>' + esc(t("incluye")) + "</b>" + esc(tx(w.incluye)) + "</p>" +
         '<p class="dc-abast dc-abast--no"><b>' + esc(t("excluye")) + "</b>" + esc(tx(w.excluye)) + "</p></div>" +
       '<div><h6 class="rotulo">' + esc(t("recibis")) + '</h6><p class="dc-fichero"><code>' + esc(w.recibis.fichero) + "</code> " + esc(tx(w.recibis.intro)) + "</p>" +
-        lista(w.recibis.items) + "</div></div>" +
+        (w.recibis.items ? lista(w.recibis.items) : "") + "</div></div>" +
 
       '<h6 class="rotulo">' + esc(t("pasosTit")) + '</h6><ol class="pasos">' + w.pasos.map(function (p, k) {
         return '<li class="paso"><span class="paso__n">' + (k + 1) + "</span><h5>" + esc(tx(p.titulo)) + "</h5>" +
-          (p.desc ? '<p class="paso__desc">' + esc(tx(p.desc)) + "</p>" : "") + lista(p.items) +
+          (p.desc ? '<p class="paso__desc">' + esc(tx(p.desc)) + "</p>" : "") + (p.items ? lista(p.items) : "") +
           (p.nota ? '<p class="paso__nota">' + esc(tx(p.nota)) + "</p>" : "") + "</li>";
       }).join("") + "</ol>" +
 
