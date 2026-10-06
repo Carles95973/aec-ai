@@ -45,5 +45,5 @@ window.ENLACES = {
 
   /* --- Artefactos extra -------------------------------------------------
      La carpeta de Drive con todos los artefactos extra. Vacío = «Properament». */
-  extras: ""
+  extras: "https://drive.google.com/drive/folders/1QxnGmE3qTv9iJgfrp69QhZ7qrrT9WQnz?usp=sharing"
 };
