@@ -51,12 +51,13 @@ window.CURSO = {
      · `nou: true` mostra l'avís «Nou» a la portada; `nouTxt` és el text i
        `nouSemana` la setmana que obre en clicar-lo.
      · Cada setmana: `n`, `sesiones` (les dates que es mostren), `abierta`
-       (si surt desplegada) i `tipo`: "rutas" (casos per triar) o "caso"
-       (un únic cas per a tothom).
+       (si surt desplegada) i `tipo`: "rutas" (casos per triar) o
+       "enunciado" (un únic enunciat per a tothom: fitxa, passos, lliurables,
+       planificació i rutes).
      · Les carpetes de Drive van a enlaces.js → `practicas.semana2` / `semana3`. */
   practicas: {
     nou: true,
-    nouTxt: { es: "Caso Garrigues", ca: "Cas Garrigues" },
+    nouTxt: { es: "Caso DC-100", ca: "Cas DC-100" },
     nouSemana: "semana3",
     semanas: [
       {
@@ -261,51 +262,146 @@ window.CURSO = {
         ]
       },
       {
-        id: "semana3", n: 3, sesiones: ["s05", "s06"], abierta: true, tipo: "caso",
-        titulo: { es: "Caso Garrigues", ca: "Cas Garrigues" },
-        lema:   { es: "¿Dónde están los 1,2 millones?", ca: "On són els 1,2 milions?" },
+        id: "semana3", n: 3, sesiones: ["s05", "s06"], abierta: true, tipo: "enunciado",
+        titulo: { es: "El caso tipo DC-100", ca: "El cas tipus DC-100" },
+        lema:   { es: "Un presupuesto de 2023 que tiene que ponerse al día cada año", ca: "Un pressupost del 2023 que s’ha de posar al dia cada any" },
         cifras: [
-          { etq: { es: "Presupuesto", ca: "Pressupost" },         valor: "6,5 M€" },
-          { etq: { es: "Coste final", ca: "Cost final" },          valor: "7,7 M€" },
-          { etq: { es: "Desviación",  ca: "Desviació" },           valor: "1,2 M€", destacar: true },
-          { etq: { es: "Quiere reclamar", ca: "Vol reclamar" },    valor: "900.000 €" }
+          { etq: { es: "Potencia TI", ca: "Potència TI" },           valor: "100 MW" },
+          { etq: { es: "PEM 2023",    ca: "PEM 2023" },              valor: "879,4 M€" },
+          { etq: { es: "PEC 2023",    ca: "PEC 2023" },              valor: "1.046,5 M€" },
+          { etq: { es: "Base de precios", ca: "Base de preus" },     valor: { es: "Marzo 2023", ca: "Març 2023" }, destacar: true }
         ],
-        relato: [
-          { es: "El lunes a las cuatro de la tarde, Jordi Teixidó se reúne con su abogado. Necesita saber por qué la granja de la familia, presupuestada en 6,5 millones, ha acabado costando 7,7.",
-            ca: "Dilluns a les quatre de la tarda, el Jordi Teixidó es reuneix amb el seu advocat. Necessita saber per què la granja de la família, pressupostada en 6,5 milions, n’ha acabat costant 7,7." },
-          { es: "Él cree que ya tiene la respuesta: el contratista ha inflado las horas, la roca es un invento, el cobre se lo ha comido todo y la eléctrica le ha robado. Quiere reclamar 900.000 €. Solo le falta un perito independiente que se lo confirme por escrito.",
-            ca: "Ell creu que ja té la resposta: el contractista ha inflat les hores, la roca és un invent, el coure s’ho ha menjat tot i l’elèctrica l’ha robat. Vol reclamar 900.000 €. Només li falta un perit independent que li ho confirmi per escrit." }
+        enunciado: [
+          { es: "Una oficina técnica trabaja siempre con una tipología de obra muy determinada: es especialista en centros de datos de unos 100 MW. Para hacer ofertas rápidas y coherentes usa un caso tipo, un centro de datos de referencia con su presupuesto, que adapta a cada cliente.",
+            ca: "Una oficina tècnica treballa sempre amb una tipologia d’obra molt determinada: és especialista en centres de dades d’uns 100 MW. Per fer ofertes ràpides i coherents fa servir un cas tipus, un centre de dades de referència amb el seu pressupost, que adapta a cada client." },
+          { es: "El problema es que el caso tipo se presupuestó en marzo de 2023 y desde entonces nadie lo ha tocado. La oficina quiere tenerlo siempre al día y que se actualice cada año. La actualización tiene que tener en cuenta:",
+            ca: "El problema és que el cas tipus es va pressupostar el març de 2023 i des de llavors ningú no l’ha tocat. L’oficina vol tenir-lo sempre al dia i que s’actualitzi cada any. L’actualització ha de tenir en compte:" }
         ],
-        golpe: { es: "Ese perito sois vosotros.", ca: "Aquest perit sou vosaltres." },
-        expediente: {
-          intro: { es: "Tenéis el expediente entero, tal como os lo ha dejado el cliente:", ca: "Teniu l’expedient sencer, tal com us l’ha deixat el client:" },
+        tenerEnCuenta: [
+          { es: "la evolución de los precios;",               ca: "l’evolució dels preus;" },
+          { es: "los productos que ya no se fabrican;",       ca: "els productes que ja no es fabriquen;" },
+          { es: "los cambios de normativa.",                  ca: "els canvis de normativa." }
+        ],
+        cierre: { es: "La oficina siempre trabaja en España.", ca: "L’oficina sempre treballa a Espanya." },
+        ficha: [
+          { etq: { es: "Potencia TI", ca: "Potència TI" }, valor: { es: "100 MW", ca: "100 MW" } },
+          { etq: { es: "Ubicación tipo", ca: "Ubicació tipus" },
+            valor: { es: "España peninsular, polígono industrial de interior, conexión a 220 kV", ca: "Espanya peninsular, polígon industrial d’interior, connexió a 220 kV" } },
+          { etq: { es: "Edificios", ca: "Edificis" },
+            valor: { es: "2 edificios de centro de datos (DC-A y DC-B) de 2 plantas y 32.000 m² cada uno; 1 edificio administrativo de 6.000 m²",
+                     ca: "2 edificis de centre de dades (DC-A i DC-B) de 2 plantes i 32.000 m² cadascun; 1 edifici administratiu de 6.000 m²" } },
+          { etq: { es: "Salas TI", ca: "Sales TI" }, valor: { es: "8 salas de 12,5 MW (4 por edificio)", ca: "8 sales de 12,5 MW (4 per edifici)" } },
+          { etq: { es: "Densidad", ca: "Densitat" },
+            valor: { es: "12–15 kW por rack, refrigeración por aire (unos 7.000 racks)", ca: "12–15 kW per rack, refrigeració per aire (uns 7.000 racks)" } },
+          { etq: { es: "PUE anual de diseño", ca: "PUE anual de disseny" }, valor: { es: "1,30", ca: "1,30" } },
+          { etq: { es: "Electricidad", ca: "Electricitat" },
+            valor: { es: "Subestación 220/30 kV con 3 transformadores de 80 MVA; bloques de 2,5 MW (40 TI + 8 de reserva + 8 mecánicos); 56 grupos electrógenos diésel; SAI con baterías",
+                     ca: "Subestació 220/30 kV amb 3 transformadors de 80 MVA; blocs de 2,5 MW (40 TI + 8 de reserva + 8 mecànics); 56 grups electrògens dièsel; SAI amb bateries" } },
+          { etq: { es: "Refrigeración", ca: "Refrigeració" },
+            valor: { es: "Enfriadoras condensadas por aire con free-cooling y unidades fan wall en sala", ca: "Refredadores condensades per aire amb free-cooling i unitats fan wall a sala" } },
+          { etq: { es: "Redundancia", ca: "Redundància" },
+            valor: { es: "Mantenibilidad concurrente (equivalente a Tier III), sin certificación", ca: "Mantenibilitat concurrent (equivalent a Tier III), sense certificació" } },
+          { etq: { es: "Base de precios", ca: "Base de preus" }, valor: { es: "Marzo de 2023 · importes sin IVA", ca: "Març de 2023 · imports sense IVA" } },
+          { etq: { es: "PEM", ca: "PEM" }, valor: { es: "879,4 M€ (8,8 M€/MW TI)", ca: "879,4 M€ (8,8 M€/MW TI)" } },
+          { etq: { es: "PEC (GG 13 % + BI 6 %)", ca: "PEC (DG 13 % + BI 6 %)" }, valor: { es: "1.046,5 M€ (10,5 M€/MW TI)", ca: "1.046,5 M€ (10,5 M€/MW TI)" } }
+        ],
+        incluye: { es: "Urbanización interior, obra civil, arquitectura, instalaciones, subestación y pruebas.",
+                   ca: "Urbanització interior, obra civil, arquitectura, instal·lacions, subestació i proves." },
+        excluye: { es: "Terreno, equipamiento TI activo, conexión eléctrica fuera de parcela, honorarios, licencias, impuestos y contingencias del promotor.",
+                   ca: "Terreny, equipament TI actiu, connexió elèctrica fora de parcel·la, honoraris, llicències, impostos i contingències del promotor." },
+        recibis: {
+          fichero: "DC100_pressupost_base_2023.xlsx",
+          intro: { es: "con estas pestañas:", ca: "amb aquestes pestanyes:" },
           items: [
-            { es: "El contrato y el proyecto",                         ca: "El contracte i el projecte" },
-            { es: "Quince actas de obra",                              ca: "Quinze actes d’obra" },
-            { es: "Una cincuentena de correos",                        ca: "Una cinquantena de correus" },
-            { es: "Los WhatsApp del padre",                            ca: "Els WhatsApp del pare" },
-            { es: "Quince certificaciones con 158 partes de trabajo",  ca: "Quinze certificacions amb 158 parts de treball" },
-            { es: "La topografía",                                     ca: "La topografia" },
-            { es: "Una reunión grabada",                               ca: "Una reunió gravada" },
-            { es: "Las reclamaciones de las dos partes",               ca: "Les reclamacions de les dues parts" }
-          ],
-          nota: { es: "Cerca de 150 ficheros, en tres idiomas y sin ningún orden.", ca: "Prop de 150 fitxers, en tres idiomes i sense cap ordre." }
+            { es: "77 partidas con código, especificación o producto de referencia, unidad, cantidad, precio de 2023 y familia de coste;",
+              ca: "77 partides amb codi, especificació o producte de referència, unitat, quantitat, preu de 2023 i família de cost;" },
+            { es: "resumen por capítulos;",            ca: "resum per capítols;" },
+            { es: "parámetros de diseño;",             ca: "paràmetres de disseny;" },
+            { es: "peso de cada familia de coste.",    ca: "pes de cada família de cost." }
+          ]
         },
-        entregable: [
-          { es: "Un informe pericial preliminar que explique la desviación causa por causa, con el importe, el responsable, lo que se puede reclamar y la prueba de cada cosa.",
-            ca: "Un informe pericial preliminar que expliqui la desviació causa per causa, amb l’import, el responsable, el que es pot reclamar i la prova de cada cosa." },
-          { es: "Tres minutos ante el tribunal (el resto de la clase) para defenderlo.",
-            ca: "Tres minuts davant del tribunal (la resta de la classe) per defensar-lo." }
+        pasos: [
+          { titulo: { es: "Planificar antes de construir", ca: "Planificar abans de construir" },
+            desc: { es: "Redactad una spec del problema y validadla con el profesor antes de pasar a la fase siguiente. Tiene que incluir:",
+                    ca: "Redacteu una spec del problema i valideu-la amb el professor abans de passar a la fase següent. Ha d’incloure:" },
+            items: [
+              { es: "el alcance de la actualización;", ca: "l’abast de l’actualització;" },
+              { es: "los datos de entrada que añadiréis al caso: índices, factores y cualquier otro dato que necesitéis;", ca: "les dades d’entrada que afegireu al cas: índexs, factors i qualsevol altra dada que necessiteu;" },
+              { es: "el método de actualización para cada tipo de partida;", ca: "el mètode d’actualització per a cada tipus de partida;" },
+              { es: "qué consideráis una solución obsoleta y qué es una alternativa equivalente;", ca: "què considereu una solució obsoleta i què és una alternativa equivalent;" },
+              { es: "los criterios de aceptación y los riesgos.", ca: "els criteris d’acceptació i els riscos." }
+            ] },
+          { titulo: { es: "Definir las fuentes", ca: "Definir les fonts" },
+            desc: { es: "Haced un catálogo con todas las fuentes que usaréis. Pueden ser públicas (estadística oficial, boletines oficiales, informes del sector, catálogos de fabricante) o propias de la oficina. De cada fuente hay que indicar:",
+                    ca: "Feu un catàleg amb totes les fonts que fareu servir. Poden ser públiques (estadística oficial, butlletins oficials, informes del sector, catàlegs de fabricant) o pròpies de l’oficina. De cada font cal indicar:" },
+            items: [
+              { es: "de dónde sale y cómo se accede;", ca: "d’on surt i com s’hi accedeix;" },
+              { es: "de qué fecha es y con qué frecuencia se actualiza;", ca: "de quina data és i amb quina freqüència s’actualitza;" },
+              { es: "qué cubre;", ca: "què cobreix;" },
+              { es: "qué fiabilidad tiene;", ca: "quina fiabilitat té;" },
+              { es: "si se puede consultar de forma automática.", ca: "si es pot consultar de manera automàtica." }
+            ] },
+          { titulo: { es: "Comprobar la vigencia partida por partida", ca: "Comprovar la vigència partida per partida" },
+            items: [
+              { es: "Si el producto o la solución de referencia todavía existe y se puede comprar en España.", ca: "Si el producte o la solució de referència encara existeix i es pot comprar a Espanya." },
+              { es: "Si le afecta algún cambio normativo desde 2023, ya sea europeo, estatal o autonómico, o si hay alguno en tramitación que le afectará.", ca: "Si li afecta algun canvi normatiu des del 2023, ja sigui europeu, estatal o autonòmic, o si n’hi ha cap en tramitació que l’afectarà." },
+              { es: "Si no es vigente, proponed una alternativa y justificad su equivalencia: prestaciones, cumplimiento normativo e impacto en el precio y en el diseño.", ca: "Si no és vigent, proposeu una alternativa i justifiqueu-ne l’equivalència: prestacions, compliment normatiu i impacte en el preu i en el disseny." },
+              { es: "Si un cambio normativo afecta al diseño del caso tipo en conjunto, y no solo a una partida, hay que decirlo y cuantificar su impacto.", ca: "Si un canvi normatiu afecta el disseny del cas tipus en conjunt, i no només una partida, cal dir-ho i quantificar-ne l’impacte." }
+            ] },
+          { titulo: { es: "Regenerar los precios", ca: "Regenerar els preus" },
+            desc: { es: "Cada partida tiene que indicar el método utilizado:", ca: "Cada partida ha d’indicar el mètode utilitzat:" },
+            items: [
+              { es: "precio actual de una fuente;", ca: "preu actual d’una font;" },
+              { es: "actualización por índice;", ca: "actualització per índex;" },
+              { es: "sustitución por una alternativa.", ca: "substitució per una alternativa." }
+            ] },
+          { titulo: { es: "Generar el informe para la oficina", ca: "Generar l’informe per a l’oficina" },
+            desc: { es: "Tiene que incluir:", ca: "Ha d’incloure:" },
+            items: [
+              { es: "el nuevo PEM y el nuevo PEC, en total y por MW;", ca: "el nou PEM i el nou PEC, en total i per MW;" },
+              { es: "la variación por capítulo y por familia de coste;", ca: "la variació per capítol i per família de cost;" },
+              { es: "las diez partidas que más pesan en la variación;", ca: "les deu partides que més pesen en la variació;" },
+              { es: "la comparación entre actualizarlo todo solo por índices y hacer la regeneración completa;", ca: "la comparació entre actualitzar-ho tot només per índexs i fer la regeneració completa;" },
+              { es: "la lista de cambios de producto y de normativa;", ca: "la llista de canvis de producte i de normativa;" },
+              { es: "un contraste con referencias de mercado por MW.", ca: "un contrast amb referències de mercat per MW." }
+            ] },
+          { titulo: { es: "Automatizar la actualización anual", ca: "Automatitzar l’actualització anual" },
+            desc: { es: "El sistema se tiene que ejecutar una vez al año y tiene que:", ca: "El sistema s’ha d’executar un cop l’any i ha de:" },
+            items: [
+              { es: "consultar las fuentes y comprobar que siguen disponibles;", ca: "consultar les fonts i comprovar que segueixen disponibles;" },
+              { es: "volver a pasar la comprobación de vigencia y de normativa;", ca: "tornar a passar la comprovació de vigència i de normativa;" },
+              { es: "regenerar los precios y el informe, con la comparación respecto al año anterior;", ca: "regenerar els preus i l’informe, amb la comparació respecte de l’any anterior;" },
+              { es: "detenerse y pedir validación humana cuando detecte una sustitución, un cambio normativo o una fuente que ha cambiado de formato.", ca: "aturar-se i demanar validació humana quan detecti una substitució, un canvi normatiu o una font que ha canviat de format." }
+            ],
+            nota: { es: "Probadlo simulando ejecuciones con fecha de corte en 2024, 2025 y 2026.", ca: "Proveu-lo simulant execucions amb data de tall a 2024, 2025 i 2026." } }
         ],
-        reglas: [
-          { es: "Cada cifra que deis tiene que llevar el documento y la fecha de donde sale. Una afirmación sin fuente no cuenta.",
-            ca: "Cada xifra que doneu ha de dur el document i la data d’on surt. Una afirmació sense font no compta." },
-          { es: "El cliente os paga, pero no os compra. El informe dice lo que dicen las pruebas.",
-            ca: "El client us paga, però no us compra. L’informe diu el que diuen les proves." },
-          { es: "Durante la sesión pasarán cosas. Habrá información nueva, y quizá alguien os pida cosas que no deberíais hacer.",
-            ca: "Durant la sessió passaran coses. Hi haurà informació nova, i potser algú us demanarà coses que no hauríeu de fer." },
-          { es: "Podéis usar todo lo que hemos visto en el curso. Cómo, lo decidís vosotros.",
-            ca: "Podeu fer servir tot el que hem vist al curs. Com, ho decidiu vosaltres." }
+        entregables: [
+          { es: "La spec y su registro de cambios.", ca: "La spec i el seu registre de canvis." },
+          { es: "El catálogo de fuentes.", ca: "El catàleg de fonts." },
+          { es: "El informe de vigencia y de normativa.", ca: "L’informe de vigència i de normativa." },
+          { es: "El presupuesto regenerado (xlsx).", ca: "El pressupost regenerat (xlsx)." },
+          { es: "El informe para la oficina.", ca: "L’informe per a l’oficina." },
+          { es: "La automatización con un documento breve de operación: qué hace, cuándo se ejecuta y qué hay que revisar a mano.", ca: "L’automatització amb un document breu d’operació: què fa, quan s’executa i què cal revisar a mà." },
+          { es: "Una presentación de 5 minutos.", ca: "Una presentació de 5 minuts." }
+        ],
+        plan: {
+          cab: { es: "6 h · grupos de 2", ca: "6 h · grups de 2" },
+          tramos: [
+            { min: 60, titulo: { es: "Spec y validación",                         ca: "Spec i validació" } },
+            { min: 45, titulo: { es: "Catálogo de fuentes",                       ca: "Catàleg de fonts" } },
+            { min: 75, titulo: { es: "Vigencia, normativa y alternativas",        ca: "Vigència, normativa i alternatives" } },
+            { min: 75, titulo: { es: "Regeneración de precios e informe",         ca: "Regeneració de preus i informe" } },
+            { min: 75, titulo: { es: "Automatización y prueba con fechas de corte", ca: "Automatització i prova amb dates de tall" } },
+            { min: 30, titulo: { es: "Presentaciones",                            ca: "Presentacions" } }
+          ]
+        },
+        rutas: [
+          { titulo: { es: "Ruta novel", ca: "Ruta novell" },
+            desc: { es: "Proyecto de Claude, una skill de regeneración y el informe como artefacto. La automatización se hace con una tarea programada.",
+                    ca: "Projecte de Claude, una skill de regeneració i l’informe com a artefacte. L’automatització es fa amb una tasca programada." } },
+          { titulo: { es: "Ruta avanzada", ca: "Ruta avançada" },
+            desc: { es: "Claude Code con Python para la ingesta y el cálculo. La automatización se hace con una tarea programada, n8n o CI.",
+                    ca: "Claude Code amb Python per a la ingesta i el càlcul. L’automatització es fa amb una tasca programada, n8n o CI." } }
         ]
       }
     ]

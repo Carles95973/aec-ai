@@ -16,7 +16,8 @@
       extras: "Artefactos",
       nou: "Nuevo", nouTxt: "Ejercicios prácticos", practNav: "Prácticas",
       practCod: "04 · PRÁCTICAS", practTitulo: "Ejercicios prácticos", practSub: "Un ejercicio por equipos cada semana. Abre cada semana para ver el enunciado.",
-      semana: "Semana", expediente: "El expediente", entregable: "El entregable", reglas: "Las reglas del juego", carpetaExp: "Expediente en Drive",
+      semana: "Semana", enunciado: "Enunciado", fichaTit: "Ficha del caso tipo", alcance: "Alcance", incluye: "Incluye", excluye: "Excluye", recibis: "Qué recibís",
+      pasosTit: "Qué tenéis que hacer", entregables: "Entregables", plan: "Planificación", rutasTit: "Rutas", carpetaEj: "Material del ejercicio",
       ejemCod: "03 · EJEMPLOS", ejemTitulo: "Ejemplos de clase", ejemSub: "Los ejemplos que hemos hecho en clase, todos en una carpeta de Drive.", ejemBoton: "Carpeta de ejemplos",
       presCod: "02 · PRESENTACIÓN", presTitulo: "Presentación completa", presSub: "La presentación entera del curso: los cuatro módulos en un solo documento.", presBoton: "Abrir la presentación",
       grabNav: "Clases grabadas", grabCod: "06 · GRABACIONES", grabTitulo: "Clases grabadas", grabSub: "Las sesiones del curso en vídeo. La primera no se grabó.", reproducir: "Reproducir", verYT: "Ver en YouTube",
@@ -46,7 +47,8 @@
       extras: "Artefactes",
       nou: "Nou", nouTxt: "Exercicis pràctics", practNav: "Pràctiques",
       practCod: "04 · PRÀCTIQUES", practTitulo: "Exercicis pràctics", practSub: "Un exercici per equips cada setmana. Obre cada setmana per veure’n l’enunciat.",
-      semana: "Setmana", expediente: "L’expedient", entregable: "El lliurable", reglas: "Les regles del joc", carpetaExp: "Expedient a Drive",
+      semana: "Setmana", enunciado: "Enunciat", fichaTit: "Fitxa del cas tipus", alcance: "Abast", incluye: "Inclou", excluye: "Exclou", recibis: "Què rebeu",
+      pasosTit: "Què heu de fer", entregables: "Lliurables", plan: "Planificació", rutasTit: "Rutes", carpetaEj: "Material de l’exercici",
       ejemCod: "03 · EXEMPLES", ejemTitulo: "Exemples de classe", ejemSub: "Els exemples que hem fet a classe, tots en una carpeta de Drive.", ejemBoton: "Carpeta d’exemples",
       presCod: "02 · PRESENTACIÓ", presTitulo: "Presentació completa", presSub: "La presentació sencera del curs: els quatre mòduls en un sol document.", presBoton: "Obrir la presentació",
       grabNav: "Classes gravades", grabCod: "06 · GRAVACIONS", grabTitulo: "Classes gravades", grabSub: "Les sessions del curs en vídeo. La primera no es va gravar.", reproducir: "Reproduir", verYT: "Veure a YouTube",
@@ -273,18 +275,44 @@
     return datos + hoja + niveles + '<div class="acciones">' + enlace(enlacePract(w.id), t("carpetaPract"), "boton--lleno") + "</div>";
   }
 
-  function cuerpoCaso(w) {
+  function hhmm(m) { return Math.floor(m / 60) + ":" + ("0" + (m % 60)).slice(-2); }
+  function cuerpoEnunciado(w) {
+    var acc = 0, total = w.plan.tramos.reduce(function (a, b) { return a + b.min; }, 0);
+    var plan = '<div class="roadmap roadmap--plan"><div class="roadmap__cab"><span class="rotulo-s">' + esc(t("plan")) + '</span><span class="roadmap__total">' + esc(tx(w.plan.cab)) + "</span></div>" +
+      '<div class="roadmap__barra">' + w.plan.tramos.map(function (b) {
+        var ini = acc; acc += b.min;
+        return '<div class="roadmap__tramo" style="flex-grow:' + b.min + ";--p:" + (b.min / total * 100).toFixed(1) + '%"><span class="roadmap__min">' +
+          hhmm(ini) + "–" + hhmm(acc) + "</span><b>" + esc(tx(b.titulo)) + "</b></div>";
+      }).join("") + "</div></div>";
     return '<div class="exp"><p class="exp__lema">' + esc(tx(w.lema)) + "</p>" +
-      datosDl(w.cifras.map(function (c) { return [tx(c.etq), c.valor, c.destacar]; }), "prac-datos--cifras") +
-      '<div class="exp__relato">' + w.relato.map(function (p) { return "<p>" + esc(tx(p)) + "</p>"; }).join("") +
-      '<p class="exp__golpe">' + esc(tx(w.golpe)) + "</p></div>" +
-      '<div class="exp__cols">' +
-        '<div><h6 class="rotulo">' + esc(t("expediente")) + '</h6><p class="exp__intro">' + esc(tx(w.expediente.intro)) + "</p>" + lista(w.expediente.items) +
-          '<p class="exp__nota">' + esc(tx(w.expediente.nota)) + "</p></div>" +
-        '<div><h6 class="rotulo">' + esc(t("entregable")) + "</h6>" + lista(w.entregable, true) + "</div>" +
-        '<div><h6 class="rotulo">' + esc(t("reglas")) + "</h6>" + lista(w.reglas, true) + "</div>" +
-      "</div>" +
-      '<div class="acciones">' + enlace(enlacePract(w.id), t("carpetaExp"), "boton--lleno") + "</div></div>";
+      datosDl(w.cifras.map(function (c) { return [tx(c.etq), typeof c.valor === "string" ? c.valor : tx(c.valor), c.destacar]; }), "prac-datos--cifras") +
+
+      '<div class="dc-dos"><div><h6 class="rotulo">' + esc(t("enunciado")) + '</h6><div class="exp__relato">' +
+        w.enunciado.map(function (p) { return "<p>" + esc(tx(p)) + "</p>"; }).join("") + lista(w.tenerEnCuenta) +
+        '<p class="dc-cierre">' + esc(tx(w.cierre)) + "</p></div></div>" +
+      '<div><h6 class="rotulo">' + esc(t("fichaTit")) + '</h6><dl class="dc-ficha">' +
+        w.ficha.map(function (f) { return "<dt>" + esc(tx(f.etq)) + "</dt><dd>" + esc(tx(f.valor)) + "</dd>"; }).join("") + "</dl></div></div>" +
+
+      '<div class="dc-dos"><div><h6 class="rotulo">' + esc(t("alcance")) + "</h6>" +
+        '<p class="dc-abast"><b>' + esc(t("incluye")) + "</b>" + esc(tx(w.incluye)) + "</p>" +
+        '<p class="dc-abast dc-abast--no"><b>' + esc(t("excluye")) + "</b>" + esc(tx(w.excluye)) + "</p></div>" +
+      '<div><h6 class="rotulo">' + esc(t("recibis")) + '</h6><p class="dc-fichero"><code>' + esc(w.recibis.fichero) + "</code> " + esc(tx(w.recibis.intro)) + "</p>" +
+        lista(w.recibis.items) + "</div></div>" +
+
+      '<h6 class="rotulo">' + esc(t("pasosTit")) + '</h6><ol class="pasos">' + w.pasos.map(function (p, k) {
+        return '<li class="paso"><span class="paso__n">' + (k + 1) + "</span><h5>" + esc(tx(p.titulo)) + "</h5>" +
+          (p.desc ? '<p class="paso__desc">' + esc(tx(p.desc)) + "</p>" : "") + lista(p.items) +
+          (p.nota ? '<p class="paso__nota">' + esc(tx(p.nota)) + "</p>" : "") + "</li>";
+      }).join("") + "</ol>" +
+
+      plan +
+
+      '<div class="dc-dos"><div><h6 class="rotulo">' + esc(t("entregables")) + "</h6>" + lista(w.entregables, true) + "</div>" +
+      '<div><h6 class="rotulo">' + esc(t("rutasTit")) + "</h6>" + w.rutas.map(function (r) {
+        return '<div class="dc-ruta"><b>' + esc(tx(r.titulo)) + "</b><p>" + esc(tx(r.desc)) + "</p></div>";
+      }).join("") + "</div></div>" +
+
+      '<div class="acciones">' + enlace(enlacePract(w.id), t("carpetaEj"), "boton--lleno") + "</div></div>";
   }
 
   function pintarPracticas() {
@@ -295,7 +323,7 @@
       var fechas = (w.sesiones || []).map(function (id) { var x = C.sesiones.filter(function (y) { return y.id === id; })[0]; return x ? corta(x.fecha) : ""; }).filter(Boolean).join(" · ");
       return '<details class="semana semana--' + esc(w.tipo) + '" id="' + esc(w.id) + '" data-sem="' + esc(w.id) + '"' + (abierta ? " open" : "") + ">" +
         '<summary class="semana__cab"><span class="semana__n">' + esc(t("semana")) + " " + w.n + '</span><span class="semana__tit">' + esc(tx(w.titulo)) + '</span><span class="semana__fechas">' + esc(fechas) + '</span><span class="ficha__mas" aria-hidden="true">+</span></summary>' +
-        '<div class="semana__cuerpo">' + (w.tipo === "caso" ? cuerpoCaso(w) : cuerpoRutas(w)) + "</div></details>";
+        '<div class="semana__cuerpo">' + (w.tipo === "enunciado" ? cuerpoEnunciado(w) : cuerpoRutas(w)) + "</div></details>";
     }).join("");
     $$("#practLista .semana").forEach(function (d) { d.addEventListener("toggle", function () { semAbiertas[d.getAttribute("data-sem")] = d.open; }); });
     $$("#practLista .cas__det").forEach(function (d) { d.addEventListener("toggle", function () { casosAbiertos[d.getAttribute("data-caso")] = d.open; }); });

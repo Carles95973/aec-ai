@@ -38,7 +38,7 @@ window.ENLACES = {
   /* --- Exercicis pràctics ------------------------------------------------
      Una carpeta por semana. La semana sin entrada sale sin botón.           */
   practicas: {
-    semana3: "https://drive.google.com/drive/folders/1GLx_Xx2BBYR_imGG50PD_aYAKLlNmAkN?usp=sharing"    // Cas Garrigues: el expediente
+    semana3: "https://drive.google.com/drive/folders/15BQYI-v1d1eMHVHxMfpXDiXArFsS59jN?usp=sharing"   // Cas tipus DC-100
   },
 
   /* --- Artefactos extra -------------------------------------------------
