@@ -38,9 +38,22 @@ window.ENLACES = {
     s06: { presentacion: "", carpeta: "" }
   },
 
-  /* --- Exemples de classe -----------------------------------------------
-     La carpeta de Drive con los ejemplos hechos en clase.                   */
+  /* --- Presentació completa i exemples de classe --------------------------
+     Dos recuadros, uno al lado del otro.
+     `presentacionCompleta`: la presentación entera del curso.
+     `ejemplos`: la carpeta de Drive con los ejemplos hechos en clase.        */
+  presentacionCompleta: "",
   ejemplos: "",
+
+  /* --- Classes gravades ----------------------------------------------------
+     Una entrada por sesión grabada: `sesion` (s01…s06) y la URL de YouTube
+     (vale cualquier formato: /live/…, watch?v=…, youtu.be/…). Salen en este
+     orden, con la vista previa del vídeo.                                    */
+  grabaciones: [
+    { sesion: "s02", url: "https://youtube.com/live/O6k7GNeSY6o?feature=share" },
+    { sesion: "s03", url: "https://youtube.com/live/TLBEM04XTQk?feature=share" },
+    { sesion: "s04", url: "https://youtube.com/live/Ynq2PkW5eN0?feature=share" }
+  ],
 
   /* --- Exercicis pràctics ------------------------------------------------
      Una carpeta por semana. Vacío = el botón sale como «Properament».       */

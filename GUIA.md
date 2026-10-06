@@ -49,13 +49,31 @@ en la web (nombre y descripción) está en `curso.js`, en `extras`.
 Los ejercicios no llevan enlace propio: su material está dentro de la carpeta de la
 sesión.
 
-### Carpeta de los exemples de classe
+### Presentació completa y exemples de classe
 
-Una sola carpeta de Drive con los ejemplos hechos en clase. En `enlaces.js`:
+Dos recuadros al mismo nivel, uno al lado del otro: la presentación entera del curso y
+la carpeta de Drive con los ejemplos hechos en clase. En `enlaces.js`:
 
 ```js
-ejemplos: "https://drive.google.com/drive/folders/…"
+ejemplos: "https://drive.google.com/drive/folders/…",
+presentacionCompleta: "https://docs.google.com/presentation/d/…",
 ```
+
+### Classes gravades
+
+Una entrada por sesión grabada, con el id de la sesión y la URL de YouTube (vale el
+enlace que da YouTube al compartir). Salen en ese orden, con la vista previa del vídeo;
+el reproductor solo se carga al pulsarla. En `enlaces.js`:
+
+```js
+grabaciones: [
+  { sesion: "s02", url: "https://youtube.com/live/…" },
+  { sesion: "s05", url: "https://youtu.be/…" }        // para añadir otra
+],
+```
+
+El título y la fecha salen de la sesión. Si la lista se queda vacía, la sección y el
+botón «Classes gravades» del menú desaparecen.
 
 ### Carpetas de los exercicis pràctics
 
@@ -141,8 +159,8 @@ y los errores de coma o comilla también se ven en esa pestaña.
 
 ## 6. Cómo se comporta la web
 
-- **Orden de la página:** portada → Què cal instal·lar → Temari → Exemples de classe →
-  Exercicis pràctics → Artefactes extra.
+- **Orden de la página:** portada → Què cal instal·lar → Temari → Presentació completa
+  y Exemples de classe → Exercicis pràctics → Artefactes extra → Classes gravades.
 - **Temari:** un bloque por módulo con el material de sus sesiones (presentación y
   carpeta), el contenido, los ejercicios y los recursos. La sesión de hoy sale marcada.
 - **Dos idiomas:** catalán (por defecto) y castellano, con selector arriba a la derecha.

@@ -15,9 +15,11 @@
       entrar: "Ver el temario", itinNav: "Temario", ejemNav: "Ejemplos",
       extras: "Artefactos",
       nou: "Nuevo", nouTxt: "Ejercicios prácticos", practNav: "Prácticas",
-      practCod: "03 · PRÁCTICAS", practTitulo: "Ejercicios prácticos", practSub: "Un ejercicio por equipos cada semana. Abre cada semana para ver el enunciado.",
+      practCod: "04 · PRÁCTICAS", practTitulo: "Ejercicios prácticos", practSub: "Un ejercicio por equipos cada semana. Abre cada semana para ver el enunciado.",
       semana: "Semana", expediente: "El expediente", entregable: "El entregable", reglas: "Las reglas del juego", carpetaExp: "Expediente en Drive",
-      ejemCod: "02 · EJEMPLOS", ejemTitulo: "Ejemplos de clase", ejemSub: "Los ejemplos que hemos hecho en clase, todos en una carpeta de Drive.", ejemBoton: "Carpeta de ejemplos",
+      ejemCod: "03 · EJEMPLOS", ejemTitulo: "Ejemplos de clase", ejemSub: "Los ejemplos que hemos hecho en clase, todos en una carpeta de Drive.", ejemBoton: "Carpeta de ejemplos",
+      presCod: "02 · PRESENTACIÓN", presTitulo: "Presentación completa", presSub: "La presentación entera del curso: los cuatro módulos en un solo documento.", presBoton: "Abrir la presentación",
+      grabNav: "Clases grabadas", grabCod: "06 · GRABACIONES", grabTitulo: "Clases grabadas", grabSub: "Las sesiones del curso en vídeo. La primera no se grabó.", reproducir: "Reproducir", verYT: "Ver en YouTube",
       material: "Material de las sesiones", carpetaC: "Carpeta",
       fEquipos: "Equipos", fCasos: "Casos", unCaso: "uno por equipo", fCuando: "Cuándo", primerDia: "Primera sesión", herramientas: "Herramientas",
       ruta: "Ruta", equipoDe: "Equipos de", escenario: "Escenario", criterios: "Criterios de éxito", tareas: "Tareas", verDetalle: "Criterios de éxito y tareas", carpetaPract: "Carpeta de prácticas",
@@ -43,9 +45,11 @@
       entrar: "Veure el temari", itinNav: "Temari", ejemNav: "Exemples",
       extras: "Artefactes",
       nou: "Nou", nouTxt: "Exercicis pràctics", practNav: "Pràctiques",
-      practCod: "03 · PRÀCTIQUES", practTitulo: "Exercicis pràctics", practSub: "Un exercici per equips cada setmana. Obre cada setmana per veure’n l’enunciat.",
+      practCod: "04 · PRÀCTIQUES", practTitulo: "Exercicis pràctics", practSub: "Un exercici per equips cada setmana. Obre cada setmana per veure’n l’enunciat.",
       semana: "Setmana", expediente: "L’expedient", entregable: "El lliurable", reglas: "Les regles del joc", carpetaExp: "Expedient a Drive",
-      ejemCod: "02 · EXEMPLES", ejemTitulo: "Exemples de classe", ejemSub: "Els exemples que hem fet a classe, tots en una carpeta de Drive.", ejemBoton: "Carpeta d’exemples",
+      ejemCod: "03 · EXEMPLES", ejemTitulo: "Exemples de classe", ejemSub: "Els exemples que hem fet a classe, tots en una carpeta de Drive.", ejemBoton: "Carpeta d’exemples",
+      presCod: "02 · PRESENTACIÓ", presTitulo: "Presentació completa", presSub: "La presentació sencera del curs: els quatre mòduls en un sol document.", presBoton: "Obrir la presentació",
+      grabNav: "Classes gravades", grabCod: "06 · GRAVACIONS", grabTitulo: "Classes gravades", grabSub: "Les sessions del curs en vídeo. La primera no es va gravar.", reproducir: "Reproduir", verYT: "Veure a YouTube",
       material: "Material de les sessions", carpetaC: "Carpeta",
       fEquipos: "Equips", fCasos: "Casos", unCaso: "un per equip", fCuando: "Quan", primerDia: "Primera sessió", herramientas: "Eines",
       ruta: "Ruta", equipoDe: "Equips de", escenario: "Escenari", criterios: "Criteris d’èxit", tareas: "Tasques", verDetalle: "Criteris d’èxit i tasques", carpetaPract: "Carpeta de pràctiques",
@@ -103,7 +107,11 @@
     var ids = {}, fallos = [];
     C.sesiones.forEach(function (s) { ids[s.id] = 1; });
     Object.keys(L.sesiones || {}).forEach(function (k) { if (!ids[k]) fallos.push("enlaces.js → sesiones." + k + " no existe en curso.js"); });
-    ["extras", "ejemplos"].forEach(function (k) { if (L[k] !== undefined && typeof L[k] !== "string") fallos.push("enlaces.js → " + k + " ha de ser una URL entre comillas"); });
+    ["extras", "ejemplos", "presentacionCompleta"].forEach(function (k) { if (L[k] !== undefined && typeof L[k] !== "string") fallos.push("enlaces.js → " + k + " ha de ser una URL entre comillas"); });
+    (L.grabaciones || []).forEach(function (g, k) {
+      if (!ids[g.sesion]) fallos.push("enlaces.js → grabaciones[" + k + "]: la sesión «" + g.sesion + "» no existe en curso.js");
+      if (!idYT(g.url)) fallos.push("enlaces.js → grabaciones[" + k + "]: no se reconoce el vídeo de YouTube");
+    });
     var sem = {}; ((C.practicas && C.practicas.semanas) || []).forEach(function (w) { sem[w.id] = 1; });
     Object.keys(L.practicas || {}).forEach(function (k) { if (!sem[k]) fallos.push("enlaces.js → practicas." + k + " no existe en curso.js"); });
     if (fallos.length && window.console) console.warn("[AEC·AI] Revisa enlaces.js:\n· " + fallos.join("\n· "));
@@ -157,6 +165,7 @@
 
   /* ---------------------------------------------------------------- EJEMPLOS */
   function pintarEjemplos() {
+    $("#presLista").innerHTML = '<div class="acciones">' + enlace(L.presentacionCompleta, t("presBoton"), "boton--lleno") + "</div>";
     $("#ejemLista").innerHTML = '<div class="acciones">' + enlace(L.ejemplos, t("ejemBoton"), "boton--lleno") + "</div>";
   }
 
@@ -189,6 +198,38 @@
         '<div class="reqs reqs--opc" style="--n:' + no.length + '">' + no.map(celdaReq).join("") + "</div></details>" : "");
     var d = $("#reqLista .opc");
     if (d) d.addEventListener("toggle", function () { opcAbiertos = d.open; });
+  }
+
+  /* ---------------------------------------------------------- CLASSES GRAVADES */
+  function idYT(u) { var m = String(u || "").match(/(?:youtu\.be\/|\/live\/|\/embed\/|\/shorts\/|[?&]v=)([\w-]{11})/); return m ? m[1] : ""; }
+  function pintarGrabaciones() {
+    var G = (L.grabaciones || []).filter(function (g) { return idYT(g.url); });
+    $("#grabaciones").hidden = !G.length;
+    $$(".grab-link").forEach(function (a) { a.hidden = !G.length; });
+    $("#grabLista").innerHTML = G.map(function (g) {
+      var id = idYT(g.url), ses = C.sesiones.filter(function (x) { return x.id === g.sesion; })[0];
+      var titulo = ses ? tx(ses.titulo) : "", n = ses ? ses.id.slice(1) : "";
+      var cuando = ses ? t("dias")[fecha(ses.fecha).getDay()] + " " + corta(ses.fecha) : "";
+      return '<article class="video aparece">' +
+        '<button type="button" class="video__prev" data-yt="' + esc(id) + '" aria-label="' + esc(t("reproducir") + ": " + titulo) + '">' +
+          '<img src="https://i.ytimg.com/vi/' + esc(id) + '/hqdefault.jpg" alt="" loading="lazy">' +
+          '<span class="video__ses">S' + esc(n) + '</span><span class="video__play" aria-hidden="true"></span></button>' +
+        '<div class="video__info"><span class="cod">' + esc(t("sesion")) + " " + esc(n) + " · " + esc(cuando) + "</span>" +
+          "<h3>" + esc(titulo) + "</h3>" +
+          '<a href="' + url(g.url) + '" target="_blank" rel="noopener">' + esc(t("verYT")) + " ↗</a></div></article>";
+    }).join("");
+    // Carga el reproductor solo al pulsar: hasta entonces, únicamente la imagen.
+    $$("#grabLista .video__prev").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var f = document.createElement("iframe");
+        f.src = "https://www.youtube-nocookie.com/embed/" + b.getAttribute("data-yt") + "?autoplay=1&rel=0";
+        f.title = b.getAttribute("aria-label");
+        f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+        f.allowFullscreen = true;
+        f.className = "video__frame";
+        b.replaceWith(f);
+      });
+    });
   }
 
   /* ------------------------------------------------------ EXERCICIS PRÀCTICS */
@@ -291,7 +332,7 @@
 
   function pintarVista() { pintarItinerario(); observar(); }
 
-  function ponerIdioma(i) { estado.idioma = i; guardar("aecai.idioma", i); pintarFijos(); pintarRequisitos(); pintarVista(); pintarEjemplos(); pintarPracticas(); pintarExtras(); observar(); }
+  function ponerIdioma(i) { estado.idioma = i; guardar("aecai.idioma", i); pintarFijos(); pintarRequisitos(); pintarVista(); pintarEjemplos(); pintarPracticas(); pintarExtras(); pintarGrabaciones(); observar(); }
 
   /* ---------------------------------------------------- APARICIÓN CON SCROLL */
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
@@ -425,6 +466,6 @@
   }
 
   /* ------------------------------------------------------------------ INICIO */
-  revisar(); pintarFijos(); pintarRequisitos(); pintarVista(); pintarEjemplos(); pintarPracticas(); pintarExtras(); observar(); eventos(); lienzo();
+  revisar(); pintarFijos(); pintarRequisitos(); pintarVista(); pintarEjemplos(); pintarPracticas(); pintarExtras(); pintarGrabaciones(); observar(); eventos(); lienzo();
   if (hash === "itinerario" || hash === "dias") setTimeout(function () { $("#curso").scrollIntoView({ block: "start" }); }, 60);
 })();
