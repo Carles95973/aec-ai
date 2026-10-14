@@ -364,9 +364,9 @@
     if (url(L.general)) li.push('<li><a href="' + url(L.general) + '" target="_blank" rel="noopener">' + esc(t("driveGeneral")) + " ↗</a></li>");
     if (url(C.meta.repo)) li.push('<li><a href="' + url(C.meta.repo) + '" target="_blank" rel="noopener">' + esc(t("repo")) + " ↗</a></li>");
     var mail = correo();
-    if (mail) li.push('<li><a href="mailto:' + esc(mail) + '">' + esc(mail) + "</a></li>");
+    if (mail) li.push('<li>' + esc(t("contacto")) + ': <a href="mailto:' + esc(mail) + '">' + esc(mail) + "</a></li>");
     var hm = $("#heroMail");
-    if (hm) { hm.hidden = !mail; if (mail) { hm.href = "mailto:" + mail; hm.innerHTML = '<span class="hero__sobre" aria-hidden="true"></span>' + esc(mail); hm.title = t("escribeme"); } }
+    if (hm) { hm.hidden = !mail; if (mail) { hm.href = "mailto:" + mail; hm.innerHTML = '<span class="hero__sobre" aria-hidden="true"></span>' + esc(t("contacto")) + ": " + esc(mail); hm.title = t("escribeme"); } }
     var ir = $("#subirIr"), hay = !!url(L.entregas);
     $$(".subir-btn").forEach(function (b) { b.hidden = !hay; });
     if (ir && hay) { ir.href = L.entregas; ir.textContent = t("subirIr") + " ↗"; }
