@@ -18,6 +18,15 @@
 
 window.ENLACES = {
 
+  /* --- Contacto y entregas -------------------------------------------------
+     `contacto`: el correo, partido en usuario y dominio. La web lo junta al
+     cargarse, para que los robots que leen el HTML sin ejecutar JavaScript no
+     lo encuentren tal cual. Sale arriba de la portada y en el pie.
+     `entregas`: la carpeta de Drive donde los alumnos suben los ejercicios.
+     El botón «Pujar exercicis» abre primero una ventana con las instrucciones. */
+  contacto: ["carles.farre.serra", "gmail.com"],
+  entregas: "https://drive.google.com/drive/folders/1EwWajklBJwHtyb0EJ-Qz_Ed3jw2cqook?usp=sharing",
+
   /* --- Presentació completa i exemples de classe --------------------------
      Dos recuadros, uno al lado del otro.
      `presentacionCompleta`: la presentación entera del curso.
@@ -32,7 +41,9 @@ window.ENLACES = {
   grabaciones: [
     { sesion: "s02", url: "https://youtube.com/live/O6k7GNeSY6o?feature=share" },
     { sesion: "s03", url: "https://youtube.com/live/TLBEM04XTQk?feature=share" },
-    { sesion: "s04", url: "https://youtube.com/live/Ynq2PkW5eN0?feature=share" }
+    { sesion: "s04", url: "https://youtube.com/live/Ynq2PkW5eN0?feature=share" },
+    { sesion: "s05", url: "https://youtube.com/live/NvNoqoT1w-g" },
+    { sesion: "s06", url: "https://youtube.com/live/Suj9F4YWyik" }
   ],
 
   /* --- Exercicis pràctics ------------------------------------------------

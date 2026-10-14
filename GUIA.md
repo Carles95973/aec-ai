@@ -93,13 +93,29 @@ practicas: {
 
 Una semana sin entrada sale sin botón.
 
-### Carpeta general y contacto (opcional)
+### Correo de contacto y carpeta de entregas
 
-Si algún día hacen falta, se añaden arriba del todo de `enlaces.js` y salen en el pie:
+Arriba del todo de `enlaces.js`:
 
 ```js
-general:  "https://drive.google.com/drive/folders/…",
-contacto: "carles@…",
+contacto: ["carles.farre.serra", "gmail.com"],      // usuario y dominio, por separado
+entregas: "https://drive.google.com/drive/folders/…",
+```
+
+- El correo sale arriba a la izquierda de la portada y en el pie. Va partido para que
+  no aparezca entero en el código que leen los robots; la web lo junta al cargarse.
+- `entregas` activa el botón **«Pujar exercicis»** (portada y menú). Al pulsarlo se abre
+  una ventana que explica cómo subir: crear una carpeta nueva con el nombre
+  `Nom_Cognom_nºexercici_petita descripció` y subir dentro los ficheros. Para que puedan
+  subir, la carpeta de Drive tiene que estar compartida como **Editor** («cualquiera con
+  el enlace»). Sin `entregas`, el botón desaparece.
+
+### Carpeta general (opcional)
+
+Si algún día hace falta, se añade arriba del todo de `enlaces.js` y sale en el pie:
+
+```js
+general: "https://drive.google.com/drive/folders/…",
 ```
 
 ---

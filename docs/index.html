@@ -23,6 +23,7 @@
       <a class="barra__extras" href="#ejemplos" data-t="ejemNav"></a>
       <a class="barra__extras barra__extras--fijo" href="#practicas" data-t="practNav"></a>
       <a class="barra__extras" href="#extras" data-t="extras"></a>
+      <button type="button" class="barra__subir subir-btn" data-t="subir"></button>
       <div class="idioma" role="group" aria-label="Idioma">
         <button type="button" data-idioma="ca">CA</button>
         <button type="button" data-idioma="es">ES</button>
@@ -36,8 +37,9 @@
     <div class="hero__velo"></div>
 
     <div class="hero__sup">
-      <span class="cod">AEC·AI / REV.2026</span>
+      <a class="hero__mail" id="heroMail" hidden></a>
       <div class="hero__der">
+        <button type="button" class="hero__link hero__link--subir subir-btn"><span class="hero__flecha" aria-hidden="true">↑</span><span data-t="subir"></span></button>
         <a class="hero__link grab-link" href="#grabaciones"><span class="hero__play" aria-hidden="true"></span><span data-t="grabNav"></span></a>
         <a class="nou" href="#practicas" hidden><span class="nou__tag" data-t="nou"></span><span class="nou__txt" data-t="nouTxt"></span><span aria-hidden="true">→</span></a>
         <div class="idioma" role="group" aria-label="Idioma">
@@ -135,6 +137,24 @@
     <div class="pie__col" id="pieEnlaces"></div>
     <p class="pie__firma">© 2026 Carles Farré · CETILL</p>
   </footer>
+
+  <!-- VENTANA: cómo subir un ejercicio -->
+  <dialog class="modal" id="subir" aria-labelledby="subirTit">
+    <form method="dialog" class="modal__x"><button type="submit" data-t="cerrar"></button></form>
+    <span class="cod" data-t="subirCod"></span>
+    <h2 id="subirTit" data-t="subirTit"></h2>
+    <ol class="modal__pasos">
+      <li data-t="subirP1"></li>
+      <li><span data-t="subirP2"></span>
+        <code class="modal__formato" data-t="subirFormato"></code>
+        <span class="modal__ej"><span data-t="subirEj"></span>: <code data-t="subirEjemplo"></code></span></li>
+      <li data-t="subirP3"></li>
+    </ol>
+    <div class="acciones">
+      <a class="boton boton--lleno" id="subirIr" target="_blank" rel="noopener"></a>
+      <button type="button" class="boton" id="subirCopiar" data-t="copiar"></button>
+    </div>
+  </dialog>
 
   <!-- enlaces.js: las URL de Drive (el fichero del día a día).
        curso.js: los textos del curso.  app.js: pinta la página con los dos. -->

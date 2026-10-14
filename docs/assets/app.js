@@ -13,6 +13,10 @@
       marca: "IA aplicada a la ingeniería",
       intro: "Seis sesiones para pasar de «la IA no me funciona» a procesos de oficina técnica fiables: modelos, contexto, agentes, automatización y gobernanza. Aquí tienes el temario, el material de cada sesión, los ejemplos y los ejercicios.",
       entrar: "Ver el temario", itinNav: "Temario", ejemNav: "Ejemplos",
+      subir: "Subir ejercicios", subirCod: "ENTREGA", subirTit: "Cómo subir un ejercicio", cerrar: "Cerrar",
+      subirP1: "Abre la carpeta de entrega en Drive.", subirP2: "Crea dentro una carpeta nueva con este nombre:", subirP3: "Sube los ficheros del ejercicio dentro de tu carpeta.",
+      subirFormato: "Nombre_Apellido_nºejercicio_breve descripción", subirEj: "Ejemplo", subirEjemplo: "Marta_Soler_3_actualizacion DC-100",
+      subirIr: "Abrir la carpeta de entrega", copiar: "Copiar el formato", copiado: "Copiado ✓", escribeme: "Escríbeme",
       extras: "Artefactos",
       nou: "Nuevo", nouTxt: "Ejercicios prácticos", practNav: "Prácticas",
       practCod: "04 · PRÁCTICAS", practTitulo: "Ejercicios prácticos", practSub: "Un ejercicio por equipos cada semana. Abre cada semana para ver el enunciado.",
@@ -44,6 +48,10 @@
       marca: "IA aplicada a l’enginyeria",
       intro: "Sis sessions per passar de «la IA no em funciona» a processos d’oficina tècnica fiables: models, context, agents, automatització i governança. Aquí tens el temari, el material de cada sessió, els exemples i els exercicis.",
       entrar: "Veure el temari", itinNav: "Temari", ejemNav: "Exemples",
+      subir: "Pujar exercicis", subirCod: "LLIURAMENT", subirTit: "Com pujar un exercici", cerrar: "Tancar",
+      subirP1: "Obre la carpeta de lliurament a Drive.", subirP2: "Crea-hi una carpeta nova amb aquest nom:", subirP3: "Puja-hi els fitxers de l’exercici, dins de la teva carpeta.",
+      subirFormato: "Nom_Cognom_nºexercici_petita descripció", subirEj: "Exemple", subirEjemplo: "Marta_Soler_3_actualitzacio DC-100",
+      subirIr: "Obrir la carpeta de lliurament", copiar: "Copiar el format", copiado: "Copiat ✓", escribeme: "Escriu-me",
       extras: "Artefactes",
       nou: "Nou", nouTxt: "Exercicis pràctics", practNav: "Pràctiques",
       practCod: "04 · PRÀCTIQUES", practTitulo: "Exercicis pràctics", practSub: "Un exercici per equips cada setmana. Obre cada setmana per veure’n l’enunciat.",
@@ -118,6 +126,8 @@
     Object.keys(L.practicas || {}).forEach(function (k) { if (!sem[k]) fallos.push("enlaces.js → practicas." + k + " no existe en curso.js"); });
     if (fallos.length && window.console) console.warn("[AEC·AI] Revisa enlaces.js:\n· " + fallos.join("\n· "));
   }
+
+  function correo() { var c = L.contacto; return Array.isArray(c) ? c.join("@") : (c || ""); }
 
   /* ---------------------------------------------------------------- PIEZAS */
   function enlace(u, texto, clase) {
@@ -353,7 +363,13 @@
     var li = [];
     if (url(L.general)) li.push('<li><a href="' + url(L.general) + '" target="_blank" rel="noopener">' + esc(t("driveGeneral")) + " ↗</a></li>");
     if (url(C.meta.repo)) li.push('<li><a href="' + url(C.meta.repo) + '" target="_blank" rel="noopener">' + esc(t("repo")) + " ↗</a></li>");
-    if (L.contacto) li.push('<li><a href="' + (L.contacto.indexOf("@") > 0 && !/^mailto:/.test(L.contacto) ? "mailto:" : "") + esc(L.contacto) + '">' + esc(t("contacto")) + "</a></li>");
+    var mail = correo();
+    if (mail) li.push('<li><a href="mailto:' + esc(mail) + '">' + esc(mail) + "</a></li>");
+    var hm = $("#heroMail");
+    if (hm) { hm.hidden = !mail; if (mail) { hm.href = "mailto:" + mail; hm.innerHTML = '<span class="hero__sobre" aria-hidden="true"></span>' + esc(mail); hm.title = t("escribeme"); } }
+    var ir = $("#subirIr"), hay = !!url(L.entregas);
+    $$(".subir-btn").forEach(function (b) { b.hidden = !hay; });
+    if (ir && hay) { ir.href = L.entregas; ir.textContent = t("subirIr") + " ↗"; }
     $("#pieEnlaces").innerHTML = "<h3>" + esc(t("enlaces")) + "</h3><ul>" + li.join("") + "</ul>";
   }
 
@@ -369,6 +385,16 @@
 
   /* ----------------------------------------------------------------- EVENTOS */
   function eventos() {
+    var dlg = $("#subir");
+    $$(".subir-btn").forEach(function (b) {
+      b.addEventListener("click", function () { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); });
+    });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });   // clic fuera del recuadro
+    $("#subirCopiar").addEventListener("click", function () {
+      var b = this, txt = t("subirFormato");
+      function hecho() { b.textContent = t("copiado"); setTimeout(function () { b.textContent = t("copiar"); }, 1800); }
+      try { navigator.clipboard.writeText(txt).then(hecho, function () {}); } catch (e) { /* sin portapapeles */ }
+    });
     $$(".nou").forEach(function (a) {
       a.addEventListener("click", function () {
         var id = C.practicas && C.practicas.nouSemana, d = id && document.getElementById(id);

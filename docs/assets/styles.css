@@ -297,8 +297,7 @@ h1, h2, h3 { font-family: var(--f-titulo); text-transform: uppercase; letter-spa
   .cas__cols { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
-  .hero__sup > .cod { display: none; }
-  .hero__sup { justify-content: flex-end; }
+  .hero__sup { flex-wrap: wrap; gap: 12px; }
   .nou { font-size: 14px; }
   .prac-datos { grid-template-columns: 1fr; }
   .prac-datos div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--linea); }
@@ -451,6 +450,46 @@ h1, h2, h3 { font-family: var(--f-titulo); text-transform: uppercase; letter-spa
   .roadmap--plan .roadmap__tramo:nth-child(4) { border-left-color: var(--m3); }
   .roadmap--plan .roadmap__tramo:nth-child(5) { border-left-color: var(--m4); }
   .roadmap--plan .roadmap__tramo:nth-child(6) { border-left-color: var(--texto); }
+}
+
+/* -------------------------------------------- CONTACTO Y ENTREGA DE EJERCICIOS */
+.hero__mail { display: inline-flex; align-items: center; gap: 9px; font: 500 13px/1 var(--f-mono); letter-spacing: .06em; color: var(--tenue); text-decoration: none; }
+.hero__mail:hover { color: var(--acento); }
+.hero__mail[hidden] { display: none; }
+.hero__sobre { position: relative; width: 16px; height: 11px; border: 1.5px solid currentColor; }
+.hero__sobre::before { content: ""; position: absolute; left: 2px; top: -3px; width: 9px; height: 9px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); }
+button.hero__link { cursor: pointer; }
+.hero__link--subir { background: var(--acento); border-color: var(--acento); color: #111; }
+.hero__link--subir:hover { background: #ff8a3d; border-color: #ff8a3d; color: #111; }
+.hero__flecha { font: 700 15px/1 var(--f-mono); }
+.subir-btn[hidden] { display: none; }
+.barra__subir {
+  padding: 7px 11px; border: 1px solid var(--acento); background: var(--acento); color: #111;
+  font: 600 14px/1 var(--f-titulo); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+}
+.barra__subir:hover { background: #ff8a3d; }
+
+.modal {
+  width: min(580px, calc(100% - 32px)); max-height: calc(100% - 32px); overflow: auto;
+  padding: 28px 30px 30px; border: 1px solid var(--acento); background: var(--panel); color: var(--texto);
+}
+.modal::backdrop { background: rgba(5, 7, 9, .78); backdrop-filter: blur(3px); }
+.modal h2 { margin-top: 12px; font-size: clamp(28px, 4vw, 38px); font-weight: 700; }
+.modal__x { position: absolute; top: 14px; right: 14px; margin: 0; }
+.modal__x button { padding: 6px 10px; border: 1px solid var(--linea-2); background: none; font: 600 13px/1 var(--f-titulo); letter-spacing: .1em; text-transform: uppercase; color: var(--tenue); }
+.modal__x button:hover { color: var(--acento); border-color: var(--acento); }
+.modal__pasos { margin: 22px 0 0; padding-left: 24px; display: grid; gap: 14px; font-size: 16px; }
+.modal__pasos li::marker { font: 700 14px var(--f-mono); color: var(--acento); }
+.modal__formato { display: block; margin: 10px 0 8px; padding: 10px 12px; background: var(--fondo-2); border: 1px solid var(--linea-2); font: 600 14px/1.4 var(--f-mono); color: var(--acento-2); overflow-wrap: anywhere; }
+.modal__ej { font-size: 14px; color: var(--tenue); }
+.modal__ej code { font: 500 13px var(--f-mono); color: var(--texto); }
+.modal .acciones { margin-top: 26px; }
+
+@media (max-width: 760px) {
+  .hero__mail { width: 100%; font-size: 12px; }
+  .barra__nav .barra__extras--fijo { display: none; }
+  .barra__subir { font-size: 13px; padding: 7px 9px; }
+  .modal { padding: 22px 18px 22px; }
 }
 
 /* --------------------------------------------------------------------- PIE */
